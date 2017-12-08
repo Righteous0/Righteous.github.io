@@ -53,13 +53,8 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
-2)分组寄存器:R8~812 
-     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
-     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
-     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
-">
-    <meta name="keywords" content=",Foundation">
+    <meta name="description" itemprop="description" content="ARM寄存器通用寄存器">
+    <meta name="keywords" content=",Assembly">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -239,17 +234,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="ARM(一) | Righteous">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
-2)分组寄存器:R8~812 
-     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
-     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
-     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
-">
-    <meta property="og:article:tag" content="Foundation"> 
+    <meta property="og:description" content="ARM寄存器通用寄存器">
+    <meta property="og:article:tag" content="Assembly"> 
 
     
         <meta property="article:published_time" content="Wed Feb 15 2017 13:02:53 GMT+0800">
-        <meta property="article:modified_time" content="Sun Jun 04 2017 13:31:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 08 2017 19:31:12 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +262,7 @@
     "mainEntityOfPage": "http://righte0us.cc/2017/02/15/ARM/index.html",
     "headline": "ARM(一)",
     "datePublished": "Wed Feb 15 2017 13:02:53 GMT+0800",
-    "dateModified": "Sun Jun 04 2017 13:31:24 GMT+0800",
+    "dateModified": "Fri Dec 08 2017 19:31:12 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Righteous",
@@ -290,13 +280,8 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Foundation",
-    "description": "ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
-2)分组寄存器:R8~812 
-     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
-     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
-     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
-",
+    "keywords": ",Assembly",
+    "description": "ARM寄存器通用寄存器",
 }
 </script>
 
@@ -436,7 +421,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Foundation/">Foundation</a>
+        <a class="post_tag-link" href="/tags/Assembly/">Assembly</a>
     </ul>
     
 
@@ -487,13 +472,13 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="ARM寄存器"><a href="#ARM寄存器" class="headerlink" title="ARM寄存器"></a>ARM寄存器</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><pre><code>1)未分组寄存器:R0~R7 
+        <h1 id="ARM寄存器"><a href="#ARM寄存器" class="headerlink" title="ARM寄存器"></a>ARM寄存器</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><a id="more"></a>
+<pre><code>1)未分组寄存器:R0~R7 
 2)分组寄存器:R8~812 
      R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
      R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
      R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
-</code></pre><a id="more"></a>
-<h2 id="状态寄存器"><a href="#状态寄存器" class="headerlink" title="状态寄存器"></a>状态寄存器</h2><pre><code>CPSR(R16):当前程序状态寄存器，用来保存ALU中的当前操作信息，控制允许和禁止中断、设置处理器的工作模式等。 
+</code></pre><h2 id="状态寄存器"><a href="#状态寄存器" class="headerlink" title="状态寄存器"></a>状态寄存器</h2><pre><code>CPSR(R16):当前程序状态寄存器，用来保存ALU中的当前操作信息，控制允许和禁止中断、设置处理器的工作模式等。 
 SPSRs:五个备份的程序状态寄存器，用来进行异常处理。当异常发生时，SPSR用于保存CPSR的当前值，从异常退出时可由SPSR来恢复CPSR。
 
 N、Z、C、V均为条件码标志位，他们的内容可被运算的结果所改变。
@@ -795,7 +780,7 @@ V:溢出标志，V=1表示有溢出，V=0表示无溢出
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Foundation/">Foundation<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/Binary/">Binary<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Crypto/">Crypto<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Foundation/">Foundation<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         

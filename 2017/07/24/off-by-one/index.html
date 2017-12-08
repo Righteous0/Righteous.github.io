@@ -43,7 +43,7 @@
     
     <title>
         
-            off-by-one | 
+            Off-By-One | 
         
         Righteous
     </title>
@@ -53,18 +53,8 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。
-逆向分析righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200
-pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
-查看pwn为32位ELF文件
-gdb-peda$ checksec
-CANARY    : disabled
-FORTIFY   : disabled
-NX        : ENABLED
-PIE       : disabled
-RELRO     : disabled
-开启了NX，将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令，所以无法在栈上填充并执行ShellCode，可以采用ROP，且题目提供了libc.so.6这个文件，如果能够实现函数地址泄漏的话，就可以拿到shell。">
-    <meta name="keywords" content=",CTF">
+    <meta name="description" itemprop="description" content="Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。">
+    <meta name="keywords" content=",CTF,Pwn">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -242,24 +232,14 @@ RELRO     : disabled
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://righte0us.cc/2017/07/24/off-by-one/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="off-by-one | Righteous">
+    <meta property="og:title" content="Off-By-One | Righteous">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。
-逆向分析righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200
-pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
-查看pwn为32位ELF文件
-gdb-peda$ checksec
-CANARY    : disabled
-FORTIFY   : disabled
-NX        : ENABLED
-PIE       : disabled
-RELRO     : disabled
-开启了NX，将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令，所以无法在栈上填充并执行ShellCode，可以采用ROP，且题目提供了libc.so.6这个文件，如果能够实现函数地址泄漏的话，就可以拿到shell。">
-    <meta property="og:article:tag" content="CTF"> 
+    <meta property="og:description" content="Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。">
+    <meta property="og:article:tag" content="CTF"> <meta property="og:article:tag" content="Pwn"> 
 
     
         <meta property="article:published_time" content="Mon Jul 24 2017 23:14:10 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jul 24 2017 23:31:05 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 08 2017 19:33:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -280,9 +260,9 @@ RELRO     : disabled
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "http://righte0us.cc/2017/07/24/off-by-one/index.html",
-    "headline": "off-by-one",
+    "headline": "Off-By-One",
     "datePublished": "Mon Jul 24 2017 23:14:10 GMT+0800",
-    "dateModified": "Mon Jul 24 2017 23:31:05 GMT+0800",
+    "dateModified": "Fri Dec 08 2017 19:33:55 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Righteous",
@@ -300,18 +280,8 @@ RELRO     : disabled
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",CTF",
-    "description": "Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。
-逆向分析righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200
-pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
-查看pwn为32位ELF文件
-gdb-peda$ checksec
-CANARY    : disabled
-FORTIFY   : disabled
-NX        : ENABLED
-PIE       : disabled
-RELRO     : disabled
-开启了NX，将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令，所以无法在栈上填充并执行ShellCode，可以采用ROP，且题目提供了libc.so.6这个文件，如果能够实现函数地址泄漏的话，就可以拿到shell。",
+    "keywords": ",CTF,Pwn",
+    "description": "Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。",
 }
 </script>
 
@@ -408,7 +378,7 @@ RELRO     : disabled
         
     
             <p class="article-headline-p">
-                off-by-one
+                Off-By-One
             </p>
         </div>
 
@@ -451,7 +421,7 @@ RELRO     : disabled
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/CTF/">CTF</a>
+        <a class="post_tag-link" href="/tags/CTF/">CTF</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Pwn/">Pwn</a>
     </ul>
     
 
@@ -486,7 +456,7 @@ RELRO     : disabled
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://righte0us.cc/2017/07/24/off-by-one/index.html&text=off-by-one" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://righte0us.cc/2017/07/24/off-by-one/index.html&text=Off-By-One" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -502,7 +472,9 @@ RELRO     : disabled
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="Off-By-One-Error"><a href="#Off-By-One-Error" class="headerlink" title="Off-By-One Error"></a>Off-By-One Error</h1><h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><p>差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。<br>off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。</p>
+        <h1 id="Off-By-One-Error"><a href="#Off-By-One-Error" class="headerlink" title="Off-By-One Error"></a>Off-By-One Error</h1><h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><p>差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。</p>
+<a id="more"></a>
+<p>off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。</p>
 <h2 id="逆向分析"><a href="#逆向分析" class="headerlink" title="逆向分析"></a>逆向分析</h2><pre><code>righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200
 pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
 </code></pre><p>查看pwn为32位ELF文件</p>
@@ -513,7 +485,7 @@ NX        : ENABLED
 PIE       : disabled
 RELRO     : disabled
 </code></pre><p>开启了NX，将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令，所以无法在栈上填充并执行ShellCode，可以采用ROP，且题目提供了libc.so.6这个文件，如果能够实现函数地址泄漏的话，就可以拿到shell。</p>
-<a id="more"></a>
+<!-- more -->
 <p>IDA PRO载入分析程序基本流程：</p>
 <p><img src="/images/off/0.png" alt=""></p>
 <p>从伪代码可以看出：</p>
@@ -694,7 +666,7 @@ p.interactive()
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Foundation/">Foundation<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/Binary/">Binary<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Crypto/">Crypto<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Foundation/">Foundation<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         

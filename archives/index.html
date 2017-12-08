@@ -307,23 +307,13 @@
     
 
         <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/07/24/off-by-one/">off-by-one</a></p>
+        <p class="article-headline-p"><a href="/2017/07/24/off-by-one/">Off-By-One</a></p>
     </div>
 
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。
-逆向分析righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200
-pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
-查看pwn为32位ELF文件
-gdb-peda$ checksec
-CANARY    : disabled
-FORTIFY   : disabled
-NX        : ENABLED
-PIE       : disabled
-RELRO     : disabled
-开启了NX，将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令，所以无法在栈上填充并执行ShellCode，可以采用ROP，且题目提供了libc.so.6这个文件，如果能够实现函数地址泄漏的话，就可以拿到shell。
+            Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -344,6 +334,11 @@ RELRO     : disabled
         </div>
         <div id="post_entry-right-info">
           
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/Binary/">Binary</a>
+              </span>
+            
 
             
 
@@ -402,6 +397,11 @@ info #获取相关命令的详细使用方法
         </div>
         <div id="post_entry-right-info">
           
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/Foundation/">Foundation</a>
+              </span>
+            
 
             
 
@@ -465,6 +465,11 @@ SDPC ==&gt;aaaaa&lt;br&gt;password ==&gt;sdpcsdpcsdpc&lt;br&gt;&lt;!--
         </div>
         <div id="post_entry-right-info">
           
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/CTF/">CTF</a>
+              </span>
+            
 
             
 
@@ -524,6 +529,11 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
         </div>
         <div id="post_entry-right-info">
           
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/Foundation/">Foundation</a>
+              </span>
+            
 
             
 
@@ -559,12 +569,7 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
-2)分组寄存器:R8~812 
-     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
-     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
-     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
-
+            ARM寄存器通用寄存器
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -585,6 +590,11 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
         </div>
         <div id="post_entry-right-info">
           
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/Foundation/">Foundation</a>
+              </span>
+            
 
             
 
@@ -614,7 +624,7 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
     
 
         <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/01/03/汇编/">汇编</a></p>
+        <p class="article-headline-p"><a href="/2017/01/03/汇编/">汇编基础</a></p>
     </div>
 
     <!-- Post Excerpt -->
@@ -681,7 +691,7 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            简介RSA公钥加密算法是1977年由罗纳德·李维斯特（Ron Rivest）、阿迪·萨莫尔（AdiShamir）和伦纳德·阿德曼（Leonard Adleman）一起提出的。1987年首次公布，当时他们三人都在麻省理工学院工作。RSA就是他们三人姓氏开头字母拼在一起组成的。RSA是目前最有影响力的公钥加密算法，它能够抵抗到目前为止已知的绝大多数密码攻击，已被ISO推荐为公钥数据加密标准。RSA算法基于一个十分简单的数论事实：将两个大质数相乘十分容易，但是想要对其乘积进行因式分解却极其困难，因此可以将乘积公开作为加密密钥。RSA的安全性依赖于大数分解，但是否等同于大数分解一直未能得到理论上的证明，因为没有证明破解RSA就一定需要作大数分解。假设存在一种无须分解大数的算法，那它肯定可以修改成为大数分解算法。 RSA 的一些变种算法已被证明等价于大数分解。不管怎样，分解n是最显然的攻击方法。人们已能分解多个十进制位的大素数。因此，模数n必须选大一些，因具体适用情况而定。
+            简介RSA公钥加密算法是1977年由罗纳德·李维斯特（Ron Rivest）、阿迪·萨莫尔（AdiShamir）和伦纳德·阿德曼（Leonard Adleman）一起提出的。1987年首次公布，当时他们三人都在麻省理工学院工作。RSA就是他们三人姓氏开头字母拼在一起组成的。
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -702,6 +712,11 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
         </div>
         <div id="post_entry-right-info">
           
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/Crypto/">Crypto</a>
+              </span>
+            
 
             
 
@@ -877,7 +892,7 @@ B{&lt;cond&gt;}label          跳转到label处执行，PC=label
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Foundation/">Foundation<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/Binary/">Binary<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Crypto/">Crypto<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Foundation/">Foundation<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         
