@@ -45,7 +45,7 @@
         
             RSA | 
         
-        Righteous
+        Righteous&#39;Blog
     </title>
 
     <!-- Favicons -->
@@ -214,11 +214,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Righteous">
-    <meta name="msapplication-starturl" content="http://righte0us.cc/2017/01/02/RSA/">
+    <meta name="application-name" content="Righteous&#39;Blog">
+    <meta name="msapplication-starturl" content="http://blog.righte0us.cc/archives/RSA.righte0us">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Righteous">
+    <meta name="apple-mobile-web-app-title" content="Righteous&#39;Blog">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
@@ -230,9 +230,9 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://righte0us.cc/2017/01/02/RSA/">
+    <meta property="og:url" content="http://blog.righte0us.cc/archives/RSA.righte0us">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="RSA | Righteous">
+    <meta property="og:title" content="RSA | Righteous&#39;Blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="简介RSA公钥加密算法是1977年由罗纳德·李维斯特（Ron Rivest）、阿迪·萨莫尔（AdiShamir）和伦纳德·阿德曼（Leonard Adleman）一起提出的。1987年首次公布，当时他们三人都在麻省理工学院工作。RSA就是他们三人姓氏开头字母拼在一起组成的。">
     <meta property="og:article:tag" content="RSA"> <meta property="og:article:tag" content="CTF"> 
@@ -247,7 +247,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://righte0us.cc/2017/01/02/RSA/index.html" />
+        <link rel="canonical" href="http://blog.righte0us.cc/archives/RSA.righte0us" />
     
 
     <!-- Structured-data for SEO -->
@@ -259,7 +259,7 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://righte0us.cc/2017/01/02/RSA/index.html",
+    "mainEntityOfPage": "http://blog.righte0us.cc/archives/RSA.righte0us",
     "headline": "RSA",
     "datePublished": "Mon Jan 02 2017 10:23:42 GMT+0800",
     "dateModified": "Fri Dec 08 2017 19:34:31 GMT+0800",
@@ -274,7 +274,7 @@
     },
     "publisher": {
         "@type": "Organization",
-        "name": "Righteous",
+        "name": "Righteous&#39;Blog",
         "logo": {
             "@type":"ImageObject",
             "url": "/img/favicon.png"
@@ -456,7 +456,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://righte0us.cc/2017/01/02/RSA/index.html&text=RSA" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://blog.righte0us.cc/archives/RSA.righte0us&text=RSA" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -688,7 +688,7 @@ print n2s(m)
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/01/03/汇编/" id="post_nav-newer" class="prev-content">
+        <a href="/archives/汇编.righte0us" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -702,7 +702,7 @@ print n2s(m)
 
     <!-- Next Nav -->
     
-        <a href="/2017/01/01/hello-world/" id="post_nav-older" class="next-content">
+        <a href="/archives/hello-world.righte0us" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -965,7 +965,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous'Blog
             
         </div>
 

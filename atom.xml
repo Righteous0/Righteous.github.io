@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Righteous</title>
+  <title>Righteous&#39;Blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://righte0us.cc/"/>
+  <link href="http://blog.righte0us.cc/"/>
   <updated>2017-12-08T11:37:08.072Z</updated>
-  <id>http://righte0us.cc/</id>
+  <id>http://blog.righte0us.cc/</id>
   
   <author>
     <name>Righteous</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Off-By-One</title>
-    <link href="http://righte0us.cc/2017/07/24/off-by-one/"/>
-    <id>http://righte0us.cc/2017/07/24/off-by-one/</id>
+    <link href="http://blog.righte0us.cc/archives/off-by-one.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/off-by-one.righte0us</id>
     <published>2017-07-24T15:14:10.000Z</published>
     <updated>2017-12-08T11:37:08.072Z</updated>
     
@@ -31,19 +31,19 @@
     
     </summary>
     
-      <category term="Binary" scheme="http://righte0us.cc/categories/Binary/"/>
+      <category term="Binary" scheme="http://blog.righte0us.cc/categories/Binary/"/>
     
     
-      <category term="CTF" scheme="http://righte0us.cc/tags/CTF/"/>
+      <category term="CTF" scheme="http://blog.righte0us.cc/tags/CTF/"/>
     
-      <category term="Pwn" scheme="http://righte0us.cc/tags/Pwn/"/>
+      <category term="Pwn" scheme="http://blog.righte0us.cc/tags/Pwn/"/>
     
   </entry>
   
   <entry>
     <title>Linux</title>
-    <link href="http://righte0us.cc/2017/06/01/Linux/"/>
-    <id>http://righte0us.cc/2017/06/01/Linux/</id>
+    <link href="http://blog.righte0us.cc/archives/Linux.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/Linux.righte0us</id>
     <published>2017-06-01T05:47:39.000Z</published>
     <updated>2017-12-08T11:32:08.196Z</updated>
     
@@ -57,17 +57,17 @@ info #获取相关命令的详细使用方法
     
     </summary>
     
-      <category term="Foundation" scheme="http://righte0us.cc/categories/Foundation/"/>
+      <category term="Foundation" scheme="http://blog.righte0us.cc/categories/Foundation/"/>
     
     
-      <category term="Linux" scheme="http://righte0us.cc/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.righte0us.cc/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>SDCTF</title>
-    <link href="http://righte0us.cc/2017/04/08/SDCTF/"/>
-    <id>http://righte0us.cc/2017/04/08/SDCTF/</id>
+    <link href="http://blog.righte0us.cc/archives/SDCTF.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/SDCTF.righte0us</id>
     <published>2017-04-08T05:31:48.000Z</published>
     <updated>2017-12-08T11:36:00.192Z</updated>
     
@@ -86,19 +86,19 @@ info #获取相关命令的详细使用方法
     
     </summary>
     
-      <category term="CTF" scheme="http://righte0us.cc/categories/CTF/"/>
+      <category term="CTF" scheme="http://blog.righte0us.cc/categories/CTF/"/>
     
     
-      <category term="CTF" scheme="http://righte0us.cc/tags/CTF/"/>
+      <category term="CTF" scheme="http://blog.righte0us.cc/tags/CTF/"/>
     
-      <category term="Writeup" scheme="http://righte0us.cc/tags/Writeup/"/>
+      <category term="Writeup" scheme="http://blog.righte0us.cc/tags/Writeup/"/>
     
   </entry>
   
   <entry>
     <title>ARM(二)</title>
-    <link href="http://righte0us.cc/2017/02/25/ARM2/"/>
-    <id>http://righte0us.cc/2017/02/25/ARM2/</id>
+    <link href="http://blog.righte0us.cc/archives/ARM2.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/ARM2.righte0us</id>
     <published>2017-02-25T05:02:53.000Z</published>
     <updated>2017-12-08T11:31:39.398Z</updated>
     
@@ -113,17 +113,17 @@ info #获取相关命令的详细使用方法
     
     </summary>
     
-      <category term="Foundation" scheme="http://righte0us.cc/categories/Foundation/"/>
+      <category term="Foundation" scheme="http://blog.righte0us.cc/categories/Foundation/"/>
     
     
-      <category term="Assembly" scheme="http://righte0us.cc/tags/Assembly/"/>
+      <category term="Assembly" scheme="http://blog.righte0us.cc/tags/Assembly/"/>
     
   </entry>
   
   <entry>
     <title>ARM(一)</title>
-    <link href="http://righte0us.cc/2017/02/15/ARM/"/>
-    <id>http://righte0us.cc/2017/02/15/ARM/</id>
+    <link href="http://blog.righte0us.cc/archives/ARM.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/ARM.righte0us</id>
     <published>2017-02-15T05:02:53.000Z</published>
     <updated>2017-12-08T11:31:12.488Z</updated>
     
@@ -135,17 +135,17 @@ info #获取相关命令的详细使用方法
     
     </summary>
     
-      <category term="Foundation" scheme="http://righte0us.cc/categories/Foundation/"/>
+      <category term="Foundation" scheme="http://blog.righte0us.cc/categories/Foundation/"/>
     
     
-      <category term="Assembly" scheme="http://righte0us.cc/tags/Assembly/"/>
+      <category term="Assembly" scheme="http://blog.righte0us.cc/tags/Assembly/"/>
     
   </entry>
   
   <entry>
     <title>汇编基础</title>
-    <link href="http://righte0us.cc/2017/01/03/%E6%B1%87%E7%BC%96/"/>
-    <id>http://righte0us.cc/2017/01/03/汇编/</id>
+    <link href="http://blog.righte0us.cc/archives/%E6%B1%87%E7%BC%96.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/汇编.righte0us</id>
     <published>2017-01-03T00:58:08.000Z</published>
     <updated>2017-12-08T11:30:19.521Z</updated>
     
@@ -157,17 +157,17 @@ info #获取相关命令的详细使用方法
     
     </summary>
     
-      <category term="Foundation" scheme="http://righte0us.cc/categories/Foundation/"/>
+      <category term="Foundation" scheme="http://blog.righte0us.cc/categories/Foundation/"/>
     
     
-      <category term="Assembly" scheme="http://righte0us.cc/tags/Assembly/"/>
+      <category term="Assembly" scheme="http://blog.righte0us.cc/tags/Assembly/"/>
     
   </entry>
   
   <entry>
     <title>RSA</title>
-    <link href="http://righte0us.cc/2017/01/02/RSA/"/>
-    <id>http://righte0us.cc/2017/01/02/RSA/</id>
+    <link href="http://blog.righte0us.cc/archives/RSA.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/RSA.righte0us</id>
     <published>2017-01-02T02:23:42.000Z</published>
     <updated>2017-12-08T11:34:31.056Z</updated>
     
@@ -179,19 +179,19 @@ info #获取相关命令的详细使用方法
     
     </summary>
     
-      <category term="Crypto" scheme="http://righte0us.cc/categories/Crypto/"/>
+      <category term="Crypto" scheme="http://blog.righte0us.cc/categories/Crypto/"/>
     
     
-      <category term="RSA" scheme="http://righte0us.cc/tags/RSA/"/>
+      <category term="RSA" scheme="http://blog.righte0us.cc/tags/RSA/"/>
     
-      <category term="CTF" scheme="http://righte0us.cc/tags/CTF/"/>
+      <category term="CTF" scheme="http://blog.righte0us.cc/tags/CTF/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://righte0us.cc/2017/01/01/hello-world/"/>
-    <id>http://righte0us.cc/2017/01/01/hello-world/</id>
+    <link href="http://blog.righte0us.cc/archives/hello-world.righte0us"/>
+    <id>http://blog.righte0us.cc/archives/hello-world.righte0us</id>
     <published>2017-01-01T00:58:08.000Z</published>
     <updated>2017-06-04T05:30:08.172Z</updated>
     
@@ -200,7 +200,7 @@ info #获取相关命令的详细使用方法
     </summary>
     
     
-      <category term="Hello" scheme="http://righte0us.cc/tags/Hello/"/>
+      <category term="Hello" scheme="http://blog.righte0us.cc/tags/Hello/"/>
     
   </entry>
   

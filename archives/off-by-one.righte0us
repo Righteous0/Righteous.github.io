@@ -45,7 +45,7 @@
         
             Off-By-One | 
         
-        Righteous
+        Righteous&#39;Blog
     </title>
 
     <!-- Favicons -->
@@ -214,11 +214,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Righteous">
-    <meta name="msapplication-starturl" content="http://righte0us.cc/2017/07/24/off-by-one/">
+    <meta name="application-name" content="Righteous&#39;Blog">
+    <meta name="msapplication-starturl" content="http://blog.righte0us.cc/archives/off-by-one.righte0us">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Righteous">
+    <meta name="apple-mobile-web-app-title" content="Righteous&#39;Blog">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
@@ -230,9 +230,9 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://righte0us.cc/2017/07/24/off-by-one/">
+    <meta property="og:url" content="http://blog.righte0us.cc/archives/off-by-one.righte0us">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Off-By-One | Righteous">
+    <meta property="og:title" content="Off-By-One | Righteous&#39;Blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。">
     <meta property="og:article:tag" content="CTF"> <meta property="og:article:tag" content="Pwn"> 
@@ -247,7 +247,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://righte0us.cc/2017/07/24/off-by-one/index.html" />
+        <link rel="canonical" href="http://blog.righte0us.cc/archives/off-by-one.righte0us" />
     
 
     <!-- Structured-data for SEO -->
@@ -259,7 +259,7 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://righte0us.cc/2017/07/24/off-by-one/index.html",
+    "mainEntityOfPage": "http://blog.righte0us.cc/archives/off-by-one.righte0us",
     "headline": "Off-By-One",
     "datePublished": "Mon Jul 24 2017 23:14:10 GMT+0800",
     "dateModified": "Fri Dec 08 2017 19:37:08 GMT+0800",
@@ -274,7 +274,7 @@
     },
     "publisher": {
         "@type": "Organization",
-        "name": "Righteous",
+        "name": "Righteous&#39;Blog",
         "logo": {
             "@type":"ImageObject",
             "url": "/img/favicon.png"
@@ -456,7 +456,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://righte0us.cc/2017/07/24/off-by-one/index.html&text=Off-By-One" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://blog.righte0us.cc/archives/off-by-one.righte0us&text=Off-By-One" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -571,7 +571,7 @@ p.interactive()
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/01/Linux/" id="post_nav-older" class="next-content">
+        <a href="/archives/Linux.righte0us" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -834,7 +834,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous'Blog
             
         </div>
 
