@@ -43,7 +43,7 @@
     
     <title>
         
-            Hello World | 
+            ARM(二) | 
         
         Righteous&#39;Blog
     </title>
@@ -53,8 +53,11 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",Hello">
+    <meta name="description" itemprop="description" content="分支语句
+a. 分支指令B
+B{&amp;lt;cond&amp;gt;}label          跳转到label处执行，PC=label
+">
+    <meta name="keywords" content=",Assembly">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +218,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Righteous&#39;Blog">
-    <meta name="msapplication-starturl" content="http://blog.righte0us.cc/archives/hello-world.righte0us">
+    <meta name="msapplication-starturl" content="https://blog.righte0us.cc/archives/ARM2.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Righteous&#39;Blog">
@@ -230,16 +233,19 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://blog.righte0us.cc/archives/hello-world.righte0us">
+    <meta property="og:url" content="https://blog.righte0us.cc/archives/ARM2.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hello World | Righteous&#39;Blog">
+    <meta property="og:title" content="ARM(二) | Righteous&#39;Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="">
-    <meta property="og:article:tag" content="Hello"> 
+    <meta property="og:description" content="分支语句
+a. 分支指令B
+B{&amp;lt;cond&amp;gt;}label          跳转到label处执行，PC=label
+">
+    <meta property="og:article:tag" content="Assembly"> 
 
     
-        <meta property="article:published_time" content="Sun Jan 01 2017 08:58:08 GMT+0800">
-        <meta property="article:modified_time" content="Sun Jun 04 2017 13:30:08 GMT+0800">
+        <meta property="article:published_time" content="Sat Feb 25 2017 13:02:53 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 08 2017 19:31:39 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -247,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://blog.righte0us.cc/archives/hello-world.righte0us" />
+        <link rel="canonical" href="https://blog.righte0us.cc/archives/ARM2.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -259,10 +265,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://blog.righte0us.cc/archives/hello-world.righte0us",
-    "headline": "Hello World",
-    "datePublished": "Sun Jan 01 2017 08:58:08 GMT+0800",
-    "dateModified": "Sun Jun 04 2017 13:30:08 GMT+0800",
+    "mainEntityOfPage": "https://blog.righte0us.cc/archives/ARM2.html",
+    "headline": "ARM(二)",
+    "datePublished": "Sat Feb 25 2017 13:02:53 GMT+0800",
+    "dateModified": "Fri Dec 08 2017 19:31:39 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Righteous",
@@ -280,8 +286,11 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Hello",
-    "description": "",
+    "keywords": ",Assembly",
+    "description": "分支语句
+a. 分支指令B
+B{&amp;lt;cond&amp;gt;}label          跳转到label处执行，PC=label
+",
 }
 </script>
 
@@ -340,6 +349,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分支语句"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x5206;&#x652F;&#x8BED;&#x53E5;" class="headerlink" title="&#x5206;&#x652F;&#x8BED;&#x53E5;"></a>&#x5206;&#x652F;&#x8BED;&#x53E5;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆栈"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x5806;&#x6808;" class="headerlink" title="&#x5806;&#x6808;"></a>&#x5806;&#x6808;</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -369,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                Hello World
+                ARM(二)
             </p>
         </div>
 
@@ -388,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Righteous</strong>
-        <span>1月 01, 2017</span>
+        <span>2月 25, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -412,7 +430,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Hello/">Hello</a>
+        <a class="post_tag-link" href="/tags/Assembly/">Assembly</a>
     </ul>
     
 
@@ -447,7 +465,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://blog.righte0us.cc/archives/hello-world.righte0us&text=Hello World" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.righte0us.cc/archives/ARM2.html&text=ARM(二)" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -463,7 +481,47 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <h2 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h2><p><img src="/images/arm/arm3.png" alt=""></p>
+<p>a. 分支指令B</p>
+<pre><code>B{&lt;cond&gt;}label          跳转到label处执行，PC=label
+</code></pre><a id="more"></a>
+<p>例：</p>
+<pre><code>backword    SUB R1,R1,#1
+            CMP R1,#0           比较R1和0
+            BEQ forward         如果R1=0，跳转到forware处执行
+            SUB R1,R2,#3
+            SUB R1,R1,#1
+forward     ADD R1,R2,#4
+            ADD R2,R3,#2
+            B backword          无条件跳转到backword处执行
+</code></pre><p>b. 带返回的分支指令BL</p>
+<pre><code>BL{&lt;cond&gt;}label         在跳转之前，将PC的当前内容保存在R14(LR)中保存，因此，可以通过将R14的内容重新加载到PC中，返回到跳转指令之后的指令处执行。该指令用于实现子程序的调用，程序的返回可通过把LR寄存器的值复制到PC寄存器中来实现。
+</code></pre><p>例：</p>
+<pre><code>BL func             跳转到子程序
+ADD R1,R2,#2        子程序调用完返回后执行的语句，返回地址
+....
+func                子程序
+...
+MOV R15,R14         复制返回地址到PC，实现子程序的返回
+</code></pre><p>c. 带状态切换的分支指令BX</p>
+<pre><code>BX{&lt;cond&gt;} Rm       当执行BX指令时，如果条件cond满足，则处理器会判断Rm的位[0]是否为1，如果为1则跳转时自动将CPSR寄存器的标志T置位，并将目标地址的代码解释为Thumb代码来执行，则处理器会切换到Thumb状态，反之，若Rm的位[0]为0，则跳转时自动将CPSR寄存器的标志T复位，并将目标地址处的代码解释为ARM代码来执行，即处理器会切换到ARM状态。
+</code></pre><p>注意：bx lr的作用等同于mov pc,lr。即跳转到lr中存放的地址处。 非零值存储在R0中返回。</p>
+<p>那么lr存放的是什么地址呢？lr就是连接寄存器(Link Register, LR)，在ARM体系结构中LR的特殊用途有两种：一是用来保存子程序返回地址；二是当异常发生时，LR中保存的值等于异常发生时PC的值减4（或者减2），因此在各种异常模式下可以根据LR的值返回到异常发生前的相应位置继续执行。　　</p>
+<p>当通过BL或BLX指令调用子程序时，硬件自动将子程序返回地址保存在R14寄存器中。在子程序返回时，把LR的值复制到程序计数器PC即可实现子程序返回。</p>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>a. 进栈出栈</p>
+<p>出栈使用LDM指令，进栈使用STM指令。LDM和STM指令往往结合下面一些参数实现堆栈的操作。</p>
+<pre><code>FD:满递减堆栈。
+ED:空递减堆栈。
+FA:满递增堆栈。
+EA:空递增堆栈。
+</code></pre><p>满堆栈是指SP(R13)指向堆栈的最后一个已使用地址或满位置(也就是SP指向堆栈的最后一个数据项的位置)；相反，空堆栈是指SP指向堆栈的第一个没有使用的地址或空位置。<br>LDMFD和STMFD分别指POP出栈和PUSH入栈<br>b. PUSH指令</p>
+<pre><code>PUSH{cond} reglist      PUSH将寄存器推入满递减堆栈
+PUSH {r0,r4-r7}         将R0,R4-R7寄存器内容压入堆栈
+</code></pre><p>c. POP指令</p>
+<pre><code>POP{cond} reglist       POP从满递减堆栈中弹出数据到寄存器
+POP {r0,r4-r7}          将R0,R4-R7寄存器从堆栈中弹出
+</code></pre><p>。。。。。。<br>。。。。。<br>。。。。<br>。。。<br>。。<br>。</p>
+
         
     
 
@@ -483,7 +541,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/archives/RSA.righte0us" id="post_nav-newer" class="prev-content">
+        <a href="/archives/SDCTF.html" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -496,6 +554,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/archives/ARM.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
