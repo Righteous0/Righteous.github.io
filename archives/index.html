@@ -314,9 +314,15 @@
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             Off-By-One Error相关知识差一错误（Off-by-one error）是指在计数时由于边界条件判断失误导致结果多一个单位或者少一个单位的错误，例如越界访问数组元素（访问数组最后一个元素的下一个内存单元）。off-by-one错误可能会进一步引发其他错误，甚至是产生安全漏洞。例如对于代码memcpy(dst, src, size)，如果能够通过off-by-one来改写size的值使之大于dst指向的缓冲区的大小，那么调用memcpy时便会进一步引发缓冲区溢出漏洞。
-逆向分析12righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
+逆向分析righteous@ubuntu:~/Desktop/Saike/lab1$ file pwn200
+pwn200: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.26, BuildID[sha1]=fc609447c6b0ccfdb9df8b5bf26b50f152fe1950, stripped
 查看pwn为32位ELF文件
-123456gdb-peda$ checksecCANARY    : disabledFORTIFY   : disabledNX        : ENABLEDPIE       : disabledRELRO     : disabled
+gdb-peda$ checksec
+CANARY    : disabled
+FORTIFY   : disabled
+NX        : ENABLED
+PIE       : disabled
+RELRO     : disabled
 开启了NX，将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令，所以无法在栈上填充并执行ShellCode，可以采用ROP，且题目提供了libc.so.6这个文件，如果能够实现函数地址泄漏的话，就可以拿到shell。
         
         &nbsp;&nbsp;&nbsp;

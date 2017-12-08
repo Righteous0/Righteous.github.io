@@ -536,70 +536,155 @@ V:溢出标志，V=1表示有溢出，V=0表示无溢出
 !:指令中的地址表达式中含有!后缀时，指令执行后，基址寄存器中的地址值将发生变化，变化的结果是：基址寄存器中的值(指令执行后)=指令执行前的值 + 地址偏移量    
    LDR R3,[R0,#2]!    指令执行后，R0 = R0 + 2
 </code></pre><h2 id="指令的条件执行"><a href="#指令的条件执行" class="headerlink" title="指令的条件执行"></a>指令的条件执行</h2><p>指令的条件后缀只是影响指令是否执行，不影响指令的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">条件码	助记符后缀       标志	                  含义</span><br><span class="line">0000	EQ	       Z置位	                  相等</span><br><span class="line">0001	NE	       Z清零	                  不相等</span><br><span class="line">0010	CS	       C指令	                  无符号数大于或等于</span><br><span class="line">0011	CC	       C清零	                  无符号数小于</span><br><span class="line">0100	MI	       N置位	                  负数</span><br><span class="line">0101	PL	       N清零	                  正数或零</span><br><span class="line">0110	VS	       V置位	                  溢出</span><br><span class="line">0111	VC	       V清零	                  未溢出</span><br><span class="line">1000	HI	       C置位Z清零                  无符号数大于</span><br><span class="line">1001	LS	       C清零Z置位                  无符号数小于或等于</span><br><span class="line">1010	GE	       N等于V	                 带符号数大于或等于</span><br><span class="line">1011	LT	       N不等于V	                 带符号数小于</span><br><span class="line">1100	GT	       Z清零且(N等于V)             带符号数大于</span><br><span class="line">1101	LE	       Z置位或(N不等于V)           带符号数小于或等于</span><br><span class="line">1110	AL	       忽略	                 无条件执行</span><br></pre></td></tr></table></figure>
-<p>例：ADDEQ R4,R3,#1 相等则相加，即CPSR中Z置位时该指令执行，否则不执行。</p>
+<pre><code>    条件码    助记符后缀       标志                      含义
+    0000    EQ           Z置位                      相等
+    0001    NE           Z清零                      不相等
+    0010    CS           C指令                      无符号数大于或等于
+    0011    CC           C清零                      无符号数小于
+    0100    MI           N置位                      负数
+    0101    PL           N清零                      正数或零
+    0110    VS           V置位                      溢出
+    0111    VC           V清零                      未溢出
+    1000    HI           C置位Z清零                  无符号数大于
+    1001    LS           C清零Z置位                  无符号数小于或等于
+    1010    GE           N等于V                     带符号数大于或等于
+    1011    LT           N不等于V                     带符号数小于
+    1100    GT           Z清零且(N等于V)             带符号数大于
+    1101    LE           Z置位或(N不等于V)           带符号数小于或等于
+    1110    AL           忽略                     无条件执行
+</code></pre><p>例：ADDEQ R4,R3,#1 相等则相加，即CPSR中Z置位时该指令执行，否则不执行。</p>
 <h2 id="ARM指令分类"><a href="#ARM指令分类" class="headerlink" title="ARM指令分类"></a>ARM指令分类</h2><p><img src="/images/arm/arm1.png" alt=""></p>
 <h2 id="ARM寻址方式"><a href="#ARM寻址方式" class="headerlink" title="ARM寻址方式"></a>ARM寻址方式</h2><p>寻址方式就是根据指令中操作数的信息来寻找操作数实际物理地址的方式<br>a.立即数寻址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MOV R0,#15       #15就是立即数</span><br></pre></td></tr></table></figure>
-<p>b.寄存器寻址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD R0, R1, R2    将R1和R2的内容相加，其结果存放在寄存器R0中</span><br></pre></td></tr></table></figure>
-<p>c.寄存器间接寻址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LDR R0, [R4]      以寄存器R4的值作为操作数的地址，在存储器中取得一个操作数存入寄存器R0中</span><br></pre></td></tr></table></figure>
-<p>d.寄存器移位寻址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADD R0,R1,R2,LSL #1    将R2的值左移一位，所得值与R1相加，存放到R0中</span><br><span class="line">MOV R0,R1,LSL R3       将R1的值左移R3位，然后将结果存放到R0中</span><br></pre></td></tr></table></figure>
-<p>e.基址变址寻址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LDR R0,[R1,#4]    将R1的值加4作为操作数的地址，在存储器中取得操作数放入R0中</span><br><span class="line">LDR R0,[R1,#4]!   将R1的值加4作为操作数的地址，在存储器中取得操作数放入R0中,然后R1 = R1+4</span><br><span class="line">LDR R0,[R1],#4    R0 = [R1],R1 = R1 +4</span><br><span class="line">LDR R0,[R1,R2]    R0 = [R1+R2]</span><br></pre></td></tr></table></figure>
-<p>f.多寄存器寻址</p>
+<pre><code>    MOV R0,#15       #15就是立即数
+</code></pre><p>b.寄存器寻址</p>
+<pre><code>    ADD R0, R1, R2    将R1和R2的内容相加，其结果存放在寄存器R0中
+</code></pre><p>c.寄存器间接寻址</p>
+<pre><code>    LDR R0, [R4]      以寄存器R4的值作为操作数的地址，在存储器中取得一个操作数存入寄存器R0中
+</code></pre><p>d.寄存器移位寻址</p>
+<pre><code>    ADD R0,R1,R2,LSL #1    将R2的值左移一位，所得值与R1相加，存放到R0中
+    MOV R0,R1,LSL R3       将R1的值左移R3位，然后将结果存放到R0中
+</code></pre><p>e.基址变址寻址</p>
+<pre><code>    LDR R0,[R1,#4]    将R1的值加4作为操作数的地址，在存储器中取得操作数放入R0中
+    LDR R0,[R1,#4]!   将R1的值加4作为操作数的地址，在存储器中取得操作数放入R0中,然后R1 = R1+4
+    LDR R0,[R1],#4    R0 = [R1],R1 = R1 +4
+    LDR R0,[R1,R2]    R0 = [R1+R2]
+</code></pre><p>f.多寄存器寻址</p>
 <p>一条指令可以完成多个寄存器值的传送(最多可传送16个通用寄存器)，连续的寄存器用“-”，否则用“，”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LDMIA R0!,&#123;R1 - R4&#125;   R1 = [R0],R2=[R0+4],R3=[R0+8],R4=[R0+12]</span><br></pre></td></tr></table></figure>
-<p>后缀IA表示在每次执行玩加载/存储操作后，R0按自长度增加。<br>g.相对寻址</p>
+<pre><code>    LDMIA R0!,{R1 - R4}   R1 = [R0],R2=[R0+4],R3=[R0+8],R4=[R0+12]
+</code></pre><p>后缀IA表示在每次执行玩加载/存储操作后，R0按自长度增加。<br>g.相对寻址</p>
 <p>以程序计数器PC的当前值为基地址，指令中的地址标号作为偏移量，将两者相加之后得到操作数的有效地址，如下图的BL分支跳转</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     BL proc        跳转到子程序proc处执行</span><br><span class="line">     ...</span><br><span class="line">proc MOV R0,#1</span><br><span class="line">     ...</span><br></pre></td></tr></table></figure>
-<p>h.堆栈寻址</p>
+<pre><code>         BL proc        跳转到子程序proc处执行
+         ...
+    proc MOV R0,#1
+         ...
+</code></pre><p>h.堆栈寻址</p>
 <p>按先进先出的方式工作，堆栈指针用R13表示，总是指向栈顶，LDMFD和STMFD分别表示POP出栈和PUSH进栈</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STMFD R13!,&#123;R0 - R4&#125;;</span><br><span class="line">LDMFD R13!,&#123;R0 - R4&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="数据处理指令"><a href="#数据处理指令" class="headerlink" title="数据处理指令"></a>数据处理指令</h2><p>a. MOV指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MOV &#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,op2          将op2传给Rd</span><br><span class="line">MOV R1, R0                      将寄存器R0的值传到寄存器R1</span><br><span class="line">MOV PC,R14                      将寄存器R14的值传到PC，常用于子程序返回</span><br><span class="line">MOV R1,R0,LSL #3                将寄存器R0的值左移3位后传给R1</span><br><span class="line">MOV R0,#5                       将立即数5传给R0</span><br></pre></td></tr></table></figure>
-<p>b. MVN指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MVN &#123;&lt;cond&gt;&#125;&#123;S&#125;Rd, op2          将op2取反传给Rd</span><br><span class="line">MVN R0,#0                       将0取反后传给R0，R0 = -1</span><br><span class="line">MVN R1,R2                       将R2取反，结果保存到R1</span><br></pre></td></tr></table></figure>
-<p>c. 移位指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LSL 逻辑左移</span><br><span class="line">LSR 逻辑右移</span><br><span class="line">ASR 算术右移</span><br><span class="line">ROR 循环右移</span><br><span class="line">RRX 带扩展的循环右移</span><br></pre></td></tr></table></figure>
-<p>d. ADD加法指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADD&#123;&lt;cond&gt;&#125;&#123;S&#125;Rd, Rn, op2</span><br><span class="line">ADD R0,R1,R2            R0 = R1 + R2</span><br><span class="line">ADD R0,R1,#5            R0 = R1 + 5</span><br><span class="line">ADD R0,R1,R2,LSL #2     R0 = R1 + (R2左移2位)</span><br></pre></td></tr></table></figure>
-<p>e. ADC带进位加法指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和操作数op2相加，再加上CPSR中C条件标志位的值，并将结果保存到Rd中</span><br><span class="line">例：用ADC完成64位加法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中</span><br><span class="line">ADDS R0,R2,R4               低32位相加，产生进位</span><br><span class="line">ADC R1,R3,R5                高32位相加，加上进位</span><br></pre></td></tr></table></figure>
-<p>f. SUB减法指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SUB&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    Rd = Rn - op2</span><br><span class="line">SUB R0,R1,R2                R0 = R1 - R2</span><br><span class="line">SUB R0,R1,#6                R0 = R1 -6</span><br><span class="line">SUB R0,R2,R3,LSL #1         R0 = R2 - (R3左移1位)</span><br></pre></td></tr></table></figure>
-<p>g. SBC带借位减法指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SBC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    把Rn的值减去操作数op2，再减去CPSR中的C标志位的反码，并将结果保存到Rd中，Rd = Rn - op2 - !C</span><br></pre></td></tr></table></figure>
-<p>例:用SBC完成64位减法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SUBS R0,R2,R4       低32位相减，S影响CPSR</span><br><span class="line">SBC R1,R3,R5        高32位相减，去除C的反码</span><br></pre></td></tr></table></figure>
-<p>h. RSC带借位的逆向减法指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    把操作数op2减去Rn，再减去CPSR中的C标志位的反码，并将结果保存到Rd中，Rd = op2 - Rn - !C</span><br></pre></td></tr></table></figure>
-<p>i. 逻辑运算指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AND&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    按位与，Rd = Rn AND op2</span><br><span class="line">ORR&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    按位或，Rd = Rn OR op2</span><br><span class="line">EOR&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    按位异或，Rd = Rn EOR op2</span><br></pre></td></tr></table></figure>
-<p>j. CMP比较指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMP&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和op2进行比较，同时更新CPSR中条件标志位的值(实际上是执行一次减法，但不存储结果)，当操作数Rn大于op2时，则此后带有GT后缀的指令将可以执行(根据相应的指令判断是否执行，如GT,LT等)。</span><br><span class="line">CMP R1,#10                  比较R1和10，并设置CPSR的标志位</span><br><span class="line">ADDGT R0,R0,#5              如果R1&gt;10,则执行ADDGT指令，将R0加5</span><br></pre></td></tr></table></figure>
-<p>k. CMN反值比较指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CMN&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和op2取反后进行比较，同时更新CPSR中条件标志位的值(实际上将Rn和op2相加)，后面的指令就可以根据条件标志位决定是否执行。  </span><br><span class="line">CMN R0,R1       将R0和R1相加，并设置CPSR的值</span><br></pre></td></tr></table></figure>
-<p>l. MUL/MLA/SMULL/SMLAL/UMULL/UMLAL乘法指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MUL     32位乘法指令</span><br><span class="line">MLA     32位乘加指令</span><br><span class="line">SMULL   64位有符号数乘法指令</span><br><span class="line">SMLAL   64位有符号数乘加指令</span><br><span class="line">UMULL   64位无符号数乘法指令</span><br><span class="line">UMLAL   64位无符号数乘加指令</span><br><span class="line">MUL&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rm,Rs         Rd = Rm * Rs</span><br><span class="line">MULS R0,R1,R2</span><br><span class="line">MLA&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rm,Rs,Rn      Rd = (Rm * Rs) + Rn</span><br><span class="line">MLAS R0,R1,R2,R3</span><br></pre></td></tr></table></figure>
-<h2 id="数据加载与存储指令"><a href="#数据加载与存储指令" class="headerlink" title="数据加载与存储指令"></a>数据加载与存储指令</h2><p><img src="/images/arm/arm2.png" alt=""></p>
+<pre><code>    STMFD R13!,{R0 - R4};
+    LDMFD R13!,{R0 - R4};
+</code></pre><h2 id="数据处理指令"><a href="#数据处理指令" class="headerlink" title="数据处理指令"></a>数据处理指令</h2><p>a. MOV指令</p>
+<pre><code>    MOV {&lt;cond&gt;}{S} Rd,op2          将op2传给Rd
+    MOV R1, R0                      将寄存器R0的值传到寄存器R1
+    MOV PC,R14                      将寄存器R14的值传到PC，常用于子程序返回
+    MOV R1,R0,LSL #3                将寄存器R0的值左移3位后传给R1
+    MOV R0,#5                       将立即数5传给R0
+</code></pre><p>b. MVN指令</p>
+<pre><code>    MVN {&lt;cond&gt;}{S}Rd, op2          将op2取反传给Rd
+    MVN R0,#0                       将0取反后传给R0，R0 = -1
+    MVN R1,R2                       将R2取反，结果保存到R1
+</code></pre><p>c. 移位指令</p>
+<pre><code>    LSL 逻辑左移
+    LSR 逻辑右移
+    ASR 算术右移
+    ROR 循环右移
+    RRX 带扩展的循环右移
+</code></pre><p>d. ADD加法指令</p>
+<pre><code>    ADD{&lt;cond&gt;}{S}Rd, Rn, op2
+    ADD R0,R1,R2            R0 = R1 + R2
+    ADD R0,R1,#5            R0 = R1 + 5
+    ADD R0,R1,R2,LSL #2     R0 = R1 + (R2左移2位)
+</code></pre><p>e. ADC带进位加法指令</p>
+<pre><code>    ADC{&lt;cond&gt;}{S} Rd,Rn,op2    将Rn的值和操作数op2相加，再加上CPSR中C条件标志位的值，并将结果保存到Rd中
+    例：用ADC完成64位加法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中
+    ADDS R0,R2,R4               低32位相加，产生进位
+    ADC R1,R3,R5                高32位相加，加上进位
+</code></pre><p>f. SUB减法指令</p>
+<pre><code>    SUB{&lt;cond&gt;}{S} Rd,Rn,op2    Rd = Rn - op2
+    SUB R0,R1,R2                R0 = R1 - R2
+    SUB R0,R1,#6                R0 = R1 -6
+    SUB R0,R2,R3,LSL #1         R0 = R2 - (R3左移1位)
+</code></pre><p>g. SBC带借位减法指令</p>
+<pre><code>    SBC{&lt;cond&gt;}{S} Rd,Rn,op2    把Rn的值减去操作数op2，再减去CPSR中的C标志位的反码，并将结果保存到Rd中，Rd = Rn - op2 - !C
+</code></pre><p>例:用SBC完成64位减法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中</p>
+<pre><code>    SUBS R0,R2,R4       低32位相减，S影响CPSR
+    SBC R1,R3,R5        高32位相减，去除C的反码
+</code></pre><p>h. RSC带借位的逆向减法指令</p>
+<pre><code>    RSC{&lt;cond&gt;}{S} Rd,Rn,op2    把操作数op2减去Rn，再减去CPSR中的C标志位的反码，并将结果保存到Rd中，Rd = op2 - Rn - !C
+</code></pre><p>i. 逻辑运算指令</p>
+<pre><code>    AND{&lt;cond&gt;}{S} Rd,Rn,op2    按位与，Rd = Rn AND op2
+    ORR{&lt;cond&gt;}{S} Rd,Rn,op2    按位或，Rd = Rn OR op2
+    EOR{&lt;cond&gt;}{S} Rd,Rn,op2    按位异或，Rd = Rn EOR op2
+</code></pre><p>j. CMP比较指令</p>
+<pre><code>    CMP{&lt;cond&gt;}{S} Rd,Rn,op2    将Rn的值和op2进行比较，同时更新CPSR中条件标志位的值(实际上是执行一次减法，但不存储结果)，当操作数Rn大于op2时，则此后带有GT后缀的指令将可以执行(根据相应的指令判断是否执行，如GT,LT等)。
+    CMP R1,#10                  比较R1和10，并设置CPSR的标志位
+    ADDGT R0,R0,#5              如果R1&gt;10,则执行ADDGT指令，将R0加5
+</code></pre><p>k. CMN反值比较指令</p>
+<pre><code>    CMN{&lt;cond&gt;}{S} Rd,Rn,op2    将Rn的值和op2取反后进行比较，同时更新CPSR中条件标志位的值(实际上将Rn和op2相加)，后面的指令就可以根据条件标志位决定是否执行。  
+    CMN R0,R1       将R0和R1相加，并设置CPSR的值
+</code></pre><p>l. MUL/MLA/SMULL/SMLAL/UMULL/UMLAL乘法指令</p>
+<pre><code>    MUL     32位乘法指令
+    MLA     32位乘加指令
+    SMULL   64位有符号数乘法指令
+    SMLAL   64位有符号数乘加指令
+    UMULL   64位无符号数乘法指令
+    UMLAL   64位无符号数乘加指令
+    MUL{&lt;cond&gt;}{S} Rd,Rm,Rs         Rd = Rm * Rs
+    MULS R0,R1,R2
+    MLA{&lt;cond&gt;}{S} Rd,Rm,Rs,Rn      Rd = (Rm * Rs) + Rn
+    MLAS R0,R1,R2,R3
+</code></pre><h2 id="数据加载与存储指令"><a href="#数据加载与存储指令" class="headerlink" title="数据加载与存储指令"></a>数据加载与存储指令</h2><p><img src="/images/arm/arm2.png" alt=""></p>
 <p>a. LDR/STR字数据加载/存储指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">LDR/STR&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr       LDR指令用于从存储器中将一个32位的字数据加载到目的寄存器Rd中，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span><br><span class="line">STR指令用于从源寄存器中将一个32位的字数据存储到存储器中，和LDR相反。后缀T可选。</span><br><span class="line">LDR R4,START            将存储地址为START的字数据读入R4</span><br><span class="line">STR R5,DATA1            将R5存入存储地址为DATA1中</span><br><span class="line">LDR R0,[R1]             将存储器地址为R1的字数据读入存储器R0</span><br><span class="line">LDR R0,[R1,R2]          将存储器地址为R1+R2的字数据读入存储器R0</span><br><span class="line">LDR R0,[R1,#8]          将存储器地址为R1+8的字数据读入存储器R0</span><br><span class="line">LDR R0,[R1,R2,LSL #2]   将存储器地址为R1+R2*4的字数据读入存储区R0</span><br><span class="line">STR R0,[R1,R2]!         将R0字数据存入存储器地址R1+R2的存储单元中，并将新地址R2+R2写入R2</span><br><span class="line">STR R0,[R1,#8]!         将R0字数据存入存储器地址R1+8的存储单元中，并将新地址R2+8写入R2</span><br><span class="line">STR R0,[R1,R2,LSL #2]   将R0字数据存入存储器地址R1+R2*4的存储单元中，并将新地址R2+R2*4写入R1</span><br><span class="line">LDR R0,[R1],#8          将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+8写入R1  </span><br><span class="line">LDR R0,[R1],R2          将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+R2写入R1</span><br><span class="line">LDR R0,[R1],R2,LSL #2   将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+R2*4写入R1</span><br></pre></td></tr></table></figure>
-<p>b. LDRB/STRB字节数据加载/存储指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LDRB/STRB&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr         </span><br><span class="line">LDRB指令用于从存储器中将一个8位的字节数据加载到目的寄存器中，同时将寄存器的高24位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span><br><span class="line">STRB指令用于从源寄存器中将一个8位的字节数据存储到存储器中，和LDRB相反。后缀T可选。</span><br></pre></td></tr></table></figure>
-<p>c. LDRH/STRH半字数据加载/存储指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LDRH/STRH&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr         </span><br><span class="line">LDRH指令用于从存储器中将一个16位的半字数据加载到目的寄存器中，同时将寄存器的高16位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span><br><span class="line">STRH指令用于从源寄存器中将一个16位的半字数据存储到存储器中，和LDRH相反。后缀T可选。</span><br></pre></td></tr></table></figure>
-<p>d. LDM/STM批量数据加载/存储指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LDM/STM&#123;&lt;cond&gt;&#125;&#123;&lt;type&gt;&#125;Rn&#123;!&#125;,&lt;regs&gt;&#123;^&#125;      </span><br><span class="line">LDM用于从基址寄存器所指示的一片连续存储器中读取数据到寄存器列表所指向的多个寄存器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器由寄存器列表regs表示，该指令一般用于多个寄存器数据的出栈操作</span><br><span class="line">STM用于将寄存器列表所指向的多个寄存器中的值存入由基址寄存器所指向的一片连续存储器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器又寄存器列表regs表示。该指令一般用于多个寄存器数据的进栈操作。</span><br></pre></td></tr></table></figure>
-<p>type表示类型，用于数据的存储与读取有以下几种情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IA：每次传送后地址值加。</span><br><span class="line">IB：每次传送前地址值加。</span><br><span class="line">DA: 每次传送后地址值减。</span><br><span class="line">DB: 每次传送前地址值减。</span><br></pre></td></tr></table></figure>
-<p>用于堆栈操作时有如下几种情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FD:满递减堆栈</span><br><span class="line">ED:空递减堆栈</span><br><span class="line">FA:满递增堆栈</span><br><span class="line">EA:空递增堆栈</span><br></pre></td></tr></table></figure>
-<p>e. SWP字数据交换指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SWP&#123;&lt;cond&gt;&#125;&lt;Rd&gt;,&lt;Rm&gt;,[&lt;Rn&gt;]     Rd = [Rn],[Rn] = Rm,当寄存器Rm和目的寄存器Rd为同一个寄存器时，指令交换该急促亲和存储器的内容</span><br><span class="line">SWP R0,R1,[R2]                  R0 = [R2],[R2] = R1</span><br><span class="line">SWP R0,R0,[R1]                  R0 = [R1],[R1] = R0</span><br><span class="line">SWPB指令用于将寄存器Rn指向的存储器中的字节数据加载到目的寄存器Rd中，目的寄存器的高24位清零，同时将Rm中的字数据存储到Rn指向的存储器中。</span><br></pre></td></tr></table></figure>
-
+<pre><code>    LDR/STR{&lt;cond&gt;}{T}Rd,addr       LDR指令用于从存储器中将一个32位的字数据加载到目的寄存器Rd中，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。
+    STR指令用于从源寄存器中将一个32位的字数据存储到存储器中，和LDR相反。后缀T可选。
+    LDR R4,START            将存储地址为START的字数据读入R4
+    STR R5,DATA1            将R5存入存储地址为DATA1中
+    LDR R0,[R1]             将存储器地址为R1的字数据读入存储器R0
+    LDR R0,[R1,R2]          将存储器地址为R1+R2的字数据读入存储器R0
+    LDR R0,[R1,#8]          将存储器地址为R1+8的字数据读入存储器R0
+    LDR R0,[R1,R2,LSL #2]   将存储器地址为R1+R2*4的字数据读入存储区R0
+    STR R0,[R1,R2]!         将R0字数据存入存储器地址R1+R2的存储单元中，并将新地址R2+R2写入R2
+    STR R0,[R1,#8]!         将R0字数据存入存储器地址R1+8的存储单元中，并将新地址R2+8写入R2
+    STR R0,[R1,R2,LSL #2]   将R0字数据存入存储器地址R1+R2*4的存储单元中，并将新地址R2+R2*4写入R1
+    LDR R0,[R1],#8          将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+8写入R1  
+    LDR R0,[R1],R2          将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+R2写入R1
+    LDR R0,[R1],R2,LSL #2   将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+R2*4写入R1
+</code></pre><p>b. LDRB/STRB字节数据加载/存储指令</p>
+<pre><code>    LDRB/STRB{&lt;cond&gt;}{T}Rd,addr         
+    LDRB指令用于从存储器中将一个8位的字节数据加载到目的寄存器中，同时将寄存器的高24位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。
+    STRB指令用于从源寄存器中将一个8位的字节数据存储到存储器中，和LDRB相反。后缀T可选。
+</code></pre><p>c. LDRH/STRH半字数据加载/存储指令</p>
+<pre><code>    LDRH/STRH{&lt;cond&gt;}{T}Rd,addr         
+    LDRH指令用于从存储器中将一个16位的半字数据加载到目的寄存器中，同时将寄存器的高16位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。
+    STRH指令用于从源寄存器中将一个16位的半字数据存储到存储器中，和LDRH相反。后缀T可选。
+</code></pre><p>d. LDM/STM批量数据加载/存储指令</p>
+<pre><code>    LDM/STM{&lt;cond&gt;}{&lt;type&gt;}Rn{!},&lt;regs&gt;{^}      
+    LDM用于从基址寄存器所指示的一片连续存储器中读取数据到寄存器列表所指向的多个寄存器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器由寄存器列表regs表示，该指令一般用于多个寄存器数据的出栈操作
+    STM用于将寄存器列表所指向的多个寄存器中的值存入由基址寄存器所指向的一片连续存储器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器又寄存器列表regs表示。该指令一般用于多个寄存器数据的进栈操作。
+</code></pre><p>type表示类型，用于数据的存储与读取有以下几种情况：</p>
+<pre><code>    IA：每次传送后地址值加。
+    IB：每次传送前地址值加。
+    DA: 每次传送后地址值减。
+    DB: 每次传送前地址值减。
+</code></pre><p>用于堆栈操作时有如下几种情况：</p>
+<pre><code>    FD:满递减堆栈
+    ED:空递减堆栈
+    FA:满递增堆栈
+    EA:空递增堆栈
+</code></pre><p>e. SWP字数据交换指令</p>
+<pre><code>    SWP{&lt;cond&gt;}&lt;Rd&gt;,&lt;Rm&gt;,[&lt;Rn&gt;]     Rd = [Rn],[Rn] = Rm,当寄存器Rm和目的寄存器Rd为同一个寄存器时，指令交换该急促亲和存储器的内容
+    SWP R0,R1,[R2]                  R0 = [R2],[R2] = R1
+    SWP R0,R0,[R1]                  R0 = [R1],[R1] = R0
+    SWPB指令用于将寄存器Rn指向的存储器中的字节数据加载到目的寄存器Rd中，目的寄存器的高24位清零，同时将Rm中的字数据存储到Rn指向的存储器中。
+</code></pre>
         
     
 

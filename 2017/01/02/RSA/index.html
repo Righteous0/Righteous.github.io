@@ -503,11 +503,20 @@
 <h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>1.随机选择两个不相等的质数p,q<br>2.计算p和q的乘积n<br>3.计算n的欧拉函数φ(n)=(p-1)(q-1)<br>4.随机选择一个整数e,条件是1&lt;e&lt;φ(n),且e与φ(n)互质<br>5.计算e与φ(n)的模反元素d<br>6.将n与e封装成公钥(n,e)，将n与d封装成私钥(n,d)</p>
 <h2 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h2><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><p>用公钥(n,e),对m进行加密，得到密文c</p>
 <p> c ≡ me mod n</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：已知公钥(920139713,19),对明文m加密后得到密文c=[704796792,752211152,274704164,18414022,368270835,483295235,263072905,459788476,483295235,459788476,663551792,475206804,459788476,428313374,475206804,459788476,425392137,704796792,458265677,341524652,483295235,534149509,425392137,428313374,425392137,341524652,458265677,263072905,483295235,828509797,341524652,425392137,475206804,428313374,483295235,475206804,459788476,306220148]</span><br></pre></td></tr></table></figure>
-<h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><p>用私钥(n,d),对c进行解密，得到明文m</p>
+<pre><code>例：已知公钥(920139713,19),对明文m加密后得到密文c=[704796792,752211152,274704164,18414022,368270835,483295235,263072905,459788476,483295235,459788476,663551792,475206804,459788476,428313374,475206804,459788476,425392137,704796792,458265677,341524652,483295235,534149509,425392137,428313374,425392137,341524652,458265677,263072905,483295235,828509797,341524652,425392137,475206804,428313374,483295235,475206804,459788476,306220148]
+</code></pre><h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><p>用私钥(n,d),对c进行解密，得到明文m</p>
 <p> m ≡ cd mod n</p>
 <p>思路：分解n,求p,q,进而得到d,对密文c解密得到明文m<br>解密代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">char=[<span class="number">704796792</span>,<span class="number">752211152</span>,<span class="number">274704164</span>,<span class="number">18414022</span>,<span class="number">368270835</span>,<span class="number">483295235</span>,<span class="number">263072905</span>,<span class="number">459788476</span>,<span class="number">483295235</span>,<span class="number">459788476</span>,<span class="number">663551792</span>,<span class="number">475206804</span>,<span class="number">459788476</span>,<span class="number">428313374</span>,<span class="number">475206804</span>,<span class="number">459788476</span>,<span class="number">425392137</span>,<span class="number">704796792</span>,<span class="number">458265677</span>,<span class="number">341524652</span>,<span class="number">483295235</span>,<span class="number">534149509</span>,<span class="number">425392137</span>,<span class="number">428313374</span>,<span class="number">425392137</span>,<span class="number">341524652</span>,<span class="number">458265677</span>,<span class="number">263072905</span>,<span class="number">483295235</span>,<span class="number">828509797</span>,<span class="number">341524652</span>,<span class="number">425392137</span>,<span class="number">475206804</span>,<span class="number">428313374</span>,<span class="number">483295235</span>,<span class="number">475206804</span>,<span class="number">459788476</span>,<span class="number">306220148</span>]</span><br><span class="line">n = <span class="number">920139713</span></span><br><span class="line">p = <span class="number">18443</span></span><br><span class="line">q = <span class="number">49891</span></span><br><span class="line">e = <span class="number">19</span></span><br><span class="line">d = gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> char:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'%x'</span> % pow(c,d,n)).decode(<span class="string">'hex'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">import gmpy2
+char=[704796792,752211152,274704164,18414022,368270835,483295235,263072905,459788476,483295235,459788476,663551792,475206804,459788476,428313374,475206804,459788476,425392137,704796792,458265677,341524652,483295235,534149509,425392137,428313374,425392137,341524652,458265677,263072905,483295235,828509797,341524652,425392137,475206804,428313374,483295235,475206804,459788476,306220148]
+n = 920139713
+p = 18443
+q = 49891
+e = 19
+d = gmpy2.invert(e,(p-1)*(q-1))
+for c in char:
+    print (&#39;%x&#39; % pow(c,d,n)).decode(&#39;hex&#39;)
+</code></pre>
 <p>解得明文m：flag{13212je2ue28fy71w8u87y31r78eu1e2}</p>
 <h2 id="CTF之RSA"><a href="#CTF之RSA" class="headerlink" title="CTF之RSA"></a>CTF之RSA</h2><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul>
 <li>factordb，Sagemath，yafu</li>
@@ -517,30 +526,162 @@
 </ul>
 <h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><p>题目来源：<br><a href="http://www.jarvisoj.com" target="_blank" rel="noopener">http://www.jarvisoj.com</a><br><a href="http://www.ichunqiu.com/racing/54627" target="_blank" rel="noopener">http://www.ichunqiu.com/racing/54627</a></p>
 <h4 id="very-easy-RSA"><a href="#very-easy-RSA" class="headerlink" title="very easy RSA"></a>very easy RSA</h4><p>已知RSA公钥生成参数：<br>p = 3487583947589437589237958723892346254777<br>q = 876786784356893476598347658437658389<br>e = 65537<br>求d =<br>(1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">q = <span class="number">876786784356893476598347658437658389</span></span><br><span class="line">e = <span class="number">65537</span>  </span><br><span class="line">t = (p<span class="number">-1</span>)*(q<span class="number">-1</span>)   </span><br><span class="line">i=<span class="number">0</span>  </span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span> :   </span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span>-t*i)%e == <span class="number">0</span>:   </span><br><span class="line">        <span class="keyword">break</span>   </span><br><span class="line">    i-=<span class="number">1</span>   </span><br><span class="line">    <span class="comment">#print i </span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'d='</span> + <span class="string">'%d'</span> % ((<span class="number">1</span>-t*i)/e)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">q = 876786784356893476598347658437658389
+e = 65537  
+t = (p-1)*(q-1)   
+i=0  
+while True :   
+    if (1-t*i)%e == 0:   
+        break   
+    i-=1   
+    #print i 
+print &#39;d=&#39; + &#39;%d&#39; % ((1-t*i)/e)
+</code></pre>
 <p>(2)python gmpy2模块解决</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p = <span class="number">3487583947589437589237958723892346254777</span> </span><br><span class="line">q = <span class="number">876786784356893476598347658437658389</span></span><br><span class="line">e = <span class="number">65537</span>  </span><br><span class="line">d = gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>)) </span><br><span class="line"><span class="keyword">print</span> d</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">p = 3487583947589437589237958723892346254777 
+q = 876786784356893476598347658437658389
+e = 65537  
+d = gmpy2.invert(e,(p-1)*(q-1)) 
+print d
+</code></pre>
 <p>(3）RSAtool<br><a href="https://github.com/ius/rsatool" target="_blank" rel="noopener">https://github.com/ius/rsatool</a></p>
 <h4 id="easy-RSA"><a href="#easy-RSA" class="headerlink" title="easy RSA"></a>easy RSA</h4><p>已知一段RSA加密的信息为：0xdc2eeeb2782c且已知加密所用的<br>公钥：(N=322831561921859,e = 23),求加密字符串<br>N分解为13574881*23781539</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">n = <span class="number">322831561921859</span></span><br><span class="line">p = <span class="number">13574881</span></span><br><span class="line">q = <span class="number">23781539</span> </span><br><span class="line">e = <span class="number">23</span> </span><br><span class="line">c = int(<span class="string">'0xdc2eeeb2782c'</span>,<span class="number">16</span>)</span><br><span class="line">d = gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>)) </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'%x'</span> % pow(c,d,n)).decode(<span class="string">'hex'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">import gmpy2
+n = 322831561921859
+p = 13574881
+q = 23781539 
+e = 23 
+c = int(&#39;0xdc2eeeb2782c&#39;,16)
+d = gmpy2.invert(e,(p-1)*(q-1)) 
+print (&#39;%x&#39; % pow(c,d,n)).decode(&#39;hex&#39;)
+</code></pre>
 <h4 id="medium-RSA"><a href="#medium-RSA" class="headerlink" title="medium RSA"></a>medium RSA</h4><p>已知flag.enc和pubkey.pem<br>提取公钥<br>1.利用python的Crypto</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line">A = RSA.importKey(open(<span class="string">'pubkey.pem'</span>).read())</span><br><span class="line"><span class="keyword">print</span> <span class="string">'N:'</span> + <span class="string">'%d'</span> % A.n</span><br><span class="line"><span class="keyword">print</span> <span class="string">'e:'</span> + <span class="string">'%d'</span> % A.e</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">from Crypto.PublicKey import RSA
+A = RSA.importKey(open(&#39;pubkey.pem&#39;).read())
+print &#39;N:&#39; + &#39;%d&#39; % A.n
+print &#39;e:&#39; + &#39;%d&#39; % A.e
+</code></pre>
 <p>N:87924348264132406875276140514499937145050893665602592992418171647042491658461<br>e:65537</p>
 <p>2.openssl</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem</span><br><span class="line">Public-Key: (256 bit)</span><br><span class="line">Modulus:</span><br><span class="line">    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:</span><br><span class="line">    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:</span><br><span class="line">    be:30:dd</span><br><span class="line">Exponent: 65537 (0x10001)</span><br><span class="line">Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</span><br><span class="line">writing RSA key</span><br><span class="line">-----BEGIN PUBLIC KEY-----</span><br><span class="line">MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr</span><br><span class="line">yigb/+l/vjDdAgMBAAE=</span><br><span class="line">-----END PUBLIC KEY----</span><br></pre></td></tr></table></figure>
-<p>3.yafu分解N</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">factor(87924348264132406875276140514499937145050893665602592992418171647042491658461)</span><br><span class="line">fac: using pretesting plan: normal</span><br><span class="line">fac: no tune info: using qs/gnfs crossover of 95 digits</span><br><span class="line"></span><br><span class="line">starting SIQS on c77: 87924348264132406875276140514499937145050893665602592992418171647042491658461</span><br><span class="line"></span><br><span class="line">==== sieving in progress (1 thread):   36224 relations needed ====</span><br><span class="line">====           Press ctrl-c to abort and save state           ====</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SIQS elapsed time = 1.9607 seconds.</span><br><span class="line">Total factoring time = 2.0212 seconds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***factors found***</span><br><span class="line"></span><br><span class="line">P39 = 319576316814478949870590164193048041239</span><br><span class="line">P39 = 275127860351348928173285174381581152299</span><br><span class="line">ans = 1</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> libnum</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">f = open(<span class="string">'flag.enc'</span>,<span class="string">'r'</span>)</span><br><span class="line">c = f.read()</span><br><span class="line">c = libnum.s2n(c)</span><br><span class="line">p = <span class="number">275127860351348928173285174381581152299</span></span><br><span class="line">q = <span class="number">319576316814478949870590164193048041239</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">d = gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line">n = p*q</span><br><span class="line">r = pow(c,d,n)</span><br><span class="line"><span class="keyword">print</span> libnum.n2s(r%n)</span><br></pre></td></tr></table></figure>
+<pre><code>openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem
+Public-Key: (256 bit)
+Modulus:
+    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
+    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
+    be:30:dd
+Exponent: 65537 (0x10001)
+Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
+writing RSA key
+-----BEGIN PUBLIC KEY-----
+MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
+yigb/+l/vjDdAgMBAAE=
+-----END PUBLIC KEY----
+</code></pre><p>3.yafu分解N</p>
+<pre><code>factor(87924348264132406875276140514499937145050893665602592992418171647042491658461)
+fac: using pretesting plan: normal
+fac: no tune info: using qs/gnfs crossover of 95 digits
+
+starting SIQS on c77: 87924348264132406875276140514499937145050893665602592992418171647042491658461
+
+==== sieving in progress (1 thread):   36224 relations needed ====
+====           Press ctrl-c to abort and save state           ====
+
+
+SIQS elapsed time = 1.9607 seconds.
+Total factoring time = 2.0212 seconds
+
+
+***factors found***
+
+P39 = 319576316814478949870590164193048041239
+P39 = 275127860351348928173285174381581152299
+ans = 1
+</code></pre><pre><code class="Python">import libnum
+import gmpy2
+f = open(&#39;flag.enc&#39;,&#39;r&#39;)
+c = f.read()
+c = libnum.s2n(c)
+p = 275127860351348928173285174381581152299
+q = 319576316814478949870590164193048041239
+e = 65537
+d = gmpy2.invert(e,(p-1)*(q-1))
+n = p*q
+r = pow(c,d,n)
+print libnum.n2s(r%n)
+</code></pre>
 <h4 id="hard-RSA-Rabin密码"><a href="#hard-RSA-Rabin密码" class="headerlink" title="hard RSA(Rabin密码)"></a>hard RSA(Rabin密码)</h4><p>N=87924348264132406875276140514499937145050893665602592992418171647042491658461<br>e=2<br>Rabin密码<br>加密：c = m2 mod n<br>解密：m2 = c mod n<br>n的值为公钥，p和q为私钥,n是可以分解的,分解后可以得到p,q。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> libnum</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">f = open(<span class="string">'flag.enc'</span>,<span class="string">'r'</span>)</span><br><span class="line">c = f.read()</span><br><span class="line">c = libnum.s2n(c)</span><br><span class="line">p = <span class="number">275127860351348928173285174381581152299</span></span><br><span class="line">q = <span class="number">319576316814478949870590164193048041239</span></span><br><span class="line">n = p*q</span><br><span class="line">r = pow(c,(p+<span class="number">1</span>)/<span class="number">4</span>,p)</span><br><span class="line">s = pow(c,(q+<span class="number">1</span>)/<span class="number">4</span>,q)</span><br><span class="line">a = gmpy2.invert(p,q)</span><br><span class="line">b = gmpy2.invert(q,p)</span><br><span class="line">x =(a*p*s+b*q*r)%n</span><br><span class="line">y =(a*p*s-b*q*r)%n</span><br><span class="line"><span class="keyword">print</span> libnum.n2s(x%n)</span><br><span class="line"><span class="keyword">print</span> libnum.n2s((-x)%n)</span><br><span class="line"><span class="keyword">print</span> libnum.n2s(y%n)</span><br><span class="line"><span class="keyword">print</span> libnum.n2s((-y)%n)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">import libnum
+import gmpy2
+f = open(&#39;flag.enc&#39;,&#39;r&#39;)
+c = f.read()
+c = libnum.s2n(c)
+p = 275127860351348928173285174381581152299
+q = 319576316814478949870590164193048041239
+n = p*q
+r = pow(c,(p+1)/4,p)
+s = pow(c,(q+1)/4,q)
+a = gmpy2.invert(p,q)
+b = gmpy2.invert(q,p)
+x =(a*p*s+b*q*r)%n
+y =(a*p*s-b*q*r)%n
+print libnum.n2s(x%n)
+print libnum.n2s((-x)%n)
+print libnum.n2s(y%n)
+print libnum.n2s((-y)%n)
+</code></pre>
 <h4 id="very-hard-RSA"><a href="#very-hard-RSA" class="headerlink" title="very hard RSA"></a>very hard RSA</h4><p>分析加密脚本，使用了相同的N,不同的e,加密相同的数据,且两个加密指数互素，可以通过共模攻击在两个密文和公钥被嗅探的情况下还原出明文m的值</p>
 <p>两个加密指数互质(e1,e2)=1,即存在s1,s2使得s1e1+s2e2=1<br>c1 ≡ me1 mod n<br>c2 ≡ me2 mod n<br>即 c1s1 c2s2 ≡ m mod n</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> n2s,s2n</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line">n=<span class="number">0x00b0bee5e3e9e5a7e8d00b493355c618fc8c7d7d03b82e409951c182f398dee3104580e7ba70d383ae5311475656e8a964d380cb157f48c951adfa65db0b122ca40e42fa709189b719a4f0d746e2f6069baf11cebd650f14b93c977352fd13b1eea6d6e1da775502abff89d3a8b3615fd0db49b88a976bc20568489284e181f6f11e270891c8ef80017bad238e363039a458470f1749101bc29949d3a4f4038d463938851579c7525a69984f15b5667f34209b70eb261136947fa123e549dfff00601883afd936fe411e006e4e93d1a00b0fea541bbfc8c5186cb6220503a94b2413110d640c77ea54ba3220fc8f4cc6ce77151e29b3e06578c478bd1bebe04589ef9a197f6f806db8b3ecd826cad24f5324ccdec6e8fead2c2150068602c8dcdc59402ccac9424b790048ccdd9327068095efa010b7f196c74ba8c37b128f9e1411751633f78b7b9e56f71f77a1b4daad3fc54b5e7ef935d9a72fb176759765522b4bbc02e314d5c06b64d5054b7b096c601236e6ccf45b5e611c805d335dbab0c35d226cc208d8ce4736ba39a0354426fae006c7fe52d5267dcfb9c3884f51fddfdf4a9794bcfe0e1557113749e6c8ef421dba263aff68739ce00ed80fd0022ef92d3488f76deb62bdef7bea6026f22a1d25aa2a92d124414a8021fe0c174b9803e6bb5fad75e186a946a17280770f1243f4387446ccceb2222a965cc30b3929L</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">egcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> (b, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    g, y, x = egcd(b % a, a)</span><br><span class="line">    <span class="keyword">return</span> (g, x - (b // a) * y, y)</span><br><span class="line">fo1 = open(<span class="string">'flag.enc1'</span>, <span class="string">'rb'</span>)</span><br><span class="line">fo2 = open(<span class="string">'flag.enc2'</span>, <span class="string">'rb'</span>)</span><br><span class="line">datafo1 = fo1.read()</span><br><span class="line">c1 = s2n(datafo1)</span><br><span class="line">fo1.close()</span><br><span class="line">datafo2 = fo2.read()</span><br><span class="line">c2 = s2n(datafo2)</span><br><span class="line">fo2.close()</span><br><span class="line">c2 = invert(c2,n)</span><br><span class="line">e1 = <span class="number">17</span></span><br><span class="line">e2 = <span class="number">65537</span></span><br><span class="line">s = egcd(e1,e2)</span><br><span class="line">s1 = s[<span class="number">1</span>]</span><br><span class="line">s2 = s[<span class="number">2</span>]</span><br><span class="line">s2 = - s2</span><br><span class="line">m = pow(c1, s1, n) * pow(c2, s2, n) % n</span><br><span class="line"><span class="keyword">print</span> n2s(m)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">from libnum import n2s,s2n
+from gmpy2 import invert
+n=0x00b0bee5e3e9e5a7e8d00b493355c618fc8c7d7d03b82e409951c182f398dee3104580e7ba70d383ae5311475656e8a964d380cb157f48c951adfa65db0b122ca40e42fa709189b719a4f0d746e2f6069baf11cebd650f14b93c977352fd13b1eea6d6e1da775502abff89d3a8b3615fd0db49b88a976bc20568489284e181f6f11e270891c8ef80017bad238e363039a458470f1749101bc29949d3a4f4038d463938851579c7525a69984f15b5667f34209b70eb261136947fa123e549dfff00601883afd936fe411e006e4e93d1a00b0fea541bbfc8c5186cb6220503a94b2413110d640c77ea54ba3220fc8f4cc6ce77151e29b3e06578c478bd1bebe04589ef9a197f6f806db8b3ecd826cad24f5324ccdec6e8fead2c2150068602c8dcdc59402ccac9424b790048ccdd9327068095efa010b7f196c74ba8c37b128f9e1411751633f78b7b9e56f71f77a1b4daad3fc54b5e7ef935d9a72fb176759765522b4bbc02e314d5c06b64d5054b7b096c601236e6ccf45b5e611c805d335dbab0c35d226cc208d8ce4736ba39a0354426fae006c7fe52d5267dcfb9c3884f51fddfdf4a9794bcfe0e1557113749e6c8ef421dba263aff68739ce00ed80fd0022ef92d3488f76deb62bdef7bea6026f22a1d25aa2a92d124414a8021fe0c174b9803e6bb5fad75e186a946a17280770f1243f4387446ccceb2222a965cc30b3929L
+def egcd(a, b):
+  if a == 0:
+    return (b, 0, 1)
+  else:
+    g, y, x = egcd(b % a, a)
+    return (g, x - (b // a) * y, y)
+fo1 = open(&#39;flag.enc1&#39;, &#39;rb&#39;)
+fo2 = open(&#39;flag.enc2&#39;, &#39;rb&#39;)
+datafo1 = fo1.read()
+c1 = s2n(datafo1)
+fo1.close()
+datafo2 = fo2.read()
+c2 = s2n(datafo2)
+fo2.close()
+c2 = invert(c2,n)
+e1 = 17
+e2 = 65537
+s = egcd(e1,e2)
+s1 = s[1]
+s2 = s[2]
+s2 = - s2
+m = pow(c1, s1, n) * pow(c2, s2, n) % n
+print n2s(m)
+</code></pre>
 <h4 id="Extremely-hard-RSA"><a href="#Extremely-hard-RSA" class="headerlink" title="Extremely hard RSA"></a>Extremely hard RSA</h4><p>解pubkey.pem发现N特别大，但e=3,可以进行低加密指数攻击<br>在RSA中e也称为加密指数。由于e是可以随意选取的，选取小一点的e可以缩短加密时间，但是选取不当的话，就会造成安全问题。</p>
 <p>当e=3时，如果明文过小，导致明文的三次方仍然小于n，那么通过直接对密文三次开方，即可得到明文。<br>即：c ≡ me mod n</p>
 <p>如果e=3，且me &lt; n,<br>那么：c = me , e=3</p>
 <p>如果明文的三次方比n大，但是不是足够大，那么设k，<br>有：c ≡ me +kn<br>爆破k,如果c−kn能开三次根式，那么可以直接得到明文。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> s2n,n2s</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> iroot</span><br><span class="line">n=<span class="number">0xB0BEE5E3E9E5A7E8D00B493355C618FC8C7D7D03B82E409951C182F398DEE3104580E7BA70D383AE5311475656E8A964D380CB157F48C951ADFA65DB0B122CA40E42FA709189B719A4F0D746E2F6069BAF11CEBD650F14B93C977352FD13B1EEA6D6E1DA775502ABFF89D3A8B3615FD0DB49B88A976BC20568489284E181F6F11E270891C8EF80017BAD238E363039A458470F1749101BC29949D3A4F4038D463938851579C7525A69984F15B5667F34209B70EB261136947FA123E549DFFF00601883AFD936FE411E006E4E93D1A00B0FEA541BBFC8C5186CB6220503A94B2413110D640C77EA54BA3220FC8F4CC6CE77151E29B3E06578C478BD1BEBE04589EF9A197F6F806DB8B3ECD826CAD24F5324CCDEC6E8FEAD2C2150068602C8DCDC59402CCAC9424B790048CCDD9327068095EFA010B7F196C74BA8C37B128F9E1411751633F78B7B9E56F71F77A1B4DAAD3FC54B5E7EF935D9A72FB176759765522B4BBC02E314D5C06B64D5054B7B096C601236E6CCF45B5E611C805D335DBAB0C35D226CC208D8CE4736BA39A0354426FAE006C7FE52D5267DCFB9C3884F51FDDFDF4A9794BCFE0E1557113749E6C8EF421DBA263AFF68739CE00ED80FD0022EF92D3488F76DEB62BDEF7BEA6026F22A1D25AA2A92D124414A8021FE0C174B9803E6BB5FAD75E186A946A17280770F1243F4387446CCCEB2222A965CC30B3929</span></span><br><span class="line">e = <span class="number">3</span></span><br><span class="line">f = open(<span class="string">'flag.enc'</span>,<span class="string">'rb'</span>)</span><br><span class="line">c= f.read()</span><br><span class="line">c = s2n(c)</span><br><span class="line">f.close()</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    res = iroot(c+i*n,<span class="number">3</span>)</span><br><span class="line">    <span class="keyword">if</span>(res[<span class="number">1</span>] == <span class="keyword">True</span>):</span><br><span class="line">        <span class="keyword">print</span> res</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"i="</span>+str(i)</span><br><span class="line">    i = i+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">m=<span class="number">440721643740967258786371951429849843897639673893942371730874939742481383302887786063966117819631425015196093856646526738786745933078032806737504580146717737115929461581126895844008044713461807791172016433647699394456368658396746134702627548155069403689581548233891848149612485605022294307233116137509171389596747894529765156771462793389236431942344003532140158865426896855377113878133478689191912682550117563858186</span></span><br><span class="line"><span class="keyword">print</span> n2s(m)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">from libnum import s2n,n2s
+from gmpy2 import iroot
+n=0xB0BEE5E3E9E5A7E8D00B493355C618FC8C7D7D03B82E409951C182F398DEE3104580E7BA70D383AE5311475656E8A964D380CB157F48C951ADFA65DB0B122CA40E42FA709189B719A4F0D746E2F6069BAF11CEBD650F14B93C977352FD13B1EEA6D6E1DA775502ABFF89D3A8B3615FD0DB49B88A976BC20568489284E181F6F11E270891C8EF80017BAD238E363039A458470F1749101BC29949D3A4F4038D463938851579C7525A69984F15B5667F34209B70EB261136947FA123E549DFFF00601883AFD936FE411E006E4E93D1A00B0FEA541BBFC8C5186CB6220503A94B2413110D640C77EA54BA3220FC8F4CC6CE77151E29B3E06578C478BD1BEBE04589EF9A197F6F806DB8B3ECD826CAD24F5324CCDEC6E8FEAD2C2150068602C8DCDC59402CCAC9424B790048CCDD9327068095EFA010B7F196C74BA8C37B128F9E1411751633F78B7B9E56F71F77A1B4DAAD3FC54B5E7EF935D9A72FB176759765522B4BBC02E314D5C06B64D5054B7B096C601236E6CCF45B5E611C805D335DBAB0C35D226CC208D8CE4736BA39A0354426FAE006C7FE52D5267DCFB9C3884F51FDDFDF4A9794BCFE0E1557113749E6C8EF421DBA263AFF68739CE00ED80FD0022EF92D3488F76DEB62BDEF7BEA6026F22A1D25AA2A92D124414A8021FE0C174B9803E6BB5FAD75E186A946A17280770F1243F4387446CCCEB2222A965CC30B3929
+e = 3
+f = open(&#39;flag.enc&#39;,&#39;rb&#39;)
+c= f.read()
+c = s2n(c)
+f.close()
+i = 0
+while 1:
+    res = iroot(c+i*n,3)
+    if(res[1] == True):
+        print res
+        break
+    print &quot;i=&quot;+str(i)
+    i = i+1
+
+m=440721643740967258786371951429849843897639673893942371730874939742481383302887786063966117819631425015196093856646526738786745933078032806737504580146717737115929461581126895844008044713461807791172016433647699394456368658396746134702627548155069403689581548233891848149612485605022294307233116137509171389596747894529765156771462793389236431942344003532140158865426896855377113878133478689191912682550117563858186
+print n2s(m)
+</code></pre>
 <h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html</a></p>
 <p><a href="http://bobao.360.cn/learning/detail/3058.html" target="_blank" rel="noopener">http://bobao.360.cn/learning/detail/3058.html</a></p>
