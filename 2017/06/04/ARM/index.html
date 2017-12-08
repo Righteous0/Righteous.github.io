@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Righteous" />
+
+
+
+<meta name="description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7  2)分组寄存器:R8~812       R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。       R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数">
+<meta name="keywords" content="Foundation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARM(一)">
+<meta property="og:url" content="http://pwnable.me/2017/06/04/ARM/index.html">
+<meta property="og:site_name" content="Righteous">
+<meta property="og:description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7  2)分组寄存器:R8~812       R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。       R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数">
+<meta property="og:image" content="http://pwnable.me/images/arm/arm1.png">
+<meta property="og:updated_time" content="2017-06-04T05:18:54.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ARM(一)">
+<meta name="twitter:description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7  2)分组寄存器:R8~812       R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。       R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数">
+<meta name="twitter:image" content="http://pwnable.me/images/arm/arm1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Righteous" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favi.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>ARM(一) | Righteous</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/asd.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Righteous</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/15098838562@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/Righteous0/righteous0.github.io" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foundation/">Foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/">RSA</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.venenof.com">Veneno</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://bestwing.me">Swing</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.saltl.com">Salt</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Pwn me:)</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Righteous</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/asd.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Righteous</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/15098838562@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Righteous0/righteous0.github.io" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="[layout]-ARM" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/04/ARM/" class="article-date">
+      <time datetime="2017-06-04T05:02:53.000Z" itemprop="datePublished">2017-06-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ARM(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Foundation/">Foundation</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="ARM寄存器"><a href="#ARM寄存器" class="headerlink" title="ARM寄存器"></a>ARM寄存器</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><pre><code>1)未分组寄存器:R0~R7 
+2)分组寄存器:R8~812 
+     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
+     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
+     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
+</code></pre><a id="more"></a>
+<h2 id="状态寄存器"><a href="#状态寄存器" class="headerlink" title="状态寄存器"></a>状态寄存器</h2><pre><code>CPSR(R16):当前程序状态寄存器，用来保存ALU中的当前操作信息，控制允许和禁止中断、设置处理器的工作模式等。 
+SPSRs:五个备份的程序状态寄存器，用来进行异常处理。当异常发生时，SPSR用于保存CPSR的当前值，从异常退出时可由SPSR来恢复CPSR。
+
+N、Z、C、V均为条件码标志位，他们的内容可被运算的结果所改变。
+N:正负标志，N=1表示运算的结果为负，N=0表示运算的结果为正或0
+Z:零标志，Z=1表示运算的结果为0，Z=0表示运算的结果为非0
+C:进位标志，加法运算产生了进位时则C=1，否则C=0
+  借位标志，减肥运算产生了借位则C=0，否则C=1
+V:溢出标志，V=1表示有溢出，V=0表示无溢出
+</code></pre><h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><pre><code>程序正常执行时，每执行一条ARM指令，当前指令计数器增加4个字节。
+</code></pre><hr>
+<h1 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h1><h2 id="汇编指令格式"><a href="#汇编指令格式" class="headerlink" title="汇编指令格式"></a>汇编指令格式</h2><pre><code>&lt;opcode&gt;{&lt;cond&gt;}{S}&lt;Rd&gt;,&lt;Rn&gt;{,&lt;OP2&gt;} 
+格式中&lt;&gt;的内容必不可少，{}中的内容可省略 
+&lt;opcode&gt;:表示操作码，如ADD表示算术加法 
+{&lt;cond&gt;}:表示指令执行的条件域，如EQ、NE等。 
+{S}:决定指令的执行结果是否影响CPSR的值，使用该后缀则指令执行的结果影响CPSR的值，否则不影响 
+&lt;Rd&gt;:表示目的寄存器 
+&lt;Rn&gt;:表示第一个操作数，为寄存器 
+&lt;op2&gt;:表示第二个操作数，可以是立即数、寄存器或寄存器移位操作数 
+例:ADDEQS R0,R1,#8;其中操作码为ADD,条件域cond为EQ,S表示该指令的执行影响CPSR寄存器的值，目的寄存器Rd为R0,第一个操作数寄存器Rd为R1，第二个操作数OP2为立即数#8
+</code></pre><h2 id="指令的可选后缀"><a href="#指令的可选后缀" class="headerlink" title="指令的可选后缀"></a>指令的可选后缀</h2><pre><code>S：指令执行后程序状态寄存器的条件标志位将被刷新     
+   ADDS R1,R0,#2 
+!:指令中的地址表达式中含有!后缀时，指令执行后，基址寄存器中的地址值将发生变化，变化的结果是：基址寄存器中的值(指令执行后)=指令执行前的值 + 地址偏移量    
+   LDR R3,[R0,#2]!    指令执行后，R0 = R0 + 2
+</code></pre><h2 id="指令的条件执行"><a href="#指令的条件执行" class="headerlink" title="指令的条件执行"></a>指令的条件执行</h2><p>指令的条件后缀只是影响指令是否执行，不影响指令的内容</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">条件码	助记符后缀       标志	                  含义</div><div class="line"><span class="number">0000</span>	EQ	       Z置位	                  相等</div><div class="line"><span class="number">0001</span>	NE	       Z清零	                  不相等</div><div class="line"><span class="number">0010</span>	CS	       C指令	                  无符号数大于或等于</div><div class="line"><span class="number">0011</span>	CC	       C清零	                  无符号数小于</div><div class="line"><span class="number">0100</span>	MI	       N置位	                  负数</div><div class="line"><span class="number">0101</span>	PL	       N清零	                  正数或零</div><div class="line"><span class="number">0110</span>	VS	       V置位	                  溢出</div><div class="line"><span class="number">0111</span>	VC	       V清零	                  未溢出</div><div class="line"><span class="number">1000</span>	HI	       C置位Z清零               无符号数大于</div><div class="line"><span class="number">1001</span>	LS	       C清零Z置位               无符号数小于或等于</div><div class="line"><span class="number">1010</span>	GE	       N等于V	                  带符号数大于或等于</div><div class="line"><span class="number">1011</span>	LT	       N不等于V	              带符号数小于</div><div class="line"><span class="number">1100</span>	GT	       Z清零且(N等于V)           带符号数大于</div><div class="line"><span class="number">1101</span>	LE	       Z置位或(N不等于V)         带符号数小于或等于</div><div class="line"><span class="number">1110</span>	AL	       忽略	                  无条件执行</div></pre></td></tr></table></figure>
+<p>例：ADDEQ R4,R3,#1 相等则相加，即CPSR中Z置位时该指令执行，否则不执行。</p>
+<h2 id="ARM指令分类"><a href="#ARM指令分类" class="headerlink" title="ARM指令分类"></a>ARM指令分类</h2><p><img src="/images/arm/arm1.png" alt=""></p>
+<h2 id="ARM寻址方式"><a href="#ARM寻址方式" class="headerlink" title="ARM寻址方式"></a>ARM寻址方式</h2><p>寻址方式就是根据指令中操作数的信息来寻找操作数实际物理地址的方式<br>a.立即数寻址</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">MOV</span> <span class="built_in">R0</span>,<span class="meta">#15       #15就是立即数</span></div></pre></td></tr></table></figure>
+<p>b.寄存器寻址</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD </span><span class="built_in">R0</span>, <span class="built_in">R1</span>, <span class="built_in">R2</span>    将<span class="built_in">R1</span>和<span class="built_in">R2</span>的内容相加，其结果存放在寄存器<span class="built_in">R0</span>中</div></pre></td></tr></table></figure>
+<p>c.寄存器间接寻址</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>, [<span class="built_in">R4</span>]      以寄存器<span class="built_in">R4</span>的值作为操作数的地址，在存储器中取得一个操作数存入寄存器<span class="built_in">R0</span>中</div></pre></td></tr></table></figure>
+<p>d.寄存器移位寻址</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="keyword">LSL </span><span class="number">#1</span>    将<span class="built_in">R2</span>的值左移一位，所得值与<span class="built_in">R1</span>相加，存放到<span class="built_in">R0</span>中</div><div class="line"><span class="keyword">MOV </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="keyword">LSL </span><span class="built_in">R3</span>       将<span class="built_in">R1</span>的值左移<span class="built_in">R3</span>位，然后将结果存放到<span class="built_in">R0</span>中</div></pre></td></tr></table></figure>
+<p>e.基址变址寻址</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="number">#4</span>]    将<span class="built_in">R1</span>的值加<span class="number">4</span>作为操作数的地址，在存储器中取得操作数放入<span class="built_in">R0</span>中</div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="number">#4</span>]!   将<span class="built_in">R1</span>的值加<span class="number">4</span>作为操作数的地址，在存储器中取得操作数放入<span class="built_in">R0</span>中,然后<span class="built_in">R1</span> = <span class="built_in">R1</span>+<span class="number">4</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>],<span class="number">#4</span>    <span class="built_in">R0</span> = [<span class="built_in">R1</span>],<span class="built_in">R1</span> = <span class="built_in">R1</span> +<span class="number">4</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="built_in">R2</span>]    <span class="built_in">R0</span> = [<span class="built_in">R1</span>+<span class="built_in">R2</span>]</div></pre></td></tr></table></figure>
+<p>f.多寄存器寻址</p>
+<p>一条指令可以完成多个寄存器值的传送(最多可传送16个通用寄存器)，连续的寄存器用“-”，否则用“，”</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LDMIA </span><span class="built_in">R0</span>!,&#123;<span class="built_in">R1</span> - <span class="built_in">R4</span>&#125;   <span class="built_in">R1</span> = [<span class="built_in">R0</span>],<span class="built_in">R2</span>=[<span class="built_in">R0</span>+<span class="number">4</span>],<span class="built_in">R3</span>=[<span class="built_in">R0</span>+<span class="number">8</span>],<span class="built_in">R4</span>=[<span class="built_in">R0</span>+<span class="number">12</span>]</div></pre></td></tr></table></figure>
+<p>后缀IA表示在每次执行玩加载/存储操作后，R0按自长度增加。<br>g.相对寻址</p>
+<p>以程序计数器PC的当前值为基地址，指令中的地址标号作为偏移量，将两者相加之后得到操作数的有效地址，如下图的BL分支跳转</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">     <span class="keyword">BL </span><span class="meta">proc</span>        跳转到子程序<span class="meta">proc</span>处执行</div><div class="line">     ...</div><div class="line"><span class="symbol">proc</span> <span class="keyword">MOV </span><span class="built_in">R0</span>,<span class="number">#1</span></div><div class="line">     ...</div></pre></td></tr></table></figure>
+<p>h.堆栈寻址</p>
+<p>按先进先出的方式工作，堆栈指针用R13表示，总是指向栈顶，LDMFD和STMFD分别表示POP出栈和PUSH进栈</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">STMFD </span><span class="built_in">R13</span>!,&#123;<span class="built_in">R0</span> - <span class="built_in">R4</span>&#125;<span class="comment">;</span></div><div class="line"><span class="keyword">LDMFD </span><span class="built_in">R13</span>!,&#123;<span class="built_in">R0</span> - <span class="built_in">R4</span>&#125;<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="数据处理指令"><a href="#数据处理指令" class="headerlink" title="数据处理指令"></a>数据处理指令</h2><p>a. MOV指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">MOV </span>&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,op2          将op2传给Rd</div><div class="line"><span class="keyword">MOV </span><span class="built_in">R1</span>, <span class="built_in">R0</span>                      将寄存器<span class="built_in">R0</span>的值传到寄存器<span class="built_in">R1</span></div><div class="line"><span class="keyword">MOV </span><span class="built_in">PC</span>,<span class="built_in">R14</span>                      将寄存器<span class="built_in">R14</span>的值传到<span class="built_in">PC</span>，常用于子程序返回</div><div class="line"><span class="keyword">MOV </span><span class="built_in">R1</span>,<span class="built_in">R0</span>,<span class="keyword">LSL </span><span class="number">#3</span>                将寄存器<span class="built_in">R0</span>的值左移<span class="number">3</span>位后传给<span class="built_in">R1</span></div><div class="line"><span class="keyword">MOV </span><span class="built_in">R0</span>,<span class="number">#5</span>                       将立即数<span class="number">5</span>传给<span class="built_in">R0</span></div></pre></td></tr></table></figure>
+<p>b. MVN指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">MVN </span>&#123;&lt;cond&gt;&#125;&#123;S&#125;Rd, op2          将op2取反传给Rd</div><div class="line"><span class="keyword">MVN </span><span class="built_in">R0</span>,<span class="number">#0</span>                       将<span class="number">0</span>取反后传给<span class="built_in">R0</span>，<span class="built_in">R0</span> = -<span class="number">1</span></div><div class="line"><span class="keyword">MVN </span><span class="built_in">R1</span>,<span class="built_in">R2</span>                       将<span class="built_in">R2</span>取反，结果保存到<span class="built_in">R1</span></div></pre></td></tr></table></figure>
+<p>c. 移位指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LSL </span>逻辑左移</div><div class="line"><span class="keyword">LSR </span>逻辑右移</div><div class="line"><span class="keyword">ASR </span>算术右移</div><div class="line"><span class="keyword">ROR </span>循环右移</div><div class="line"><span class="keyword">RRX </span>带扩展的循环右移</div></pre></td></tr></table></figure>
+<p>d. ADD加法指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD&#123;&lt;cond&gt;&#125;&#123;S&#125;Rd, </span>Rn, op2</div><div class="line"><span class="keyword">ADD </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>            <span class="built_in">R0</span> = <span class="built_in">R1</span> + <span class="built_in">R2</span></div><div class="line"><span class="keyword">ADD </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="number">#5</span>            <span class="built_in">R0</span> = <span class="built_in">R1</span> + <span class="number">5</span></div><div class="line"><span class="keyword">ADD </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="keyword">LSL </span><span class="number">#2</span>     <span class="built_in">R0</span> = <span class="built_in">R1</span> + (<span class="built_in">R2</span>左移<span class="number">2</span>位)</div></pre></td></tr></table></figure>
+<p>e. ADC带进位加法指令</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADC</span>&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和操作数op2相加，再加上CPSR中C条件标志位的值，并将结果保存到Rd中</div><div class="line">例：用<span class="keyword">ADC</span>完成<span class="number">64</span>位加法，设第一个<span class="number">64</span>位操作数保存在<span class="built_in">R2</span>,<span class="built_in">R3</span>中，第二个<span class="number">64</span>位操作数放在<span class="built_in">R4</span>,<span class="built_in">R5</span>中，结果保存在<span class="built_in">R0</span>,<span class="built_in">R1</span>中</div><div class="line">ADDS <span class="built_in">R0</span>,<span class="built_in">R2</span>,<span class="built_in">R4</span>               低<span class="number">32</span>位相加，产生进位</div><div class="line"><span class="keyword">ADC</span> <span class="built_in">R1</span>,<span class="built_in">R3</span>,<span class="built_in">R5</span>                高<span class="number">32</span>位相加，加上进位</div></pre></td></tr></table></figure>
+<p>f. SUB减法指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SUB&#123;&lt;cond&gt;&#125;&#123;S&#125; </span>Rd,Rn,op2    Rd = Rn - op2</div><div class="line"><span class="keyword">SUB </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>                <span class="built_in">R0</span> = <span class="built_in">R1</span> - <span class="built_in">R2</span></div><div class="line"><span class="keyword">SUB </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="number">#6</span>                <span class="built_in">R0</span> = <span class="built_in">R1</span> -<span class="number">6</span></div><div class="line"><span class="keyword">SUB </span><span class="built_in">R0</span>,<span class="built_in">R2</span>,<span class="built_in">R3</span>,<span class="keyword">LSL </span><span class="number">#1</span>         <span class="built_in">R0</span> = <span class="built_in">R2</span> - (<span class="built_in">R3</span>左移<span class="number">1</span>位)</div></pre></td></tr></table></figure>
+<p>g. SBC带借位减法指令</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SBC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    把Rn的值减去操作数op2，再减去CPSR中的<span class="keyword">C</span>标志位的反码，并将结果保存到Rd中，Rd = Rn - op2 - !<span class="keyword">C</span></div></pre></td></tr></table></figure>
+<p>例:用SBC完成64位减法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SUBS </span><span class="built_in">R0</span>,<span class="built_in">R2</span>,<span class="built_in">R4</span>       低<span class="number">32</span>位相减，S影响<span class="keyword">CPSR</span></div><div class="line"><span class="keyword">SBC </span><span class="built_in">R1</span>,<span class="built_in">R3</span>,<span class="built_in">R5</span>        高<span class="number">32</span>位相减，去除C的反码</div></pre></td></tr></table></figure>
+<p>h. RSC带借位的逆向减法指令</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RSC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    把操作数op2减去Rn，再减去CPSR中的<span class="keyword">C</span>标志位的反码，并将结果保存到Rd中，Rd = op2 - Rn - !<span class="keyword">C</span></div></pre></td></tr></table></figure>
+<p>i. 逻辑运算指令</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AND&#123;&lt;cond&gt;&#125;&#123;S&#125; <span class="built_in">Rd</span>,Rn,op2    按位与，<span class="built_in">Rd</span> = Rn AND op2</div><div class="line">ORR&#123;&lt;cond&gt;&#125;&#123;S&#125; <span class="built_in">Rd</span>,Rn,op2    按位或，<span class="built_in">Rd</span> = Rn OR op2</div><div class="line">EOR&#123;&lt;cond&gt;&#125;&#123;S&#125; <span class="built_in">Rd</span>,Rn,op2    按位异或，<span class="built_in">Rd</span> = Rn EOR op2</div></pre></td></tr></table></figure>
+<p>j. CMP比较指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CMP&#123;&lt;cond&gt;&#125;&#123;S&#125; </span>Rd,Rn,op2    将Rn的值和op2进行比较，同时更新<span class="keyword">CPSR中条件标志位的值(实际上是执行一次减法，但不存储结果)，当操作数Rn大于op2时，则此后带有GT后缀的指令将可以执行(根据相应的指令判断是否执行，如GT,LT等)。</span></div><div class="line"><span class="keyword">CMP </span><span class="built_in">R1</span>,<span class="number">#10</span>                  比较<span class="built_in">R1</span>和<span class="number">10</span>，并设置<span class="keyword">CPSR的标志位</span></div><div class="line"><span class="keyword">ADDGT </span><span class="built_in">R0</span>,<span class="built_in">R0</span>,<span class="number">#5</span>              如果<span class="built_in">R1</span>&gt;<span class="number">10</span>,则执行<span class="keyword">ADDGT指令，将R0加5</span></div></pre></td></tr></table></figure>
+<p>k. CMN反值比较指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CMN&#123;&lt;cond&gt;&#125;&#123;S&#125; </span>Rd,Rn,op2    将Rn的值和op2取反后进行比较，同时更新<span class="keyword">CPSR中条件标志位的值(实际上将Rn和op2相加)，后面的指令就可以根据条件标志位决定是否执行。 </span> </div><div class="line"><span class="keyword">CMN </span><span class="built_in">R0</span>,<span class="built_in">R1</span>       将<span class="built_in">R0</span>和<span class="built_in">R1</span>相加，并设置<span class="keyword">CPSR的值</span></div></pre></td></tr></table></figure>
+<p>l. MUL/MLA/SMULL/SMLAL/UMULL/UMLAL乘法指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">MUL </span>    <span class="number">32</span>位乘法指令</div><div class="line"><span class="keyword">MLA </span>    <span class="number">32</span>位乘加指令</div><div class="line"><span class="keyword">SMULL </span>  <span class="number">64</span>位有符号数乘法指令</div><div class="line"><span class="symbol">SMLAL</span>   <span class="number">64</span>位有符号数乘加指令</div><div class="line"><span class="keyword">UMULL </span>  <span class="number">64</span>位无符号数乘法指令</div><div class="line"><span class="symbol">UMLAL</span>   <span class="number">64</span>位无符号数乘加指令</div><div class="line"><span class="keyword">MUL&#123;&lt;cond&gt;&#125;&#123;S&#125; </span>Rd,Rm,Rs         Rd = Rm * Rs</div><div class="line"><span class="keyword">MULS </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span></div><div class="line"><span class="keyword">MLA&#123;&lt;cond&gt;&#125;&#123;S&#125; </span>Rd,Rm,Rs,Rn      Rd = (Rm * Rs) + Rn</div><div class="line"><span class="keyword">MLAS </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="built_in">R3</span></div></pre></td></tr></table></figure>
+<h2 id="数据加载与存储指令"><a href="#数据加载与存储指令" class="headerlink" title="数据加载与存储指令"></a>数据加载与存储指令</h2><p>![][(/images/arm/arm2.png)</p>
+<p>a. LDR/STR字数据加载/存储指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LDR/STR&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr </span>      <span class="keyword">LDR指令用于从存储器中将一个32位的字数据加载到目的寄存器Rd中，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span></div><div class="line"><span class="keyword">STR指令用于从源寄存器中将一个32位的字数据存储到存储器中，和LDR相反。后缀T可选。</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R4</span>,START            将存储地址为START的字数据读入<span class="built_in">R4</span></div><div class="line"><span class="keyword">STR </span><span class="built_in">R5</span>,DATA1            将<span class="built_in">R5</span>存入存储地址为DATA1中</div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>]             将存储器地址为<span class="built_in">R1</span>的字数据读入存储器<span class="built_in">R0</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="built_in">R2</span>]          将存储器地址为<span class="built_in">R1</span>+<span class="built_in">R2</span>的字数据读入存储器<span class="built_in">R0</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="number">#8</span>]          将存储器地址为<span class="built_in">R1</span>+<span class="number">8</span>的字数据读入存储器<span class="built_in">R0</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="keyword">LSL </span><span class="number">#2</span>]   将存储器地址为<span class="built_in">R1</span>+<span class="built_in">R2</span>*<span class="number">4</span>的字数据读入存储区<span class="built_in">R0</span></div><div class="line"><span class="keyword">STR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="built_in">R2</span>]!         将<span class="built_in">R0</span>字数据存入存储器地址<span class="built_in">R1</span>+<span class="built_in">R2</span>的存储单元中，并将新地址<span class="built_in">R2</span>+<span class="built_in">R2</span>写入<span class="built_in">R2</span></div><div class="line"><span class="keyword">STR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="number">#8</span>]!         将<span class="built_in">R0</span>字数据存入存储器地址<span class="built_in">R1</span>+<span class="number">8</span>的存储单元中，并将新地址<span class="built_in">R2</span>+<span class="number">8</span>写入<span class="built_in">R2</span></div><div class="line"><span class="keyword">STR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="keyword">LSL </span><span class="number">#2</span>]   将<span class="built_in">R0</span>字数据存入存储器地址<span class="built_in">R1</span>+<span class="built_in">R2</span>*<span class="number">4</span>的存储单元中，并将新地址<span class="built_in">R2</span>+<span class="built_in">R2</span>*<span class="number">4</span>写入<span class="built_in">R1</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>],<span class="number">#8</span>          将存储器地址为<span class="built_in">R1</span>的字数据读入寄存器<span class="built_in">R0</span>，并将新地址<span class="built_in">R1</span>+<span class="number">8</span>写入<span class="built_in">R1</span>  </div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>],<span class="built_in">R2</span>          将存储器地址为<span class="built_in">R1</span>的字数据读入寄存器<span class="built_in">R0</span>，并将新地址<span class="built_in">R1</span>+<span class="built_in">R2</span>写入<span class="built_in">R1</span></div><div class="line"><span class="keyword">LDR </span><span class="built_in">R0</span>,[<span class="built_in">R1</span>],<span class="built_in">R2</span>,<span class="keyword">LSL </span><span class="number">#2</span>   将存储器地址为<span class="built_in">R1</span>的字数据读入寄存器<span class="built_in">R0</span>，并将新地址<span class="built_in">R1</span>+<span class="built_in">R2</span>*<span class="number">4</span>写入<span class="built_in">R1</span></div></pre></td></tr></table></figure>
+<p>b. LDRB/STRB字节数据加载/存储指令</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LDRB/STRB&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr         </div><div class="line">LDRB指令用于从存储器中将一个<span class="number">8</span>位的字节数据加载到目的寄存器中，同时将寄存器的高<span class="number">24</span>位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</div><div class="line">STRB指令用于从源寄存器中将一个<span class="number">8</span>位的字节数据存储到存储器中，和LDRB相反。后缀T可选。</div></pre></td></tr></table></figure>
+<p>c. LDRH/STRH半字数据加载/存储指令</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LDRH/STRH&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr         </div><div class="line">LDRH指令用于从存储器中将一个<span class="number">16</span>位的半字数据加载到目的寄存器中，同时将寄存器的高<span class="number">16</span>位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</div><div class="line">STRH指令用于从源寄存器中将一个<span class="number">16</span>位的半字数据存储到存储器中，和LDRH相反。后缀T可选。</div></pre></td></tr></table></figure>
+<p>d. LDM/STM批量数据加载/存储指令</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml">LDM/STM</span><span class="template-variable">&#123;&lt;cond&gt;&#125;</span><span class="xml"></span><span class="template-variable">&#123;&lt;type&gt;&#125;</span><span class="xml">Rn</span><span class="template-variable">&#123;!&#125;</span><span class="xml">,<span class="tag">&lt;<span class="name">regs</span>&gt;</span></span><span class="template-variable">&#123;^&#125;</span><span class="xml">      </span></div><div class="line">LDM用于从基址寄存器所指示的一片连续存储器中读取数据到寄存器列表所指向的多个寄存器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器由寄存器列表regs表示，该指令一般用于多个寄存器数据的出栈操作</div><div class="line">STM用于将寄存器列表所指向的多个寄存器中的值存入由基址寄存器所指向的一片连续存储器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器又寄存器列表regs表示。该指令一般用于多个寄存器数据的进栈操作。</div></pre></td></tr></table></figure>
+<p>type表示类型，用于数据的存储与读取有以下几种情况：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IA：每次传送后地址值加。</div><div class="line">IB：每次传送前地址值加。</div><div class="line"><span class="symbol">DA:</span> 每次传送后地址值减。</div><div class="line"><span class="symbol">DB:</span> 每次传送前地址值减。</div></pre></td></tr></table></figure>
+<p>用于堆栈操作时有如下几种情况：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">FD:</span>满递减堆栈</div><div class="line"><span class="symbol">ED:</span>空递减堆栈</div><div class="line"><span class="symbol">FA:</span>满递增堆栈</div><div class="line"><span class="symbol">EA:</span>空递增堆栈</div></pre></td></tr></table></figure>
+<p>e. SWP字数据交换指令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SWP&#123;&lt;cond&gt;&#125;&lt;Rd&gt;,&lt;Rm&gt;,[&lt;Rn&gt;] </span>    Rd = [Rn],[Rn] = Rm,当寄存器Rm和目的寄存器Rd为同一个寄存器时，指令交换该急促亲和存储器的内容</div><div class="line"><span class="keyword">SWP </span><span class="built_in">R0</span>,<span class="built_in">R1</span>,[<span class="built_in">R2</span>]                  <span class="built_in">R0</span> = [<span class="built_in">R2</span>],[<span class="built_in">R2</span>] = <span class="built_in">R1</span></div><div class="line"><span class="keyword">SWP </span><span class="built_in">R0</span>,<span class="built_in">R0</span>,[<span class="built_in">R1</span>]                  <span class="built_in">R0</span> = [<span class="built_in">R1</span>],[<span class="built_in">R1</span>] = <span class="built_in">R0</span></div><div class="line"><span class="keyword">SWPB指令用于将寄存器Rn指向的存储器中的字节数据加载到目的寄存器Rd中，目的寄存器的高24位清零，同时将Rm中的字数据存储到Rn指向的存储器中。</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/04/ARM/">ARM(一)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Righteous</a></p>
+        <p><span>发布时间:</span>2017-06-04, 13:02:53</p>
+        <p><span>最后更新:</span>2017-06-04, 13:18:54</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/04/ARM/" title="ARM(一)">http://pwnable.me/2017/06/04/ARM/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pwnable.me/2017/06/04/ARM/　　作者: Righteous" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/03/汇编/">
+                    汇编
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ARM寄存器"><span class="toc-number">1.</span> <span class="toc-text">ARM寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用寄存器"><span class="toc-number">1.1.</span> <span class="toc-text">通用寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态寄存器"><span class="toc-number">1.2.</span> <span class="toc-text">状态寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地址空间"><span class="toc-number">1.3.</span> <span class="toc-text">地址空间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#汇编语言"><span class="toc-number">2.</span> <span class="toc-text">汇编语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令格式"><span class="toc-number">2.1.</span> <span class="toc-text">汇编指令格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令的可选后缀"><span class="toc-number">2.2.</span> <span class="toc-text">指令的可选后缀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令的条件执行"><span class="toc-number">2.3.</span> <span class="toc-text">指令的条件执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARM指令分类"><span class="toc-number">2.4.</span> <span class="toc-text">ARM指令分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARM寻址方式"><span class="toc-number">2.5.</span> <span class="toc-text">ARM寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据处理指令"><span class="toc-number">2.6.</span> <span class="toc-text">数据处理指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据加载与存储指令"><span class="toc-number">2.7.</span> <span class="toc-text">数据加载与存储指令</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"ARM(一)　| Righteous　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://pwnable.me/2017/06/04/ARM/';
+            this.page.identifier = '2017/06/04/ARM/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//null.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/03/汇编/" title="下一篇: 汇编">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/04/ARM/">ARM(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/03/汇编/">汇编</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/RSA/">RSA</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 Righteous
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

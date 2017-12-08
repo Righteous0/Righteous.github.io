@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            汇编 | 
+        
+        Righteous
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="汇编汇编语言（assembly language）是一种用于电子计算机、微处理器、微控制器或其他可编程器件的低级语言，亦称为符号语言。在汇编语言中，用助记符（Mnemonics）代替机器指令的操作码，用地址符号（Symbol）或标号（Label）代替指令或操作数的地址。在不同的设备中，汇编语言对应着不同的机器语言指令集，通过汇编过程转换成机器指令。普遍地说，特定的汇编语言和特定的机器语言指令集是一一对应的,不同平台之间不可直接移植。">
+    <meta name="keywords" content=",Foundation">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Righteous">
+    <meta name="msapplication-starturl" content="http://righte0us.cc/2017/01/03/汇编/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Righteous">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://righte0us.cc/2017/01/03/汇编/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="汇编 | Righteous">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="汇编汇编语言（assembly language）是一种用于电子计算机、微处理器、微控制器或其他可编程器件的低级语言，亦称为符号语言。在汇编语言中，用助记符（Mnemonics）代替机器指令的操作码，用地址符号（Symbol）或标号（Label）代替指令或操作数的地址。在不同的设备中，汇编语言对应着不同的机器语言指令集，通过汇编过程转换成机器指令。普遍地说，特定的汇编语言和特定的机器语言指令集是一一对应的,不同平台之间不可直接移植。">
+    <meta property="og:article:tag" content="Foundation"> 
+
+    
+        <meta property="article:published_time" content="Tue Jan 03 2017 08:58:08 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 04 2017 13:29:53 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://righte0us.cc/2017/01/03/汇编/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://righte0us.cc/2017/01/03/汇编/index.html",
+    "headline": "汇编",
+    "datePublished": "Tue Jan 03 2017 08:58:08 GMT+0800",
+    "dateModified": "Sun Jun 04 2017 13:29:53 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Righteous",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Righteous",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Foundation",
+    "description": "汇编汇编语言（assembly language）是一种用于电子计算机、微处理器、微控制器或其他可编程器件的低级语言，亦称为符号语言。在汇编语言中，用助记符（Mnemonics）代替机器指令的操作码，用地址符号（Symbol）或标号（Label）代替指令或操作数的地址。在不同的设备中，汇编语言对应着不同的机器语言指令集，通过汇编过程转换成机器指令。普遍地说，特定的汇编语言和特定的机器语言指令集是一一对应的,不同平台之间不可直接移植。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x6C47;&#x7F16;" class="headerlink" title="&#x6C47;&#x7F16;"></a>&#x6C47;&#x7F16;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寄存器"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"><a href="#&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x5BC4;&#x5B58;&#x5668;"></a>&#x5BC4;&#x5B58;&#x5668;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据寄存器"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x6570;&#x636E;&#x5BC4;&#x5B58;&#x5668;"></a>&#x6570;&#x636E;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变址寄存器"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text"><a href="#&#x53D8;&#x5740;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x53D8;&#x5740;&#x5BC4;&#x5B58;&#x5668;"></a>&#x53D8;&#x5740;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针寄存器"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text"><a href="#&#x6307;&#x9488;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x6307;&#x9488;&#x5BC4;&#x5B58;&#x5668;"></a>&#x6307;&#x9488;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#段寄存器"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text"><a href="#&#x6BB5;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x6BB5;&#x5BC4;&#x5B58;&#x5668;"></a>&#x6BB5;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令指针寄存器"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text"><a href="#&#x6307;&#x4EE4;&#x6307;&#x9488;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x6307;&#x4EE4;&#x6307;&#x9488;&#x5BC4;&#x5B58;&#x5668;"></a>&#x6307;&#x4EE4;&#x6307;&#x9488;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标志寄存器"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text"><a href="#&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;"></a>&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运算结果标志位"><span class="post-toc-number">1.1.6.1.</span> <span class="post-toc-text"><a href="#&#x8FD0;&#x7B97;&#x7ED3;&#x679C;&#x6807;&#x5FD7;&#x4F4D;" class="headerlink" title="&#x8FD0;&#x7B97;&#x7ED3;&#x679C;&#x6807;&#x5FD7;&#x4F4D;"></a>&#x8FD0;&#x7B97;&#x7ED3;&#x679C;&#x6807;&#x5FD7;&#x4F4D;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#状态控制标志位"><span class="post-toc-number">1.1.6.2.</span> <span class="post-toc-text"><a href="#&#x72B6;&#x6001;&#x63A7;&#x5236;&#x6807;&#x5FD7;&#x4F4D;" class="headerlink" title="&#x72B6;&#x6001;&#x63A7;&#x5236;&#x6807;&#x5FD7;&#x4F4D;"></a>&#x72B6;&#x6001;&#x63A7;&#x5236;&#x6807;&#x5FD7;&#x4F4D;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#32位标志寄存器增加的标志位"><span class="post-toc-number">1.1.6.3.</span> <span class="post-toc-text"><a href="#32&#x4F4D;&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;&#x589E;&#x52A0;&#x7684;&#x6807;&#x5FD7;&#x4F4D;" class="headerlink" title="32&#x4F4D;&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;&#x589E;&#x52A0;&#x7684;&#x6807;&#x5FD7;&#x4F4D;"></a>32&#x4F4D;&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;&#x589E;&#x52A0;&#x7684;&#x6807;&#x5FD7;&#x4F4D;</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#内存和寻址模式"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x5185;&#x5B58;&#x548C;&#x5BFB;&#x5740;&#x6A21;&#x5F0F;" class="headerlink" title="&#x5185;&#x5B58;&#x548C;&#x5BFB;&#x5740;&#x6A21;&#x5F0F;"></a>&#x5185;&#x5B58;&#x548C;&#x5BFB;&#x5740;&#x6A21;&#x5F0F;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#声明静态数据区"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"><a href="#&#x58F0;&#x660E;&#x9759;&#x6001;&#x6570;&#x636E;&#x533A;" class="headerlink" title="&#x58F0;&#x660E;&#x9759;&#x6001;&#x6570;&#x636E;&#x533A;"></a>&#x58F0;&#x660E;&#x9759;&#x6001;&#x6570;&#x636E;&#x533A;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寻址模式"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"><a href="#&#x5BFB;&#x5740;&#x6A21;&#x5F0F;" class="headerlink" title="&#x5BFB;&#x5740;&#x6A21;&#x5F0F;"></a>&#x5BFB;&#x5740;&#x6A21;&#x5F0F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#长度规定"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"><a href="#&#x957F;&#x5EA6;&#x89C4;&#x5B9A;" class="headerlink" title="&#x957F;&#x5EA6;&#x89C4;&#x5B9A;"></a>&#x957F;&#x5EA6;&#x89C4;&#x5B9A;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编指令"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#&#x6C47;&#x7F16;&#x6307;&#x4EE4;" class="headerlink" title="&#x6C47;&#x7F16;&#x6307;&#x4EE4;"></a>&#x6C47;&#x7F16;&#x6307;&#x4EE4;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据传输指令"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x4F20;&#x8F93;&#x6307;&#x4EE4;" class="headerlink" title="&#x6570;&#x636E;&#x4F20;&#x8F93;&#x6307;&#x4EE4;"></a>&#x6570;&#x636E;&#x4F20;&#x8F93;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算数运算指令"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"><a href="#&#x7B97;&#x6570;&#x8FD0;&#x7B97;&#x6307;&#x4EE4;" class="headerlink" title="&#x7B97;&#x6570;&#x8FD0;&#x7B97;&#x6307;&#x4EE4;"></a>&#x7B97;&#x6570;&#x8FD0;&#x7B97;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑运算指令"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"><a href="#&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x6307;&#x4EE4;" class="headerlink" title="&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x6307;&#x4EE4;"></a>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#串指令"><span class="post-toc-number">3.4.</span> <span class="post-toc-text"><a href="#&#x4E32;&#x6307;&#x4EE4;" class="headerlink" title="&#x4E32;&#x6307;&#x4EE4;"></a>&#x4E32;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序转移指令"><span class="post-toc-number">3.5.</span> <span class="post-toc-text"><a href="#&#x7A0B;&#x5E8F;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;" class="headerlink" title="&#x7A0B;&#x5E8F;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;"></a>&#x7A0B;&#x5E8F;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无条件转移指令-长转移"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text"><a href="#&#x65E0;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;-&#x957F;&#x8F6C;&#x79FB;" class="headerlink" title="&#x65E0;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x6307;&#x4EE4; (&#x957F;&#x8F6C;&#x79FB;)"></a>&#x65E0;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x6307;&#x4EE4; (&#x957F;&#x8F6C;&#x79FB;)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#条件转移指令"><span class="post-toc-number">3.5.2.</span> <span class="post-toc-text"><a href="#&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;" class="headerlink" title="&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;"></a>&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环控制指令-短转移"><span class="post-toc-number">3.5.3.</span> <span class="post-toc-text"><a href="#&#x5FAA;&#x73AF;&#x63A7;&#x5236;&#x6307;&#x4EE4;-&#x77ED;&#x8F6C;&#x79FB;" class="headerlink" title="&#x5FAA;&#x73AF;&#x63A7;&#x5236;&#x6307;&#x4EE4;(&#x77ED;&#x8F6C;&#x79FB;)"></a>&#x5FAA;&#x73AF;&#x63A7;&#x5236;&#x6307;&#x4EE4;(&#x77ED;&#x8F6C;&#x79FB;)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中断指令"><span class="post-toc-number">3.5.4.</span> <span class="post-toc-text"><a href="#&#x4E2D;&#x65AD;&#x6307;&#x4EE4;" class="headerlink" title="&#x4E2D;&#x65AD;&#x6307;&#x4EE4;"></a>&#x4E2D;&#x65AD;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理器控制指令"><span class="post-toc-number">3.5.5.</span> <span class="post-toc-text"><a href="#&#x5904;&#x7406;&#x5668;&#x63A7;&#x5236;&#x6307;&#x4EE4;" class="headerlink" title="&#x5904;&#x7406;&#x5668;&#x63A7;&#x5236;&#x6307;&#x4EE4;"></a>&#x5904;&#x7406;&#x5668;&#x63A7;&#x5236;&#x6307;&#x4EE4;</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#伪指令"><span class="post-toc-number">3.6.</span> <span class="post-toc-text"><a href="#&#x4F2A;&#x6307;&#x4EE4;" class="headerlink" title="&#x4F2A;&#x6307;&#x4EE4;"></a>&#x4F2A;&#x6307;&#x4EE4;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编语法格式"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#&#x6C47;&#x7F16;&#x8BED;&#x6CD5;&#x683C;&#x5F0F;" class="headerlink" title="&#x6C47;&#x7F16;&#x8BED;&#x6CD5;&#x683C;&#x5F0F;"></a>&#x6C47;&#x7F16;&#x8BED;&#x6CD5;&#x683C;&#x5F0F;</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#64位和32位的寄存器和汇编的比较"><span class="post-toc-number">5.</span> <span class="post-toc-text"><a href="#64&#x4F4D;&#x548C;32&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x548C;&#x6C47;&#x7F16;&#x7684;&#x6BD4;&#x8F83;" class="headerlink" title="64&#x4F4D;&#x548C;32&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x548C;&#x6C47;&#x7F16;&#x7684;&#x6BD4;&#x8F83;"></a>64&#x4F4D;&#x548C;32&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x548C;&#x6C47;&#x7F16;&#x7684;&#x6BD4;&#x8F83;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#64位寄存器分配的不同"><span class="post-toc-number">5.1.</span> <span class="post-toc-text"><a href="#64&#x4F4D;&#x5BC4;&#x5B58;&#x5668;&#x5206;&#x914D;&#x7684;&#x4E0D;&#x540C;" class="headerlink" title="64&#x4F4D;&#x5BC4;&#x5B58;&#x5668;&#x5206;&#x914D;&#x7684;&#x4E0D;&#x540C;:"></a>64&#x4F4D;&#x5BC4;&#x5B58;&#x5668;&#x5206;&#x914D;&#x7684;&#x4E0D;&#x540C;:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过程（函数）调用的不同"><span class="post-toc-number">5.2.</span> <span class="post-toc-text"><a href="#&#x8FC7;&#x7A0B;&#xFF08;&#x51FD;&#x6570;&#xFF09;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x540C;" class="headerlink" title="&#x8FC7;&#x7A0B;&#xFF08;&#x51FD;&#x6570;&#xFF09;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x540C;"></a>&#x8FC7;&#x7A0B;&#xFF08;&#x51FD;&#x6570;&#xFF09;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x540C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数传递的不同"><span class="post-toc-number">5.3.</span> <span class="post-toc-text"><a href="#&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7684;&#x4E0D;&#x540C;" class="headerlink" title="&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7684;&#x4E0D;&#x540C;"></a>&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7684;&#x4E0D;&#x540C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#栈帧的不同"><span class="post-toc-number">5.4.</span> <span class="post-toc-text"><a href="#&#x6808;&#x5E27;&#x7684;&#x4E0D;&#x540C;" class="headerlink" title="&#x6808;&#x5E27;&#x7684;&#x4E0D;&#x540C;"></a>&#x6808;&#x5E27;&#x7684;&#x4E0D;&#x540C;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本汇编程序"><span class="post-toc-number">6.</span> <span class="post-toc-text"><a href="#&#x57FA;&#x672C;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;" class="headerlink" title="&#x57FA;&#x672C;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;"></a>&#x57FA;&#x672C;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                汇编
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Righteous</strong>
+        <span>1月 03, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Foundation/">Foundation</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=汇编&url=http://righte0us.cc/2017/01/03/汇编/index.html&pic=http://righte0us.cc/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=汇编&url=http://righte0us.cc/2017/01/03/汇编/index.html&via=Righteous" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://righte0us.cc/2017/01/03/汇编/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://righte0us.cc/2017/01/03/汇编/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h1><p>汇编语言（assembly language）是一种用于电子计算机、微处理器、微控制器或其他可编程器件的低级语言，亦称为符号语言。在汇编语言中，用助记符（Mnemonics）代替机器指令的操作码，用地址符号（Symbol）或标号（Label）代替指令或操作数的地址。在不同的设备中，汇编语言对应着不同的机器语言指令集，通过汇编过程转换成机器指令。普遍地说，特定的汇编语言和特定的机器语言指令集是一一对应的,不同平台之间不可直接移植。<br><a id="more"></a></p>
+<p>汇编语言直接同计算机的底层软件甚至硬件进行交互，它具有如下一些优点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">能够直接访问与硬件相关的存储器或 I/O 端口；</span><br><span class="line">能够不受编译器的限制，对生成的二进制代码进行完全的控制；</span><br><span class="line">能够对关键代码进行更准确的控制，避免因线程共同访问或者硬件设备共享引起的死锁；</span><br><span class="line">能够根据特定的应用对代码做最佳的优化，提高运行速度；</span><br><span class="line">能够最大限度地发挥硬件的功能。</span><br></pre></td></tr></table></figure>
+<p>同时还应该认识到，汇编语言是一种层次非常低的语言，它仅仅高于直接手工编写二进制的机器指令码，因此不可避免地存在一些缺点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">编写的代码非常难懂，不好维护；</span><br><span class="line">很容易产生 bug，难于调试；</span><br><span class="line">只能针对特定的体系结构和处理器进行优化；</span><br><span class="line">开发效率很低，时间长且单调。</span><br></pre></td></tr></table></figure>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">32位CPU所含有的寄存器有：</span><br><span class="line">    4个数据寄存器(EAX、EBX、ECX和EDX)</span><br><span class="line">    2个变址和指针寄存器(ESI和EDI) 2个指针寄存器(ESP和EBP)</span><br><span class="line">    6个段寄存器(ES、CS、SS、DS、FS和GS)</span><br><span class="line">    1个指令指针寄存器(EIP) 1个标志寄存器(EFlags)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/x86-registers.png" alt="x86-registers"><br>X86处理器中有8个32位的通用寄存器。由于历史的原因，EAX通常用于计算，ECX通常用于循环变量计数。ESP和EBP有专门用途，ESP指示栈指针(用于指示栈顶位置)，而EBP则是基址指针（用于指示子程序或函数调用的基址指针）。如图中所示，EAX、EBX、ECX和EDX的前两个高位字节和后两个低位字节可以独立使用，其中两位低字节又被独立分为H和L部分，这样做的原因主要是考虑兼容16位的程序。应用寄存器时，其名称大小写是不敏感的，如EAX和eax没有区别。</p>
+<h3 id="数据寄存器"><a href="#数据寄存器" class="headerlink" title="数据寄存器"></a>数据寄存器</h3><p>  数据寄存器主要用来保存操作数和运算结果等信息，从而节省读取操作数所需占用总线和访问存储器的时间。<br>  32位CPU有4个32位的通用寄存器EAX、EBX、ECX和EDX。对低16位数据的存取，不会影响高16位的数据。这些低16位寄存器分别命名为：AX、BX、CX和DX，它和先前的CPU中的寄存器相一致。</p>
+<p>  4个16位寄存器又可分割成8个独立的8位寄存器(AX：AH-AL、BX：BH-BL、CX：CH-CL、DX：DH-DL)，每个寄存器都有自己的名称，可独立存取。程序员可利用数据寄存器的这种“可分可合”的特性，灵活地处理字/字节的信息。</p>
+<p>  寄存器AX和AL通常称为累加器(Accumulator)，用累加器进行的操作可能需要更少时间。累加器可用于乘、除、输入/输出等操作，它们的使用频率很高；寄存器BX称为基地址寄存器(Base Register)。它可作为存储器指针来使用；寄存器CX称为计数寄存器(Count Register)。在循环和字符串操作时，要用它来控制循环次数；在位操作中，当移多位时，要用CL来指明移位的位数；寄存器DX称为数据寄存器(Data Register)。在进行乘、除运算时，它可作为默认的操作数参与运算，也可用于存放I/O的端口地址.</p>
+<p>  在16位CPU中，AX、BX、CX和DX不能作为基址和变址寄存器来存放存储单元的地址，但在32位CPU中，其32位寄存器EAX、EBX、ECX和EDX不仅可传送数据、暂存数据保存算术逻辑运算结果，而且也可作为指针寄存器，所以，这些32位寄存器更具有通用性。 </p>
+<h3 id="变址寄存器"><a href="#变址寄存器" class="headerlink" title="变址寄存器"></a>变址寄存器</h3><p>32位CPU有2个32位通用寄存器ESI和EDI。其低16位对应先前CPU中的SI和DI，对低16位数据的存取，不影响高16位的数据。</p>
+<p>寄存器ESI、EDI、SI和DI称为变址寄存器(Index Register)，它们主要用于存放存储单元在段内的偏移量，用它们可实现多种存储器操作数的寻址方式，为以不同的地址形式访问存储单元提供方便。 </p>
+<p>变址寄存器不可分割成8位寄存器。作为通用寄存器，也可存储算术逻辑运算的操作数和运算结果。它们可作一般的存储器指针使用。在字符串操作指令的执行过程中，对它们有特定的要求，而且还具有特殊的功能。</p>
+<h3 id="指针寄存器"><a href="#指针寄存器" class="headerlink" title="指针寄存器"></a>指针寄存器</h3><p>32位CPU有2个32位通用寄存器EBP和ESP。其低16位对应先前CPU中的SBP和SP，对低16位数据的存取，不影响高16位的数据。 </p>
+<p>寄存器EBP、ESP、BP和SP称为指针寄存器(Pointer Register)，主要用于存放堆栈内存储单元的偏移量，用它们可实现多种存储器操作数的寻址方式，为以不同的地址形式访问存储单元提供方便。指针寄存器不可分割成8位寄存器。作为通用寄存器，也可存储算术逻辑运算的操作数和运算结果。</p>
+<p>它们主要用于访问堆栈内的存储单元，并且规定：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BP为基指针(Base Pointer)寄存器，用它可直接存取堆栈中的数据；</span><br><span class="line">SP为堆栈指针(Stack Pointer)寄存器，用它只可访问栈顶。</span><br></pre></td></tr></table></figure>
+<h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p> 段寄存器是根据内存分段的管理模式而设置的。内存单元的物理地址由段寄存器的值和一个偏移量组合而成的，这样可用两个较少位数的值组合成一个可访问较大物理空间的内存地址。</p>
+<p>CPU内部的段寄存器：<br>    CS——代码段寄存器(Code Segment Register)，其值为代码段的段值；<br>    DS——数据段寄存器(Data Segment Register)，其值为数据段的段值；<br>    ES——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值；<br>    SS——堆栈段寄存器(Stack Segment Register)，其值为堆栈段的段值；<br>    FS——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值；<br>    GS——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值。</p>
+<p>在16位CPU系统中，它只有4个段寄存器，所以，程序在任何时刻至多有4个正在使用的段可直接访问；在32位微机系统中，它有6个段寄存器，所以，在此环境下开发的程序最多可同时访问6个段。</p>
+<p>32位CPU有两个不同的工作方式：实方式和保护方式。在每种方式下，段寄存器的作用是不同的。有关规定简单描述如下：<br>实方式:前4个段寄存器CS、DS、ES和SS与先前CPU中的所对应的段寄存器的含义完全一致，内存单元的逻辑地址仍为“段值：偏移量”的形式。为访问某内存段内的数据，必须使用该段寄存器和存储单元的偏移量。<br>保护方式:在此方式下，情况要复杂得多，装入段寄存器的不再是段值，而是称为“选择子”(Selector)的某个值。</p>
+<h3 id="指令指针寄存器"><a href="#指令指针寄存器" class="headerlink" title="指令指针寄存器"></a>指令指针寄存器</h3><p>32位CPU把指令指针扩展到32位，并记作EIP，EIP的低16位与先前CPU中的IP作用相同。</p>
+<p>指令指针EIP、IP(Instruction Pointer)是存放下次将要执行的指令在代码段的偏移量。在具有预取指令功能的系统中，下次要执行的指令通常已被预取到指令队列中，除非发生转移情况。所以，在理解它们的功能时，不考虑存在指令队列的情况。</p>
+<p>在实方式下，由于每个段的最大范围为64K，所以，EIP中的高16位肯定都为0，此时，相当于只用其低16位的IP来反映程序中指令的执行次序</p>
+<h3 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h3><h4 id="运算结果标志位"><a href="#运算结果标志位" class="headerlink" title="运算结果标志位"></a>运算结果标志位</h4><p>1、进位标志CF(Carry Flag)<br>进位标志CF主要用来反映运算是否产生进位或借位。如果运算结果的最高位产生了一个进位或借位，那么，其值为1，否则其值为0。使用该标志位的情况有：多字(字节)数的加减运算，无符号数的大小比较运算，移位操作，字(字节)之间移位，专门改变CF值的指令等。<br>2、奇偶标志PF(Parity Flag)<br>奇偶标志PF用于反映运算结果中“1”的个数的奇偶性。如果“1”的个数为偶数，则PF的值为1，否则其值为0。<br>利用PF可进行奇偶校验检查，或产生奇偶校验位。在数据传送过程中，为了提供传送的可靠性，如果采用奇偶校验的方法，就可使用该标志位。<br>3、辅助进位标志AF(Auxiliary Carry Flag)<br>在发生下列情况时，辅助进位标志AF的值被置为1，否则其值为0：<br>(1)在字操作时，发生低字节向高字节进位或借位时；<br>(2)在字节操作时，发生低4位向高4位进位或借位时。<br>对以上6个运算结果标志位，在一般编程情况下，标志位CF、ZF、SF和OF的使用频率较高，而标志位PF和AF的使用频率较低。<br>4、零标志ZF(Zero Flag)<br>零标志ZF用来反映运算结果是否为0。如果运算结果为0，则其值为1，否则其值为0。在判断运算结果是否为0时，可使用此标志位。<br>5、符号标志SF(Sign Flag)<br>符号标志SF用来反映运算结果的符号位，它与运算结果的最高位相同。在微机系统中，有符号数采用补码表示法，所以，SF也就反映运算结果的正负号。运算结果为正数时，SF的值为0，否则其值为1。<br>6、溢出标志OF(Overflow Flag)<br>溢出标志OF用于反映有符号数加减运算所得结果是否溢出。如果运算结果超过当前运算位数所能表示的范围，则称为溢出，OF的值被置为1，否则，OF的值被清为0。</p>
+<h4 id="状态控制标志位"><a href="#状态控制标志位" class="headerlink" title="状态控制标志位"></a>状态控制标志位</h4><p>状态控制标志位是用来控制CPU操作的，它们要通过专门的指令才能使之发生改变。<br>1、追踪标志TF(Trap Flag)<br>当追踪标志TF被置为1时，CPU进入单步执行方式，即每执行一条指令，产生一个单步中断请求。这种方式主要用于程序的调试。<br>指令系统中没有专门的指令来改变标志位TF的值，但程序员可用其它办法来改变其值。<br>2、中断允许标志IF(Interrupt-enable Flag)<br>中断允许标志IF是用来决定CPU是否响应CPU外部的可屏蔽中断发出的中断请求。但不管该标志为何值，CPU都必须响应CPU外部的不可屏蔽中断所发出的中断请求，以及CPU内部产生的中断请求。具体规定如下：<br>(1)当IF=1时，CPU可以响应CPU外部的可屏蔽中断发出的中断请求；<br>(2)当IF=0时，CPU不响应CPU外部的可屏蔽中断发出的中断请求。<br>CPU的指令系统中也有专门的指令来改变标志位IF的值。<br>3、方向标志DF(Direction Flag)<br>方向标志DF用来决定在串操作指令执行时有关指针寄存器发生调整的方向。具体规定在第5.2.11节——字符串操作指令——中给出。在微机的指令系统中，还提供了专门的指令来改变标志位DF的值。</p>
+<h4 id="32位标志寄存器增加的标志位"><a href="#32位标志寄存器增加的标志位" class="headerlink" title="32位标志寄存器增加的标志位"></a>32位标志寄存器增加的标志位</h4><p>1、I/O特权标志IOPL(I/O Privilege Level)<br>    I/O特权标志用两位二进制位来表示，也称为I/O特权级字段。该字段指定了要求执行I/O指令的特权级。如果当前的特权级别在数值上小于等于IOPL的值，那么，该I/O指令可执行，否则将发生一个保护异常<br>2、嵌套任务标志NT(Nested Task)<br>嵌套任务标志NT用来控制中断返回指令IRET的执行。具体规定如下：<br>(1)当NT=0，用堆栈中保存的值恢复EFLAGS、CS和EIP，执行常规的中断返回操作；<br>(2)当NT=1，通过任务转换实现中断返回。<br>3、重启动标志RF(Restart Flag)<br>重启动标志RF用来控制是否接受调试故障。规定：RF=0时，表示“接受”调试故障，否则拒绝之。在成功执行完一条指令后，处理机把RF置为0，当接受到一个非调试故障时，处理机就把它置为1。<br>4、虚拟8086方式标志VM(Virtual 8086 Mode)<br>如果该标志的值为1，则表示处理机处于虚拟的8086方式下的工作状态，否则，处理机处于一般保护方式下的工作状态</p>
+<h1 id="内存和寻址模式"><a href="#内存和寻址模式" class="headerlink" title="内存和寻址模式"></a>内存和寻址模式</h1><h2 id="声明静态数据区"><a href="#声明静态数据区" class="headerlink" title="声明静态数据区"></a>声明静态数据区</h2><p>可以在X86汇编语言中用汇编指令.DATA声明静态数据区（类似于全局变量），数据以单字节、双字节、或双字（4字节）的方式存放，分别用DB,DW, DD指令表示声明内存的长度。在汇编语言中，相邻定义的标签在内存中是连续存放的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.DATA	 	 	 </span><br><span class="line">var	    DB 64  	;声明一个字节，并将数值64放入此字节中</span><br><span class="line">var2	DB ?	; 声明一个为初始化的字节.</span><br><span class="line"> 	    DB 10	; 声明一个没有label的字节，其值为10.</span><br><span class="line">X	    DW ?	; 声明一个双字节，未初始化.</span><br><span class="line">Y	    DD 30000; 声明一个4字节，其值为30000.</span><br></pre></td></tr></table></figure>
+<p>还可以声明连续的数据和数组，声明数组时使用DUP关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Z	   DD 1, 2, 3	; Declare three 4-byte values, initialized to 1, 2, and 3. The value of location Z + 8 will be 3.</span><br><span class="line">bytes  DB 10 DUP(?)	; Declare 10 uninitialized bytes starting at location bytes.</span><br><span class="line">arr	   DD 100 DUP(0); Declare 100 4-byte words starting at location arr, all initialized to 0</span><br><span class="line">str	   DB &apos;hello&apos;,0	; Declare 6 bytes starting at the address str, initialized to the ASCII character values for hello and the null (0) byte.</span><br></pre></td></tr></table></figure>
+<h2 id="寻址模式"><a href="#寻址模式" class="headerlink" title="寻址模式"></a>寻址模式</h2><p>现代X86处理器具有232字节的寻址空间。在上面的例子中，我们用标签(label)表示内存区域，这些标签在实际汇编时，均被32位的实际地址代替。除了支持这种直接的内存区域描述，X86还提供了一种灵活的内存寻址方式，即利用最多两个32位的寄存器和一个32位的有符号常数相加计算一个内存地址，其中一个寄存器可以左移1、2或3位以表述更大的空间。下面例子是汇编程序中常见的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov eax, [ebx]	    ; 将ebx值指示的内存地址中的4个字节传送到eax中</span><br><span class="line">mov [var], ebx	    ; 将ebx的内容传送到var的值指示的内存地址中.</span><br><span class="line">mov eax, [esi-4]	; 将esi-4值指示的内存地址中的4个字节传送到eax中</span><br><span class="line">mov [esi+eax], cl	; 将cl的值传送到esi+eax的值指示的内存地址中</span><br><span class="line">mov edx, [esi+4*ebx]; 将esi+4*ebx值指示的内存中的4个字节传送到edx</span><br></pre></td></tr></table></figure>
+<p>下面是违反规则的例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov eax, [ebx-ecx]	   ; 只能用加法</span><br><span class="line">mov [eax+esi+edi], ebx ; 最多只能有两个寄存器参与运算</span><br></pre></td></tr></table></figure>
+<h2 id="长度规定"><a href="#长度规定" class="headerlink" title="长度规定"></a>长度规定</h2><p>在声明内存大小时，在汇编语言中，一般用DB，DW，DD均可声明的内存空间大小，这种现实声明能够很好地指导汇编器分配内存空间，但是，对于</p>
+<p>mov [ebx], 2</p>
+<p>如果没有特殊的标识，则不确定常数2是单字节、双字节，还是双字。对于这种情况，X86提供了三个指示规则标记，分别为BYTE PTR, WORD PTR, and DWORD PTR，如上面例子写成：mov BYTE PTR [ebx], 2， mov WORD PTR [ebx], 2， mov DWORD PTR [ebx], 2，则意思非常清晰。</p>
+<h1 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h1><h2 id="数据传输指令"><a href="#数据传输指令" class="headerlink" title="数据传输指令"></a>数据传输指令</h2><p>它们在存贮器和寄存器、寄存器和输入输出端口之间传送数据<br>1.输入输出端口传送指令.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IN    I/O端口输入( 语法: IN 累加器, &#123;端口号│DX&#125; ) </span><br><span class="line">OUT   I/O端口输出(语法: OUT &#123;端口号│DX&#125;,累加器 )</span><br></pre></td></tr></table></figure>
+<p>输入输出端口由立即方式指定时, 其范围是 0-255; 由寄存器 DX 指定时, 其范围是 0-65535.</p>
+<p>2.通用数据传送指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">MOV    传送字或字节        </span><br><span class="line">MOVSX  先符号扩展,再传送          </span><br><span class="line">MOVZX  先零扩展,再传送  </span><br><span class="line">PUSH   把字压入堆栈       </span><br><span class="line">POP    把字弹出堆栈      </span><br><span class="line">PUSHA  把AX,CX,DX,BX,SP,BP,SI,DI依次压入堆栈  </span><br><span class="line">POPA   把DI,SI,BP,SP,BX,DX,CX,AX依次弹出堆栈  </span><br><span class="line">PUSHAD 把EAX,ECX,EDX,EBX,ESP,EBP,ESI,EDI依次压入堆栈 </span><br><span class="line">POPAD  把EDI,ESI,EBP,ESP,EBX,EDX,ECX,EAX依次弹出堆栈 </span><br><span class="line">BSWAP  交换32位寄存器里字节的顺序  </span><br><span class="line">XCHG   交换字或字节( 至少有一个操作数为寄存器,段寄存器不可作为操作数)  </span><br><span class="line">CMPXCHG比较并交换操作数( 第二个操作数必须为累加器AL/AX/EAX )  </span><br><span class="line">XADD   先交换再累加( 结果在第一个操作数里 )  </span><br><span class="line">XLAT   字节查表转换  </span><br><span class="line">── BX 指向一张 256 字节的表的起点, AL 为表的索引值 (0-255,即0-FFH); 返回 AL 为查表结果. ( [BX+AL]-&gt;AL )</span><br></pre></td></tr></table></figure>
+<p>3.目的地址传送指令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LEA   装入有效地址.                例: LEA DX,string  ;把偏移地址存到DX.  </span><br><span class="line">LDS   传送目标指针,把指针内容装入DS   例: LDS SI,string  ;把段地址:偏移地址存到DS:SI </span><br><span class="line">LES   传送目标指针,把指针内容装入ES   例: LES DI,string  ;把段地址:偏移地址存到ES:DI  </span><br><span class="line">LFS   传送目标指针,把指针内容装入FS   例: LFS DI,string  ;把段地址:偏移地址存到FS:DI </span><br><span class="line">LGS   传送目标指针,把指针内容装入GS   例: LGS DI,string  ;把段地址:偏移地址存到GS:DI  </span><br><span class="line">LSS   传送目标指针,把指针内容装入SS   例: LSS DI,string  ;把段地址:偏移地址存到SS:DI</span><br></pre></td></tr></table></figure>
+<p>4.标志传送指令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LAHF    标志寄存器传送,把标志装入AH </span><br><span class="line">SAHF    标志寄存器传送,把AH内容装入标志寄存器 </span><br><span class="line">PUSHF   标志入栈 </span><br><span class="line">POPF    标志出栈 </span><br><span class="line">PUSHD   32位标志入栈  </span><br><span class="line">POPD    32位标志出栈.</span><br></pre></td></tr></table></figure>
+<h2 id="算数运算指令"><a href="#算数运算指令" class="headerlink" title="算数运算指令"></a>算数运算指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">ADD     加法                                  </span><br><span class="line">ADC     带进位加法                                </span><br><span class="line">INC     加 1      </span><br><span class="line">AAA     加法的ASCII码调整            </span><br><span class="line">DAA     加法的十进制调整.  </span><br><span class="line">SUB     减法    </span><br><span class="line">SBB     带借位减法      </span><br><span class="line">DEC     减 1</span><br><span class="line">NEC     求反(以 0 减之)                 </span><br><span class="line">CMP     比较(两操作数作减法,仅修改标志位,不回送结果).  </span><br><span class="line">AAS     减法的ASCII码调整            </span><br><span class="line">DAS     减法的十进制调整.  </span><br><span class="line">MUL     无符号乘法     </span><br><span class="line">IMUL    整数乘法   </span><br><span class="line">以上两条,结果回送AH和AL(字节运算),或DX和AX(字运算),  </span><br><span class="line">AAM     乘法的ASCII码调整      </span><br><span class="line">DIV     无符号除法                        </span><br><span class="line">IDIV    整数除法</span><br><span class="line">以上两条,结果回送:商回送AL,余数回送AH, (字节运算);或商回送AX,余数回送DX, (字运算).  </span><br><span class="line">AAD    除法的ASCII码调整.  </span><br><span class="line">CBW    字节转换为字(把AL中字节的符号扩展到AH中去)  </span><br><span class="line">CWD    字转换为双字(把AX中的字的符号扩展到DX中去)  </span><br><span class="line">CWDE   字转换为双字(把AX中的字符号扩展到EAX中去)  </span><br><span class="line">CDQ    双字扩展(把EAX中的字的符号扩展到EDX中去)</span><br></pre></td></tr></table></figure>
+<h2 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">AND  与运算                </span><br><span class="line">OR   或运算               </span><br><span class="line">XOR  异或运算                 </span><br><span class="line">NOT  取反</span><br><span class="line">TEST 测试(两操作数作与运算,仅修改标志位,不回送结果).  </span><br><span class="line">SHL  逻辑左移                         </span><br><span class="line">SHR  逻辑右移</span><br><span class="line">SAL  算术左移(=SHL)               </span><br><span class="line">SAR  算术右移(=SHR) </span><br><span class="line">ROL  循环左移                        </span><br><span class="line">ROR  循环右移  </span><br><span class="line">RCL  通过进位的循环左移       </span><br><span class="line">RCR  通过进位的循环右移 </span><br><span class="line">以上八种移位指令,其移位次数可达255次 </span><br><span class="line">移位一次时, 可直接用操作码.  如 SHL AX,1 </span><br><span class="line">移位&gt;1次时, 则由寄存器CL给出移位次数  </span><br><span class="line">如  MOV CL,04  </span><br><span class="line">    SHL AX,CL</span><br></pre></td></tr></table></figure>
+<h2 id="串指令"><a href="#串指令" class="headerlink" title="串指令"></a>串指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">DS:SI  源串段寄存器:源串变址                    </span><br><span class="line">ES:DI  目标串段寄存器:目标串变址. </span><br><span class="line">CX     重复次数计数器                  </span><br><span class="line">AL/AX  扫描值  </span><br><span class="line">D标志   0表示重复操作中SI和DI应自动增量; 1表示应自动减量  </span><br><span class="line">Z标志   用来控制扫描或比较操作的结束  </span><br><span class="line">MOVS   串传送 (MOVSB 传送字符 MOVSW 传送字 MOVSD 传送双字 )  </span><br><span class="line">CMPS   串比较 (CMPSB 比较字符  CMPSW 比较字 )  </span><br><span class="line">SCAS   串扫描，把AL或AX的内容与目标串作比较,比较结果反映在标志位  </span><br><span class="line">LODS   装入串，把源串中的元素(字或字节)逐一装入AL或AX中. (LODSB  传送字符   LODSW 传送字      LODSD 传送双字)  </span><br><span class="line">STOS   保存串，是LODS的逆过程  </span><br><span class="line">REP    当CX/ECX&lt;&gt;0时重复 </span><br><span class="line">REPE/REPZ    当ZF=1或比较结果相等,且CX/ECX&lt;&gt;0时重复  </span><br><span class="line">REPNE/REPNZ  当ZF=0或比较结果不相等,且CX/ECX&lt;&gt;0时重复  </span><br><span class="line">REPC         当CF=1且CX/ECX&lt;&gt;0时重复  </span><br><span class="line">REPNC        当CF=0且CX/ECX&lt;&gt;0时重复</span><br></pre></td></tr></table></figure>
+<h2 id="程序转移指令"><a href="#程序转移指令" class="headerlink" title="程序转移指令"></a>程序转移指令</h2><h3 id="无条件转移指令-长转移"><a href="#无条件转移指令-长转移" class="headerlink" title="无条件转移指令 (长转移)"></a>无条件转移指令 (长转移)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JMP     无条件转移指         </span><br><span class="line">CALL    过程调用            </span><br><span class="line">RET/RETF过程返回</span><br></pre></td></tr></table></figure>
+<p>call, ret— Subroutine call and return<br>这两条指令实现子程序（过程、函数等意思）的调用及返回。call指令首先将当前执行指令地址入栈，然后无条件转移到由标签指示的指令。与其它简单的跳转指令不同，call指令保存调用之前的地址信息（当call指令结束后，返回到调用之前的地址）。<br>ret指令实现子程序的返回机制，ret指令弹出栈中保存的指令地址，然后无条件转移到保存的指令地址执行。call，ret是函数调用中最关键的两条指令。<br>调用规则<br>为了加强程序员之间的协作及简化程序开发进程，设定一个函数调用规则非常必要，函数调用规则规定函数调用及返回的规则，只要遵照这种规则写的程序均可以正确执行，从而程序员不必关心诸如参数如何传递等问题；另一方面，在汇编语言中可以调用符合这种规则的高级语言所写的函数，从而将汇编语言程序与高级语言程序有机结合在一起。<br>调用规则分为两个方面，及调用者规则和被调用者规则，如一个函数A调用一个函数B，则A被称为调用者(Caller)，B被称为被调用者(Callee)。<br>下图显示一个调用过程中的内存中的栈布局：</p>
+<p><img src="/images/stack-convention.png" alt=""></p>
+<p>在X86中，栈增长方向与内存编号增长方向相反。<br>Caller Rules</p>
+<p>调用者规则包括一系列操作，描述如下：<br>1.在调用子程序之前，调用者应该保存一系列被设计为调用者保存的寄存器的值。调用者保存寄存器有eax，ecx，edx。由于被调用的子程序会修改这些寄存器，所以为了在调用子程序完成之后能正确执行，调用者必须在调用子程序之前将这些寄存器的值入栈。<br>2.在调用子程序之前，将参数入栈。参数入栈的顺序应该是从最后一个参数开始，如上图中parameter3先入栈。<br>3.利用call指令调用子程序。这条指令将返回地址放置在参数的上面，并进入子程序的指令执行。（子程序的执行将按照被调用者的规则执行）</p>
+<p>当子程序返回时，调用者期望找到子程序保存在eax中的返回地址。为了恢复调用子程序执行之前的状态，调用者应该执行以下操作：<br>1.清除栈中的参数；<br>2.将栈中保存的eax值、ecx值以及edx值出栈，恢复eax、ecx、edx的值（当然，如果其它寄存器在调用之前需要保存，也需要完成类似入栈和出栈操作）</p>
+<p>Example </p>
+<p>如下代码展示了一个调用子程序的调用者应该执行的操作。此汇编程序调用一个具有三个参数的函数_myFunc，其中第一个参数为eax，第二个参数为常数216，第三个参数为var指示的内存中的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">push [var]   ; Push last parameter first</span><br><span class="line">push 216     ; Push the second parameter</span><br><span class="line">push eax     ; Push first parameter last</span><br><span class="line">call _myFunc ; Call the function (assume C naming)</span><br><span class="line">add esp, 12</span><br></pre></td></tr></table></figure>
+<p>在调用返回时，调用者必须清除栈中的相应内容，在上例中，参数占有12个字节，为了消除这些参数，只需将ESP加12即可。</p>
+<p> _myFunc的值保存在eax中，ecx和edx中的值也许已经被改变，调用者还必须在调用之前保存在栈中，并在调用结束之后，出栈恢复ecx和edx的值。</p>
+<p>被调用者应该遵循如下规则：<br>1.将ebp入栈，并将esp中的值拷贝到ebp中，其汇编代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push ebp</span><br><span class="line">mov  ebp, esp</span><br></pre></td></tr></table></figure>
+<p>上述代码的目的是保存调用子程序之前的基址指针，基址指针用于寻找栈上的参数和局部变量。当一个子程序开始执行时，基址指针保存栈指针指示子程序的执行。为了在子程序完成之后调用者能正确定位调用者的参数和局部变量，ebp的值需要返回。<br>2.在栈上为局部变量分配空间。<br>3.保存callee-saved寄存器的值，callee-saved寄存器包括ebx,edi和esi，将ebx,edi和esi压栈。<br>4.在上述三个步骤完成之后，子程序开始执行，当子程序返回时，必须完成如下工作：<br>(1)将返回的执行结果保存在eax中<br>(2)弹出栈中保存的callee-saved寄存器值，恢复callee-saved寄存器的值（ESI和EDI）<br>(3)收回局部变量的内存空间。实际处理时，通过改变EBP的值即可：mov esp, ebp。<br>(4)通过弹出栈中保存的ebp值恢复调用者的基址寄存器值。<br>(5)执行ret指令返回到调用者程序。</p>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.486</span><br><span class="line">.MODEL FLAT</span><br><span class="line">.CODE</span><br><span class="line">PUBLIC _myFunc</span><br><span class="line">_myFunc PROC</span><br><span class="line">  ; Subroutine Prologue</span><br><span class="line">  push ebp     ; Save the old base pointer value.</span><br><span class="line">  mov ebp, esp ; Set the new base pointer value.</span><br><span class="line">  sub esp, 4   ; Make room for one 4-byte local variable.</span><br><span class="line">  push edi     ; Save the values of registers that the function</span><br><span class="line">  push esi     ; will modify. This function uses EDI and ESI.</span><br><span class="line">  ; (no need to save EBX, EBP, or ESP)</span><br><span class="line"></span><br><span class="line">  ; Subroutine Body</span><br><span class="line">  mov eax, [ebp+8]   ; Move value of parameter 1 into EAX</span><br><span class="line">  mov esi, [ebp+12]  ; Move value of parameter 2 into ESI</span><br><span class="line">  mov edi, [ebp+16]  ; Move value of parameter 3 into EDI</span><br><span class="line"></span><br><span class="line">  mov [ebp-4], edi   ; Move EDI into the local variable</span><br><span class="line">  add [ebp-4], esi   ; Add ESI into the local variable</span><br><span class="line">  add eax, [ebp-4]   ; Add the contents of the local variable</span><br><span class="line">                     ; into EAX (final result)</span><br><span class="line"></span><br><span class="line">  ; Subroutine Epilogue </span><br><span class="line">  pop esi      ; Recover register values</span><br><span class="line">  pop  edi</span><br><span class="line">  mov esp, ebp ; Deallocate local variables</span><br><span class="line">  pop ebp ; Restore the caller&apos;s base pointer value</span><br><span class="line">  ret</span><br><span class="line">_myFunc ENDP</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p>子程序首先通过入栈的手段保存ebp，分配局部变量，保存寄存器的值。</p>
+<p>在子程序体中，参数和局部变量均是通过ebp进行计算。由于参数传递在子程序被调用之前，所以参数总是在ebp指示的地址的下方（在栈中），因此，上例中的第一个参数的地址是ebp+8，第二个参数的地址是ebp+12，第三个参数的地址是ebp+16；而局部变量在ebp指示的地址的上方，所有第一个局部变量的地址是ebp-4，而第二个这是ebp-8.</p>
+<h3 id="条件转移指令"><a href="#条件转移指令" class="headerlink" title="条件转移指令"></a>条件转移指令</h3><p>(短转移,-128到+127的距离内)  ( 当且仅当(SF XOR OF)=1时,OP1&lt;OP2 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">JA/JNBE  不小于或不等于时转移        </span><br><span class="line">JAE/JNB  大于或等于转移</span><br><span class="line">JB/JNAE  小于转移                             </span><br><span class="line">JBE/JNA  小于或等于转移 </span><br><span class="line">以上四条,测试无符号整数运算的结果(标志C和Z)  </span><br><span class="line">JG/JNLE  大于转移                              </span><br><span class="line">JGE/JNL  大于或等于转移  </span><br><span class="line">JL/JNGE  小于转移                              </span><br><span class="line">JLE/JNG  小于或等于转移  </span><br><span class="line">以上四条,测试带符号整数运算的结果(标志S,O和Z)  </span><br><span class="line">JE/JZ    等于转移                                  </span><br><span class="line">JNE/JNZ  不等于时转移  </span><br><span class="line">JC       有进位时转移                               </span><br><span class="line">JNC      无进位时转移  </span><br><span class="line">JNO      不溢出时转移                             </span><br><span class="line">JO       溢出转移  </span><br><span class="line">JNP/JPO  奇偶性为奇数时转移           </span><br><span class="line">JP/JPE   奇偶性为偶数时转移  </span><br><span class="line">JNS      符号位为 “0” 时转移                  </span><br><span class="line">JS       符号位为 &quot;1&quot; 时转移</span><br></pre></td></tr></table></figure>
+<h3 id="循环控制指令-短转移"><a href="#循环控制指令-短转移" class="headerlink" title="循环控制指令(短转移)"></a>循环控制指令(短转移)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOOP           CX不为零时循环              </span><br><span class="line">LOOPE/LOOPZ    CX不为零且标志Z=1时循环</span><br><span class="line">LOOPNE/LOOPNZ  CX不为零且标志Z=0时循环 </span><br><span class="line">JCXZ           CX为零时转移                </span><br><span class="line">JECXZ          ECX为零时转移</span><br></pre></td></tr></table></figure>
+<h3 id="中断指令"><a href="#中断指令" class="headerlink" title="中断指令"></a>中断指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INT 	中断指令                </span><br><span class="line">NTO 	溢出中断             </span><br><span class="line">IRET 	中断返回</span><br></pre></td></tr></table></figure>
+<h3 id="处理器控制指令"><a href="#处理器控制指令" class="headerlink" title="处理器控制指令"></a>处理器控制指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HLT   处理器暂停, 直到出现中断或复位信号才继续</span><br><span class="line">WAIT  当芯片引线TEST为高电平时使CPU进入等待状态  </span><br><span class="line">ESC   转换到外处理器     </span><br><span class="line">LOCK  封锁总线            </span><br><span class="line">NOP   空操作  </span><br><span class="line">STC   置进位标志位      </span><br><span class="line">STD   置方向标志位        </span><br><span class="line">STI   置中断允许位</span><br><span class="line">CMC   进位标志取反</span><br><span class="line">CLC   清进位标志位       </span><br><span class="line">CLD   清方向标志位        </span><br><span class="line">CLI   清中断允许位</span><br></pre></td></tr></table></figure>
+<h2 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DB            定义字节  </span><br><span class="line">DW            定义字(2字节)  </span><br><span class="line">PROC          定义过程  </span><br><span class="line">ENDP          过程结束  </span><br><span class="line">SEGMENT       定义段  </span><br><span class="line">ASSUME        建立段寄存器寻址 </span><br><span class="line">ENDS          段结束  </span><br><span class="line">END           程序结束</span><br></pre></td></tr></table></figure>
+<h1 id="汇编语法格式"><a href="#汇编语法格式" class="headerlink" title="汇编语法格式"></a>汇编语法格式</h1><p>1.在 AT&amp;T 汇编格式中，寄存器名要加上 ‘%’ 作为前缀；而在 Intel 汇编格式中，寄存器名不需要加前缀。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	        Intel 格式</span><br><span class="line">pushl %eax	        push eax</span><br></pre></td></tr></table></figure>
+<p>2.在 AT&amp;T 汇编格式中，用 ‘$’ 前缀表示一个立即操作数；而在 Intel 汇编格式中，立即数的表示不用带任何前缀。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	        Intel 格式</span><br><span class="line">pushl $1	        push 1</span><br></pre></td></tr></table></figure>
+<p>3.AT&amp;T 和 Intel 格式中的源操作数和目标操作数的位置正好相反。在 Intel 汇编格式中，目标操作数在源操作数的左边；而在 AT&amp;T 汇编格式中，目标操作数在源操作数的右边。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	        Intel 格式</span><br><span class="line">addl $1, %eax	        add eax, 1</span><br></pre></td></tr></table></figure>
+<p>4.在 AT&amp;T 汇编格式中，操作数的字长由操作符的最后一个字母决定，后缀’b’、’w’、’l’分别表示操作数为字节（byte，8 比特）、字（word，16 比特）和长字（long，32比特）；而在 Intel 汇编格式中，操作数的字长是用 “byte ptr” 和 “word ptr” 等前缀来表示的。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	        Intel 格式</span><br><span class="line">movb val, %al	        mov al, byte ptr val</span><br></pre></td></tr></table></figure>
+<p>5.在 AT&amp;T 汇编格式中，绝对转移和调用指令（jump/call）的操作数前要加上’*’作为前缀，而在 Intel 格式中则不需要。</p>
+<p>6.远程转移指令和远程子调用指令的操作码，在 AT&amp;T 汇编格式中为 “ljump” 和 “lcall”，而在 Intel 汇编格式中则为 “jmp far” 和 “call far”，即：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	                      Intel 格式</span><br><span class="line">ljump $section, $offset	              jmp far section:offset</span><br><span class="line">lcall $section, $offset	              call far section:offset</span><br></pre></td></tr></table></figure>
+<p>与之相应的远程返回指令则为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	                      Intel 格式</span><br><span class="line">lret $stack_adjust	              ret far stack_adjust</span><br></pre></td></tr></table></figure>
+<p>7.在 AT&amp;T 汇编格式中，内存操作数的寻址方式是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">section:disp(base, index, scale)</span><br></pre></td></tr></table></figure>
+<p>而在 Intel 汇编格式中，内存操作数的寻址方式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">section:[base + index*scale + disp]</span><br></pre></td></tr></table></figure>
+<p>由于 Linux 工作在保护模式下，用的是 32 位线性地址，所以在计算地址时不用考虑段基址和偏移量，而是采用如下的地址计算方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disp + base + index * scale</span><br></pre></td></tr></table></figure>
+<p>下面是一些内存操作数的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AT&amp;T 格式	                        Intel 格式</span><br><span class="line">movl -4(%ebp), %eax     	    mov eax, [ebp - 4]</span><br><span class="line">movl array(, %eax, 4), %eax	    mov eax, [eax*4 + array]</span><br><span class="line">movw array(%ebx, %eax, 4), %cx	    mov cx, [ebx + 4*eax + array]</span><br><span class="line">movb $4, %fs:(%eax)         	    mov fs:eax, 4</span><br></pre></td></tr></table></figure>
+<h1 id="64位和32位的寄存器和汇编的比较"><a href="#64位和32位的寄存器和汇编的比较" class="headerlink" title="64位和32位的寄存器和汇编的比较"></a>64位和32位的寄存器和汇编的比较</h1><p><img src="/images/14955328458588.jpg" alt=""></p>
+<p>X64多了8个通用寄存器：R8、R9、R10、R11、R12、R13、R14、R15，当然，它们都是64位的。另外还增加了8个128位XMM寄存器，不过通常用不着。<br>    X32中原有的寄存器在X64中均为扩展为64位，且名称的第一个字母从E改为R。不过我们还是可以在64位程序中调用32位的寄存器，如RAX（64位）、EAX（低32）、AX（低16位）、AL（低8位）、AH（8到15位），相应的有R8、R8D、R8W和R8B。不过不要在程序中使用如AH之类的寄存器，因为在AMD的CPU上这种用法会与某些指令产生冲突</p>
+<h2 id="64位寄存器分配的不同"><a href="#64位寄存器分配的不同" class="headerlink" title="64位寄存器分配的不同:"></a>64位寄存器分配的不同:</h2><p><img src="/images/14955328749738.jpg" alt=""></p>
+<p>64位有16个寄存器，32位只有8个。但是32位前8个都有不同的命名，分别是e <em> ，而64位前8个使用了r代替e，也就是r </em>。e开头的寄存器命名依然可以直接运用于相应寄存器的低32位。而剩下的寄存器名则是从r8 - r15，其低位分别用d，w,b指定长度。<br>32位使用栈帧来作为传递的参数的保存位置，而64位使用寄存器，分别用rdi,rsi,rdx,rcx,r8,r9作为第1-6个参数。rax作为返回值<br>64位没有栈帧的指针，32位用ebp作为栈帧指针，64位取消了这个设定，rbp作为通用寄存器使用<br>64位支持一些形式的以PC相关的寻址，而32位只有在jmp的时候才会用到这种寻址方式。</p>
+<p><img src="/images/20160428235309742.png" alt=""></p>
+<p>mov指令和push pop扩展了movq系列的mov和pushq以及popq用来操作quad word。<br>注：movabsq不是32位的扩展，是纯新增的指令。用来将一个64位的字面值直接存到一个64位寄存器中。因为movq只能将32位的值存入，所以新增了这样一条指令。</p>
+<p><img src="/images/14955327305103.jpg" alt=""></p>
+<h2 id="过程（函数）调用的不同"><a href="#过程（函数）调用的不同" class="headerlink" title="过程（函数）调用的不同"></a>过程（函数）调用的不同</h2><p>参数通过寄存器传递（见前文）<br>callq 在栈里存放一个8位的返回地址<br>许多函数不再有栈帧，只有无法将所有本地变量放在寄存器里的才会在栈上分配空间。<br>函数可以获取到栈至多128字节的空间。这样函数就可以在不更改栈指针的情况下在栈上存储信息（也就是说，可以提前用rsp以下的128字节空间，这段空间被称为red zone，在x86-64里，时刻可用）<br>不再有栈帧指针。现在栈的位置和栈指针相关。大多数函数在调用的一开始就分配全部所需栈空间，之后保持栈指针不改变。<br>一些寄存器被设计成为被调用者-存储的寄存器。这些必须在需要改变他们值的时候存储他们并且之后恢复他们。</p>
+<h2 id="参数传递的不同"><a href="#参数传递的不同" class="headerlink" title="参数传递的不同"></a>参数传递的不同</h2><p>6个寄存器用来传递参数<br>剩下的寄存器按照之前的方式传递（不过是与rsp相关了，ebp不再作为栈帧指针，并且从rsp开始第7个参数，rsp+8开始第8个，以此类推）<br>调用时，rsp向下移动8位（存入返回地址），寄存器参数无影响，第7个及之后的参数现在则是从rsp+8开始第7个，rsp+16开始第8个，以此类推</p>
+<h2 id="栈帧的不同"><a href="#栈帧的不同" class="headerlink" title="栈帧的不同"></a>栈帧的不同</h2><p>很多情况下不再需要栈帧，比如在没有调用别的函数，且寄存器足以存储参数，那么就只需要存储返回地址即可。 需要栈帧的情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">本地变量太多，寄存器不够</span><br><span class="line">一些本地变量是数组或结构体</span><br><span class="line">函数使用了取地址操作符来计算一个本地变量的地址</span><br><span class="line">函数必须用栈传送一些参数给另外一个函数</span><br><span class="line">函数需要保存一些由被调用者存储的寄存器的状态（以便于恢复）</span><br></pre></td></tr></table></figure>
+<p>但是现在的栈帧经常是固定大小的，在函数调用的最开始就被设定，在整个调用期间，栈顶指针保持不变，这样就可以通过对其再加上偏移量来对相应的值进行操作，于是EBP就不再需要作为栈帧指针了。</p>
+<p>虽然很多时候我们认为没有“栈帧”，但是每次函数调用都一定有一个返回地址被压栈，我们可以也认为这一个地址就是一个“栈帧”，因为它也保存了调用者的状态。</p>
+<h1 id="基本汇编程序"><a href="#基本汇编程序" class="headerlink" title="基本汇编程序"></a>基本汇编程序</h1><p>1.Hello, world!</p>
+<p>32位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">section .data            </span><br><span class="line">        msg db &quot;Hello, world!&quot;, 0xA    </span><br><span class="line">        len equ $ - msg                 </span><br><span class="line">section .text            </span><br><span class="line">global main           </span><br><span class="line">main:                  </span><br><span class="line">        mov edx, len     </span><br><span class="line">        mov ecx, msg    </span><br><span class="line">        mov ebx, 1       </span><br><span class="line">        mov eax, 4        </span><br><span class="line">        int 0x80        </span><br><span class="line">                         </span><br><span class="line">        mov ebx, 0       </span><br><span class="line">        mov eax, 1       </span><br><span class="line">        int 0x80</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">righteous@ubuntu:~/Desktop/asm$ nasm -f elf32 hello.asm</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ gcc -m32 -o hello hello.o</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ ./hello</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+<p>64位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">extern	printf		</span><br><span class="line"></span><br><span class="line">section .data		</span><br><span class="line">	msg:	db &quot;Hello world&quot;, 0	</span><br><span class="line">	fmt:    db &quot;%s&quot;, 10, 0        </span><br><span class="line"></span><br><span class="line">section .text       </span><br><span class="line"></span><br><span class="line">global  main	</span><br><span class="line">main:				</span><br><span class="line">        push    rbp		</span><br><span class="line">	</span><br><span class="line">	mov	rdi,fmt</span><br><span class="line">	mov	rsi,msg</span><br><span class="line">	mov	rax,0		</span><br><span class="line">        call    printf		</span><br><span class="line"></span><br><span class="line">	pop	rbp		</span><br><span class="line"></span><br><span class="line">	mov	rax,0		</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">righteous@ubuntu:~/Desktop/asm$ nasm -f elf64 hello_x64.asm </span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ gcc -m64 -o hello_x64 hello_x64.o</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ ./hello_x64 </span><br><span class="line">Hello world</span><br></pre></td></tr></table></figure>
+<p>2.求和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">extern	printf</span><br><span class="line">      </span><br><span class="line">section .data		</span><br><span class="line">	a:  dd  5</span><br><span class="line">        b:  dd  7</span><br><span class="line">fmt:    db &quot;sum:c=a+b=%d&quot;, 10, 0 </span><br><span class="line"></span><br><span class="line">section .bss</span><br><span class="line">        c:  resd 1  </span><br><span class="line"></span><br><span class="line">section .text                  </span><br><span class="line"></span><br><span class="line">global  main		</span><br><span class="line">main:				</span><br><span class="line">        push    ebp		</span><br><span class="line">        mov     ebp,esp</span><br><span class="line"></span><br><span class="line">	mov	eax, [a]	</span><br><span class="line">	add	eax, [b]</span><br><span class="line">        mov	[c], eax	</span><br><span class="line">	push	eax		</span><br><span class="line">        push    dword [c]	</span><br><span class="line">        push    dword fmt	</span><br><span class="line">        call    printf		</span><br><span class="line">        add     esp, 12		</span><br><span class="line"></span><br><span class="line">        mov     esp, ebp	</span><br><span class="line">        pop     ebp		</span><br><span class="line"></span><br><span class="line">	mov	eax,0		</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">righteous@ubuntu:~/Desktop/asm$ nasm -f elf32 sum.asm</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ gcc -m32 -o sum sum.o</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ ./sum</span><br><span class="line">sum:c=a+b=12</span><br></pre></td></tr></table></figure>
+<p>3.斐波那契数列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">extern  printf</span><br><span class="line"></span><br><span class="line">section .data</span><br><span class="line">format:  db  &quot;SDPC==&gt;%ld&quot;, 10, 0</span><br><span class="line"></span><br><span class="line">section .text</span><br><span class="line">global  main</span><br><span class="line">main:</span><br><span class="line">        push    rbx                     </span><br><span class="line"></span><br><span class="line">        mov     ecx, 10                 </span><br><span class="line">        xor     rax, rax               </span><br><span class="line">        xor     rbx, rbx               </span><br><span class="line">        inc     rbx </span><br><span class="line">                </span><br><span class="line">Fibonacci:</span><br><span class="line">        push    rax                     </span><br><span class="line">        push    rcx                     </span><br><span class="line"></span><br><span class="line">        mov     rdi, format             </span><br><span class="line">        mov     rsi, rax                </span><br><span class="line">        xor     rax, rax                 </span><br><span class="line"></span><br><span class="line">        call    printf                </span><br><span class="line"></span><br><span class="line">        pop     rcx                   </span><br><span class="line">        pop     rax                    </span><br><span class="line"></span><br><span class="line">        mov     rdx, rax             </span><br><span class="line">        mov     rax, rbx              </span><br><span class="line">        add     rbx, rdx            </span><br><span class="line">        dec     ecx        </span><br><span class="line">        jnz     Fibonacci       </span><br><span class="line"></span><br><span class="line">        pop     rbx                  </span><br><span class="line">        ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">righteous@ubuntu:~/Desktop/asm$ gcc -m64 -o fibonacci fibonacci.o</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ nasm -f elf64 fibonacci.asm </span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ gcc -m64 -o fibonacci fibonacci.o</span><br><span class="line">righteous@ubuntu:~/Desktop/asm$ ./fibonacci </span><br><span class="line">SDPC==&gt;0</span><br><span class="line">SDPC==&gt;1</span><br><span class="line">SDPC==&gt;1</span><br><span class="line">SDPC==&gt;2</span><br><span class="line">SDPC==&gt;3</span><br><span class="line">SDPC==&gt;5</span><br><span class="line">SDPC==&gt;8</span><br><span class="line">SDPC==&gt;13</span><br><span class="line">SDPC==&gt;21</span><br><span class="line">SDPC==&gt;34</span><br></pre></td></tr></table></figure>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/02/15/ARM/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/01/02/RSA/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Righteous's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

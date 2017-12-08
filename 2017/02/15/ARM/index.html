@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            ARM(一) | 
+        
+        Righteous
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
+2)分组寄存器:R8~812 
+     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
+     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
+     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
+">
+    <meta name="keywords" content=",Foundation">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Righteous">
+    <meta name="msapplication-starturl" content="http://righte0us.cc/2017/02/15/ARM/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Righteous">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://righte0us.cc/2017/02/15/ARM/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="ARM(一) | Righteous">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
+2)分组寄存器:R8~812 
+     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
+     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
+     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
+">
+    <meta property="og:article:tag" content="Foundation"> 
+
+    
+        <meta property="article:published_time" content="Wed Feb 15 2017 13:02:53 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 04 2017 13:31:24 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://righte0us.cc/2017/02/15/ARM/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://righte0us.cc/2017/02/15/ARM/index.html",
+    "headline": "ARM(一)",
+    "datePublished": "Wed Feb 15 2017 13:02:53 GMT+0800",
+    "dateModified": "Sun Jun 04 2017 13:31:24 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Righteous",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Righteous",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Foundation",
+    "description": "ARM寄存器通用寄存器1)未分组寄存器:R0~R7 
+2)分组寄存器:R8~812 
+     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
+     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
+     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
+",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ARM寄存器"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#ARM&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="ARM&#x5BC4;&#x5B58;&#x5668;"></a>ARM&#x5BC4;&#x5B58;&#x5668;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通用寄存器"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"><a href="#&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;"></a>&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#状态寄存器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"><a href="#&#x72B6;&#x6001;&#x5BC4;&#x5B58;&#x5668;" class="headerlink" title="&#x72B6;&#x6001;&#x5BC4;&#x5B58;&#x5668;"></a>&#x72B6;&#x6001;&#x5BC4;&#x5B58;&#x5668;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#地址空间"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"><a href="#&#x5730;&#x5740;&#x7A7A;&#x95F4;" class="headerlink" title="&#x5730;&#x5740;&#x7A7A;&#x95F4;"></a>&#x5730;&#x5740;&#x7A7A;&#x95F4;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编语言"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x6C47;&#x7F16;&#x8BED;&#x8A00;" class="headerlink" title="&#x6C47;&#x7F16;&#x8BED;&#x8A00;"></a>&#x6C47;&#x7F16;&#x8BED;&#x8A00;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#汇编指令格式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"><a href="#&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x683C;&#x5F0F;" class="headerlink" title="&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x683C;&#x5F0F;"></a>&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x683C;&#x5F0F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指令的可选后缀"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"><a href="#&#x6307;&#x4EE4;&#x7684;&#x53EF;&#x9009;&#x540E;&#x7F00;" class="headerlink" title="&#x6307;&#x4EE4;&#x7684;&#x53EF;&#x9009;&#x540E;&#x7F00;"></a>&#x6307;&#x4EE4;&#x7684;&#x53EF;&#x9009;&#x540E;&#x7F00;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指令的条件执行"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"><a href="#&#x6307;&#x4EE4;&#x7684;&#x6761;&#x4EF6;&#x6267;&#x884C;" class="headerlink" title="&#x6307;&#x4EE4;&#x7684;&#x6761;&#x4EF6;&#x6267;&#x884C;"></a>&#x6307;&#x4EE4;&#x7684;&#x6761;&#x4EF6;&#x6267;&#x884C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ARM指令分类"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"><a href="#ARM&#x6307;&#x4EE4;&#x5206;&#x7C7B;" class="headerlink" title="ARM&#x6307;&#x4EE4;&#x5206;&#x7C7B;"></a>ARM&#x6307;&#x4EE4;&#x5206;&#x7C7B;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ARM寻址方式"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"><a href="#ARM&#x5BFB;&#x5740;&#x65B9;&#x5F0F;" class="headerlink" title="ARM&#x5BFB;&#x5740;&#x65B9;&#x5F0F;"></a>ARM&#x5BFB;&#x5740;&#x65B9;&#x5F0F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据处理指令"><span class="post-toc-number">2.6.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x5904;&#x7406;&#x6307;&#x4EE4;" class="headerlink" title="&#x6570;&#x636E;&#x5904;&#x7406;&#x6307;&#x4EE4;"></a>&#x6570;&#x636E;&#x5904;&#x7406;&#x6307;&#x4EE4;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据加载与存储指令"><span class="post-toc-number">2.7.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x4E0E;&#x5B58;&#x50A8;&#x6307;&#x4EE4;" class="headerlink" title="&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x4E0E;&#x5B58;&#x50A8;&#x6307;&#x4EE4;"></a>&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x4E0E;&#x5B58;&#x50A8;&#x6307;&#x4EE4;</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                ARM(一)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Righteous</strong>
+        <span>2月 15, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Foundation/">Foundation</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ARM(一)&url=http://righte0us.cc/2017/02/15/ARM/index.html&pic=http://righte0us.cc/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ARM(一)&url=http://righte0us.cc/2017/02/15/ARM/index.html&via=Righteous" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://righte0us.cc/2017/02/15/ARM/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://righte0us.cc/2017/02/15/ARM/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="ARM寄存器"><a href="#ARM寄存器" class="headerlink" title="ARM寄存器"></a>ARM寄存器</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><pre><code>1)未分组寄存器:R0~R7 
+2)分组寄存器:R8~812 
+     R13:SP，常用作堆栈指针，始终指向堆栈的顶部，当一个数据(32位)推入堆栈时，SP(R13的值减4)向下浮动指向下一个地址，即新的栈顶，当数据从堆栈中弹出时，SP(R13的值加4)向上浮动指向新的栈顶。 
+     R14:连接寄存器(LR),当执行BL子程序调用指令时，R14中得到R15(程序计数器PC)的备份，其他情况下，R14用作通用寄存器。   
+     R15:程序计数器(PC):用于控制程序中指令的执行顺序。正常运行时，PC指向CPU运行的下一条指令。每次取值后PC的值会自动修改以指向下一条指令，从而保证了指令按一定的顺序执行。当程序的执行顺序发生改变(如转移)时，需要修改PC的值。
+</code></pre><a id="more"></a>
+<h2 id="状态寄存器"><a href="#状态寄存器" class="headerlink" title="状态寄存器"></a>状态寄存器</h2><pre><code>CPSR(R16):当前程序状态寄存器，用来保存ALU中的当前操作信息，控制允许和禁止中断、设置处理器的工作模式等。 
+SPSRs:五个备份的程序状态寄存器，用来进行异常处理。当异常发生时，SPSR用于保存CPSR的当前值，从异常退出时可由SPSR来恢复CPSR。
+
+N、Z、C、V均为条件码标志位，他们的内容可被运算的结果所改变。
+N:正负标志，N=1表示运算的结果为负，N=0表示运算的结果为正或0
+Z:零标志，Z=1表示运算的结果为0，Z=0表示运算的结果为非0
+C:进位标志，加法运算产生了进位时则C=1，否则C=0
+  借位标志，减肥运算产生了借位则C=0，否则C=1
+V:溢出标志，V=1表示有溢出，V=0表示无溢出
+</code></pre><h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><pre><code>程序正常执行时，每执行一条ARM指令，当前指令计数器增加4个字节。
+</code></pre><hr>
+<h1 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h1><h2 id="汇编指令格式"><a href="#汇编指令格式" class="headerlink" title="汇编指令格式"></a>汇编指令格式</h2><pre><code>&lt;opcode&gt;{&lt;cond&gt;}{S}&lt;Rd&gt;,&lt;Rn&gt;{,&lt;OP2&gt;} 
+格式中&lt;&gt;的内容必不可少，{}中的内容可省略 
+&lt;opcode&gt;:表示操作码，如ADD表示算术加法 
+{&lt;cond&gt;}:表示指令执行的条件域，如EQ、NE等。 
+{S}:决定指令的执行结果是否影响CPSR的值，使用该后缀则指令执行的结果影响CPSR的值，否则不影响 
+&lt;Rd&gt;:表示目的寄存器 
+&lt;Rn&gt;:表示第一个操作数，为寄存器 
+&lt;op2&gt;:表示第二个操作数，可以是立即数、寄存器或寄存器移位操作数 
+例:ADDEQS R0,R1,#8;其中操作码为ADD,条件域cond为EQ,S表示该指令的执行影响CPSR寄存器的值，目的寄存器Rd为R0,第一个操作数寄存器Rd为R1，第二个操作数OP2为立即数#8
+</code></pre><h2 id="指令的可选后缀"><a href="#指令的可选后缀" class="headerlink" title="指令的可选后缀"></a>指令的可选后缀</h2><pre><code>S：指令执行后程序状态寄存器的条件标志位将被刷新     
+   ADDS R1,R0,#2 
+!:指令中的地址表达式中含有!后缀时，指令执行后，基址寄存器中的地址值将发生变化，变化的结果是：基址寄存器中的值(指令执行后)=指令执行前的值 + 地址偏移量    
+   LDR R3,[R0,#2]!    指令执行后，R0 = R0 + 2
+</code></pre><h2 id="指令的条件执行"><a href="#指令的条件执行" class="headerlink" title="指令的条件执行"></a>指令的条件执行</h2><p>指令的条件后缀只是影响指令是否执行，不影响指令的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">条件码	助记符后缀       标志	                  含义</span><br><span class="line">0000	EQ	       Z置位	                  相等</span><br><span class="line">0001	NE	       Z清零	                  不相等</span><br><span class="line">0010	CS	       C指令	                  无符号数大于或等于</span><br><span class="line">0011	CC	       C清零	                  无符号数小于</span><br><span class="line">0100	MI	       N置位	                  负数</span><br><span class="line">0101	PL	       N清零	                  正数或零</span><br><span class="line">0110	VS	       V置位	                  溢出</span><br><span class="line">0111	VC	       V清零	                  未溢出</span><br><span class="line">1000	HI	       C置位Z清零                  无符号数大于</span><br><span class="line">1001	LS	       C清零Z置位                  无符号数小于或等于</span><br><span class="line">1010	GE	       N等于V	                 带符号数大于或等于</span><br><span class="line">1011	LT	       N不等于V	                 带符号数小于</span><br><span class="line">1100	GT	       Z清零且(N等于V)             带符号数大于</span><br><span class="line">1101	LE	       Z置位或(N不等于V)           带符号数小于或等于</span><br><span class="line">1110	AL	       忽略	                 无条件执行</span><br></pre></td></tr></table></figure>
+<p>例：ADDEQ R4,R3,#1 相等则相加，即CPSR中Z置位时该指令执行，否则不执行。</p>
+<h2 id="ARM指令分类"><a href="#ARM指令分类" class="headerlink" title="ARM指令分类"></a>ARM指令分类</h2><p><img src="/images/arm/arm1.png" alt=""></p>
+<h2 id="ARM寻址方式"><a href="#ARM寻址方式" class="headerlink" title="ARM寻址方式"></a>ARM寻址方式</h2><p>寻址方式就是根据指令中操作数的信息来寻找操作数实际物理地址的方式<br>a.立即数寻址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MOV R0,#15       #15就是立即数</span><br></pre></td></tr></table></figure>
+<p>b.寄存器寻址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD R0, R1, R2    将R1和R2的内容相加，其结果存放在寄存器R0中</span><br></pre></td></tr></table></figure>
+<p>c.寄存器间接寻址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LDR R0, [R4]      以寄存器R4的值作为操作数的地址，在存储器中取得一个操作数存入寄存器R0中</span><br></pre></td></tr></table></figure>
+<p>d.寄存器移位寻址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADD R0,R1,R2,LSL #1    将R2的值左移一位，所得值与R1相加，存放到R0中</span><br><span class="line">MOV R0,R1,LSL R3       将R1的值左移R3位，然后将结果存放到R0中</span><br></pre></td></tr></table></figure>
+<p>e.基址变址寻址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LDR R0,[R1,#4]    将R1的值加4作为操作数的地址，在存储器中取得操作数放入R0中</span><br><span class="line">LDR R0,[R1,#4]!   将R1的值加4作为操作数的地址，在存储器中取得操作数放入R0中,然后R1 = R1+4</span><br><span class="line">LDR R0,[R1],#4    R0 = [R1],R1 = R1 +4</span><br><span class="line">LDR R0,[R1,R2]    R0 = [R1+R2]</span><br></pre></td></tr></table></figure>
+<p>f.多寄存器寻址</p>
+<p>一条指令可以完成多个寄存器值的传送(最多可传送16个通用寄存器)，连续的寄存器用“-”，否则用“，”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LDMIA R0!,&#123;R1 - R4&#125;   R1 = [R0],R2=[R0+4],R3=[R0+8],R4=[R0+12]</span><br></pre></td></tr></table></figure>
+<p>后缀IA表示在每次执行玩加载/存储操作后，R0按自长度增加。<br>g.相对寻址</p>
+<p>以程序计数器PC的当前值为基地址，指令中的地址标号作为偏移量，将两者相加之后得到操作数的有效地址，如下图的BL分支跳转</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     BL proc        跳转到子程序proc处执行</span><br><span class="line">     ...</span><br><span class="line">proc MOV R0,#1</span><br><span class="line">     ...</span><br></pre></td></tr></table></figure>
+<p>h.堆栈寻址</p>
+<p>按先进先出的方式工作，堆栈指针用R13表示，总是指向栈顶，LDMFD和STMFD分别表示POP出栈和PUSH进栈</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STMFD R13!,&#123;R0 - R4&#125;;</span><br><span class="line">LDMFD R13!,&#123;R0 - R4&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="数据处理指令"><a href="#数据处理指令" class="headerlink" title="数据处理指令"></a>数据处理指令</h2><p>a. MOV指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MOV &#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,op2          将op2传给Rd</span><br><span class="line">MOV R1, R0                      将寄存器R0的值传到寄存器R1</span><br><span class="line">MOV PC,R14                      将寄存器R14的值传到PC，常用于子程序返回</span><br><span class="line">MOV R1,R0,LSL #3                将寄存器R0的值左移3位后传给R1</span><br><span class="line">MOV R0,#5                       将立即数5传给R0</span><br></pre></td></tr></table></figure>
+<p>b. MVN指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MVN &#123;&lt;cond&gt;&#125;&#123;S&#125;Rd, op2          将op2取反传给Rd</span><br><span class="line">MVN R0,#0                       将0取反后传给R0，R0 = -1</span><br><span class="line">MVN R1,R2                       将R2取反，结果保存到R1</span><br></pre></td></tr></table></figure>
+<p>c. 移位指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LSL 逻辑左移</span><br><span class="line">LSR 逻辑右移</span><br><span class="line">ASR 算术右移</span><br><span class="line">ROR 循环右移</span><br><span class="line">RRX 带扩展的循环右移</span><br></pre></td></tr></table></figure>
+<p>d. ADD加法指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADD&#123;&lt;cond&gt;&#125;&#123;S&#125;Rd, Rn, op2</span><br><span class="line">ADD R0,R1,R2            R0 = R1 + R2</span><br><span class="line">ADD R0,R1,#5            R0 = R1 + 5</span><br><span class="line">ADD R0,R1,R2,LSL #2     R0 = R1 + (R2左移2位)</span><br></pre></td></tr></table></figure>
+<p>e. ADC带进位加法指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和操作数op2相加，再加上CPSR中C条件标志位的值，并将结果保存到Rd中</span><br><span class="line">例：用ADC完成64位加法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中</span><br><span class="line">ADDS R0,R2,R4               低32位相加，产生进位</span><br><span class="line">ADC R1,R3,R5                高32位相加，加上进位</span><br></pre></td></tr></table></figure>
+<p>f. SUB减法指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SUB&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    Rd = Rn - op2</span><br><span class="line">SUB R0,R1,R2                R0 = R1 - R2</span><br><span class="line">SUB R0,R1,#6                R0 = R1 -6</span><br><span class="line">SUB R0,R2,R3,LSL #1         R0 = R2 - (R3左移1位)</span><br></pre></td></tr></table></figure>
+<p>g. SBC带借位减法指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SBC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    把Rn的值减去操作数op2，再减去CPSR中的C标志位的反码，并将结果保存到Rd中，Rd = Rn - op2 - !C</span><br></pre></td></tr></table></figure>
+<p>例:用SBC完成64位减法，设第一个64位操作数保存在R2,R3中，第二个64位操作数放在R4,R5中，结果保存在R0,R1中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SUBS R0,R2,R4       低32位相减，S影响CPSR</span><br><span class="line">SBC R1,R3,R5        高32位相减，去除C的反码</span><br></pre></td></tr></table></figure>
+<p>h. RSC带借位的逆向减法指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSC&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    把操作数op2减去Rn，再减去CPSR中的C标志位的反码，并将结果保存到Rd中，Rd = op2 - Rn - !C</span><br></pre></td></tr></table></figure>
+<p>i. 逻辑运算指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AND&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    按位与，Rd = Rn AND op2</span><br><span class="line">ORR&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    按位或，Rd = Rn OR op2</span><br><span class="line">EOR&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    按位异或，Rd = Rn EOR op2</span><br></pre></td></tr></table></figure>
+<p>j. CMP比较指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMP&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和op2进行比较，同时更新CPSR中条件标志位的值(实际上是执行一次减法，但不存储结果)，当操作数Rn大于op2时，则此后带有GT后缀的指令将可以执行(根据相应的指令判断是否执行，如GT,LT等)。</span><br><span class="line">CMP R1,#10                  比较R1和10，并设置CPSR的标志位</span><br><span class="line">ADDGT R0,R0,#5              如果R1&gt;10,则执行ADDGT指令，将R0加5</span><br></pre></td></tr></table></figure>
+<p>k. CMN反值比较指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CMN&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rn,op2    将Rn的值和op2取反后进行比较，同时更新CPSR中条件标志位的值(实际上将Rn和op2相加)，后面的指令就可以根据条件标志位决定是否执行。  </span><br><span class="line">CMN R0,R1       将R0和R1相加，并设置CPSR的值</span><br></pre></td></tr></table></figure>
+<p>l. MUL/MLA/SMULL/SMLAL/UMULL/UMLAL乘法指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MUL     32位乘法指令</span><br><span class="line">MLA     32位乘加指令</span><br><span class="line">SMULL   64位有符号数乘法指令</span><br><span class="line">SMLAL   64位有符号数乘加指令</span><br><span class="line">UMULL   64位无符号数乘法指令</span><br><span class="line">UMLAL   64位无符号数乘加指令</span><br><span class="line">MUL&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rm,Rs         Rd = Rm * Rs</span><br><span class="line">MULS R0,R1,R2</span><br><span class="line">MLA&#123;&lt;cond&gt;&#125;&#123;S&#125; Rd,Rm,Rs,Rn      Rd = (Rm * Rs) + Rn</span><br><span class="line">MLAS R0,R1,R2,R3</span><br></pre></td></tr></table></figure>
+<h2 id="数据加载与存储指令"><a href="#数据加载与存储指令" class="headerlink" title="数据加载与存储指令"></a>数据加载与存储指令</h2><p><img src="/images/arm/arm2.png" alt=""></p>
+<p>a. LDR/STR字数据加载/存储指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">LDR/STR&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr       LDR指令用于从存储器中将一个32位的字数据加载到目的寄存器Rd中，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span><br><span class="line">STR指令用于从源寄存器中将一个32位的字数据存储到存储器中，和LDR相反。后缀T可选。</span><br><span class="line">LDR R4,START            将存储地址为START的字数据读入R4</span><br><span class="line">STR R5,DATA1            将R5存入存储地址为DATA1中</span><br><span class="line">LDR R0,[R1]             将存储器地址为R1的字数据读入存储器R0</span><br><span class="line">LDR R0,[R1,R2]          将存储器地址为R1+R2的字数据读入存储器R0</span><br><span class="line">LDR R0,[R1,#8]          将存储器地址为R1+8的字数据读入存储器R0</span><br><span class="line">LDR R0,[R1,R2,LSL #2]   将存储器地址为R1+R2*4的字数据读入存储区R0</span><br><span class="line">STR R0,[R1,R2]!         将R0字数据存入存储器地址R1+R2的存储单元中，并将新地址R2+R2写入R2</span><br><span class="line">STR R0,[R1,#8]!         将R0字数据存入存储器地址R1+8的存储单元中，并将新地址R2+8写入R2</span><br><span class="line">STR R0,[R1,R2,LSL #2]   将R0字数据存入存储器地址R1+R2*4的存储单元中，并将新地址R2+R2*4写入R1</span><br><span class="line">LDR R0,[R1],#8          将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+8写入R1  </span><br><span class="line">LDR R0,[R1],R2          将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+R2写入R1</span><br><span class="line">LDR R0,[R1],R2,LSL #2   将存储器地址为R1的字数据读入寄存器R0，并将新地址R1+R2*4写入R1</span><br></pre></td></tr></table></figure>
+<p>b. LDRB/STRB字节数据加载/存储指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LDRB/STRB&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr         </span><br><span class="line">LDRB指令用于从存储器中将一个8位的字节数据加载到目的寄存器中，同时将寄存器的高24位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span><br><span class="line">STRB指令用于从源寄存器中将一个8位的字节数据存储到存储器中，和LDRB相反。后缀T可选。</span><br></pre></td></tr></table></figure>
+<p>c. LDRH/STRH半字数据加载/存储指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LDRH/STRH&#123;&lt;cond&gt;&#125;&#123;T&#125;Rd,addr         </span><br><span class="line">LDRH指令用于从存储器中将一个16位的半字数据加载到目的寄存器中，同时将寄存器的高16位清零，当程序计数器PC作为目的寄存器时，指令从存储器中读取的字数据被当做目的地址，从而可以实现程序流程的跳转。</span><br><span class="line">STRH指令用于从源寄存器中将一个16位的半字数据存储到存储器中，和LDRH相反。后缀T可选。</span><br></pre></td></tr></table></figure>
+<p>d. LDM/STM批量数据加载/存储指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LDM/STM&#123;&lt;cond&gt;&#125;&#123;&lt;type&gt;&#125;Rn&#123;!&#125;,&lt;regs&gt;&#123;^&#125;      </span><br><span class="line">LDM用于从基址寄存器所指示的一片连续存储器中读取数据到寄存器列表所指向的多个寄存器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器由寄存器列表regs表示，该指令一般用于多个寄存器数据的出栈操作</span><br><span class="line">STM用于将寄存器列表所指向的多个寄存器中的值存入由基址寄存器所指向的一片连续存储器中，内存单元的起始地址为基址寄存器Rn的值，各个寄存器又寄存器列表regs表示。该指令一般用于多个寄存器数据的进栈操作。</span><br></pre></td></tr></table></figure>
+<p>type表示类型，用于数据的存储与读取有以下几种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IA：每次传送后地址值加。</span><br><span class="line">IB：每次传送前地址值加。</span><br><span class="line">DA: 每次传送后地址值减。</span><br><span class="line">DB: 每次传送前地址值减。</span><br></pre></td></tr></table></figure>
+<p>用于堆栈操作时有如下几种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FD:满递减堆栈</span><br><span class="line">ED:空递减堆栈</span><br><span class="line">FA:满递增堆栈</span><br><span class="line">EA:空递增堆栈</span><br></pre></td></tr></table></figure>
+<p>e. SWP字数据交换指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SWP&#123;&lt;cond&gt;&#125;&lt;Rd&gt;,&lt;Rm&gt;,[&lt;Rn&gt;]     Rd = [Rn],[Rn] = Rm,当寄存器Rm和目的寄存器Rd为同一个寄存器时，指令交换该急促亲和存储器的内容</span><br><span class="line">SWP R0,R1,[R2]                  R0 = [R2],[R2] = R1</span><br><span class="line">SWP R0,R0,[R1]                  R0 = [R1],[R1] = R0</span><br><span class="line">SWPB指令用于将寄存器Rn指向的存储器中的字节数据加载到目的寄存器Rd中，目的寄存器的高24位清零，同时将Rm中的字数据存储到Rn指向的存储器中。</span><br></pre></td></tr></table></figure>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/02/25/ARM2/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/01/03/汇编/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Righteous's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

