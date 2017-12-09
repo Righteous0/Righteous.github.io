@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.righte0us.cc/"/>
-  <updated>2017-12-09T08:19:32.916Z</updated>
+  <updated>2017-12-09T03:30:52.253Z</updated>
   <id>https://blog.righte0us.cc/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://blog.righte0us.cc/archives/lnmp.html"/>
-    <id>https://blog.righte0us.cc/archives/lnmp.html</id>
-    <published>2017-12-09T08:19:32.920Z</published>
-    <updated>2017-12-09T08:19:32.916Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>title: LNMP配置文件位置<br>date: 2017-05-15 13:02:53<br>tags:</p><ul><li>LNMP<br>categories: </li><li>Foundation<br>toc: true</li></ul><hr><p><strong>LNMP相关软件安装目录</strong></p><p><strong><em>Nginx目录:</em></strong> </p><pre><code>/usr/local/nginx/</code></pre><p><strong><em>MySQL目录 :</em></strong> </p><pre><code>/usr/local/mysql/</code></pre><p><strong><em>MySQL数据库所在目录：</em></strong></p><pre><code>/usr/local/mysql/var/</code></pre><p><strong><em>MariaDB目录 :</em></strong> </p><pre><code>/usr/local/mariadb/</code></pre><p><strong><em>MariaDB数据库所在目录</em></strong>：</p><pre><code>/usr/local/mariadb/var/</code></pre><p><strong><em>PHP目录:</em></strong> </p><pre><code>/usr/local/php/</code></pre><p><strong><em>PHPMyAdmin目录:</em></strong> </p><p>0.9版本为</p><pre><code>/home/wwwroot/phpmyadmin/</code></pre><p><strong>1.0及以后版本为</strong> </p><pre><code>/home/wwwroot/default/phpmyadmin/</code></pre><p><strong><em>默认网站目录:</em></strong></p><p>0.9版本为</p><pre><code>/home/wwwroot/ </code></pre><p><strong>1.0及以后版本为</strong> </p><pre><code>/home/wwwroot/default/</code></pre><p><strong><em>Nginx日志目录：</em></strong></p><pre><code>/home/wwwlogs/</code></pre><p><strong><em>/root/vhost.sh添加的虚拟主机配置文件所在目录：</em></strong></p><pre><code>/usr/local/nginx/conf/vhost/</code></pre><p><strong><em>PureFtpd目录</em></strong>：</p><pre><code>/usr/local/pureftpd/</code></pre><p><strong><em>PureFtpd web管理目录：</em></strong> </p><p>0.9版为</p><pre><code>/home/wwwroot/default/ftp/</code></pre><p><strong>1.0版为</strong> </p><pre><code>/home/wwwroot/default/ftp/</code></pre><p><strong><em>Proftpd目录：</em></strong></p><pre><code>/usr/local/proftpd/</code></pre><p><strong><em>Redis目录</em></strong>：</p><pre><code>/usr/local/redis/</code></pre><p><strong>LNMP相关配置文件位置</strong></p><p><strong><em>Nginx主配置(默认虚拟主机)文件</em></strong>：</p><pre><code>/usr/local/nginx/conf/nginx.conf</code></pre><p><strong><em>添加的虚拟主机配置文件</em></strong>：</p><pre><code>/usr/local/nginx/conf/vhost/域名.conf</code></pre><p><strong><em>MySQL配置文件：</em></strong></p><pre><code>/etc/my.cnf</code></pre><p><strong><em>PHP配置文件：</em></strong></p><pre><code>/usr/local/php/etc/php.ini</code></pre><p><strong><em>php-fpm配置文件</em></strong>：</p><pre><code>/usr/local/php/etc/php-fpm.conf</code></pre><p><strong><em>PureFtpd配置文件：</em></strong></p><pre><code>/usr/local/pureftpd/pure-ftpd.conf </code></pre><p><strong>1.3及更高版本：</strong></p><pre><code>/usr/local/pureftpd/etc/pure-ftpd.conf</code></pre><p><strong><em>PureFtpd MySQL配置文件：</em></strong></p><pre><code>/usr/local/pureftpd/pureftpd-mysql.conf</code></pre><p><strong><em>Proftpd配置文件</em></strong>：</p><pre><code>/usr/local/proftpd/etc/proftpd.conf</code></pre><p><strong>1.2及之前版本为</strong></p><pre><code>/usr/local/proftpd/proftpd.conf</code></pre><p><strong><em>Proftpd 用户配置文件：</em></strong></p><pre><code>/usr/local/proftpd/etc/vhost/用户名.conf</code></pre><p><strong><em>Redis 配置文件：</em></strong></p><pre><code>/usr/local/redis/etc/redis.conf</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;p&gt;title: LNMP配置文件位置&lt;br&gt;date: 2017-05-15 13:02:53&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;LNMP&lt;br&gt;categories: &lt;/li&gt;
-&lt;li&gt;Foundation&lt;br&gt;toc: true&lt;/li&gt;
-&lt;/ul
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Off-By-One</title>
@@ -148,7 +122,7 @@ info #获取相关命令的详细使用方法
     <link href="https://blog.righte0us.cc/archives/CTFd.html"/>
     <id>https://blog.righte0us.cc/archives/CTFd.html</id>
     <published>2017-05-15T05:02:53.000Z</published>
-    <updated>2017-12-09T08:14:58.201Z</updated>
+    <updated>2017-12-09T08:24:42.186Z</updated>
     
     <content type="html"><![CDATA[<p><strong>准备环境</strong><br>Ubuntu 16.04   LNMP<br>1.更新<br>    sudo apt-get update             # 获取最新资源包<br>    sudo apt-get upgrade           # 本机软件全部更新<br>    sudo apt-get dist-upgrade    # 本机系统软件更新<br><a id="more"></a><br>2.安装git</p><pre><code>sudo apt install git</code></pre><p>3.安装MariaDB</p><pre><code>sudo apt-get install mariadb-server-10.0 mariadb-client-10.0</code></pre><p>配置Mariadb的安全选项命令</p><pre><code>sudo mysql_secure_installation</code></pre><pre><code>设定新密码需要输入，其余回车即可Enter current password for root (enter for none): 当前root的密码，直接回车，因为新数据库没有密码。Set root password? [Y/n] 回车，默认为输入Y。New password: 输入新密码Re-enter new password 再次输入新密码Remove anonymous users? [Y/n] 移除匿名用户Disallow root login remotely? [Y/n] 禁止root远程登录Remove test database and access to it? [Y/n] 移除测试数据库Reload privilege tables now? [Y/n] 重新加载权限表</code></pre><p>4.Others<br>1)安装pip</p><pre><code>sudo apt install python-pip</code></pre><p>2)安装mysql-python</p><pre><code>sudo apt-get install libmysqlclient-devsudo apt-get install python-devsudo pip install mysql-python</code></pre><p>若不安装，CTFd中运行serve.py会报错（ImportError: No module named MySQLdb）</p><p>3)安装gunicorn</p><pre><code>sudo pip install gunicorn</code></pre><p><strong>安装CTFd</strong><br>下载&amp;安装&amp;运行CTFd<br>    sudo git clone <a href="https://github.com/isislab/CTFd.git" target="_blank" rel="noopener">https://github.com/isislab/CTFd.git</a><br>    cd CTFd<br>    sudo ./prepare.sh<br>    sudo python serve.py</p><p>配置数据库<br>修改CTFd目录下的config.py</p><pre><code>HOST = &quot;47.76.**.**&quot;SQLALCHEMY_DATABASE_URI = &#39;mysql://root:&lt;mysql_passwd&gt;@localhost/CTFd?charset=utf8&#39;</code></pre><p>然后进入数据库</p><pre><code>mysql -u root -p</code></pre><p>新建一个数据库</p><pre><code>CREATE DATABASE CTFd;</code></pre><p>退出数据库返回CTFd目录运行一下serve.py，ctrl+c退出再进入数据库</p><pre><code>use CTFd;</code></pre><p>防止乱码，将里面的字符集全部修改为utf-8.</p><pre><code>ALTER TABLE awards CONVERT TO CHARACTER SET utf8;ALTER TABLE challenges CONVERT TO CHARACTER SET utf8;ALTER TABLE config CONVERT TO CHARACTER SET utf8;ALTER TABLE files CONVERT TO CHARACTER SET utf8;ALTER TABLE hints CONVERT TO CHARACTER SET utf8;ALTER TABLE `keys` CONVERT TO CHARACTER SET utf8;ALTER TABLE pages CONVERT TO CHARACTER SET utf8;ALTER TABLE solves CONVERT TO CHARACTER SET utf8;ALTER TABLE tags CONVERT TO CHARACTER SET utf8;ALTER TABLE teams CONVERT TO CHARACTER SET utf8;ALTER TABLE tracking CONVERT TO CHARACTER SET utf8;ALTER TABLE wrong_keys CONVERT TO CHARACTER SET utf8;</code></pre><p>退出mysql</p><pre><code>sudo gunicorn --bind 0.0.0.0:4000 -w 1 &quot;CTFd:create_app()&quot;</code></pre><p>访问平台，首次注册账号即为admin</p>]]></content>
     
@@ -191,6 +165,34 @@ Ubuntu 服务器版本在云服务和容器部署上的支持更多。
     
     
       <category term="Typecho" scheme="https://blog.righte0us.cc/tags/Typecho/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LNMP配置文件位置</title>
+    <link href="https://blog.righte0us.cc/archives/lnmp.html"/>
+    <id>https://blog.righte0us.cc/archives/lnmp.html</id>
+    <published>2017-05-15T05:02:53.000Z</published>
+    <updated>2017-12-09T08:24:45.174Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>LNMP相关软件安装目录</strong></p><p><strong><em>Nginx目录:</em></strong> </p><pre><code>/usr/local/nginx/</code></pre><p><strong><em>MySQL目录 :</em></strong> </p><pre><code>/usr/local/mysql/</code></pre><p><strong><em>MySQL数据库所在目录：</em></strong></p><pre><code>/usr/local/mysql/var/</code></pre><p><strong><em>MariaDB目录 :</em></strong> </p><pre><code>/usr/local/mariadb/</code></pre><p><strong><em>MariaDB数据库所在目录</em></strong>：</p><pre><code>/usr/local/mariadb/var/</code></pre><p><strong><em>PHP目录:</em></strong> </p><pre><code>/usr/local/php/</code></pre><p><strong><em>PHPMyAdmin目录:</em></strong> </p><p>0.9版本为</p><pre><code>/home/wwwroot/phpmyadmin/</code></pre><p><strong>1.0及以后版本为</strong> </p><pre><code>/home/wwwroot/default/phpmyadmin/</code></pre><p><strong><em>默认网站目录:</em></strong></p><p>0.9版本为</p><pre><code>/home/wwwroot/ </code></pre><p><strong>1.0及以后版本为</strong> </p><pre><code>/home/wwwroot/default/</code></pre><p><strong><em>Nginx日志目录：</em></strong></p><pre><code>/home/wwwlogs/</code></pre><p><strong><em>/root/vhost.sh添加的虚拟主机配置文件所在目录：</em></strong></p><pre><code>/usr/local/nginx/conf/vhost/</code></pre><p><strong><em>PureFtpd目录</em></strong>：</p><pre><code>/usr/local/pureftpd/</code></pre><p><strong><em>PureFtpd web管理目录：</em></strong> </p><p>0.9版为</p><pre><code>/home/wwwroot/default/ftp/</code></pre><p><strong>1.0版为</strong> </p><pre><code>/home/wwwroot/default/ftp/</code></pre><p><strong><em>Proftpd目录：</em></strong></p><pre><code>/usr/local/proftpd/</code></pre><p><strong><em>Redis目录</em></strong>：</p><pre><code>/usr/local/redis/</code></pre><p><strong>LNMP相关配置文件位置</strong></p><p><strong><em>Nginx主配置(默认虚拟主机)文件</em></strong>：</p><pre><code>/usr/local/nginx/conf/nginx.conf</code></pre><p><strong><em>添加的虚拟主机配置文件</em></strong>：</p><pre><code>/usr/local/nginx/conf/vhost/域名.conf</code></pre><p><strong><em>MySQL配置文件：</em></strong></p><pre><code>/etc/my.cnf</code></pre><p><strong><em>PHP配置文件：</em></strong></p><pre><code>/usr/local/php/etc/php.ini</code></pre><p><strong><em>php-fpm配置文件</em></strong>：</p><pre><code>/usr/local/php/etc/php-fpm.conf</code></pre><p><strong><em>PureFtpd配置文件：</em></strong></p><pre><code>/usr/local/pureftpd/pure-ftpd.conf </code></pre><p><strong>1.3及更高版本：</strong></p><pre><code>/usr/local/pureftpd/etc/pure-ftpd.conf</code></pre><p><strong><em>PureFtpd MySQL配置文件：</em></strong></p><pre><code>/usr/local/pureftpd/pureftpd-mysql.conf</code></pre><p><strong><em>Proftpd配置文件</em></strong>：</p><pre><code>/usr/local/proftpd/etc/proftpd.conf</code></pre><p><strong>1.2及之前版本为</strong></p><pre><code>/usr/local/proftpd/proftpd.conf</code></pre><p><strong><em>Proftpd 用户配置文件：</em></strong></p><pre><code>/usr/local/proftpd/etc/vhost/用户名.conf</code></pre><p><strong><em>Redis 配置文件：</em></strong></p><pre><code>/usr/local/redis/etc/redis.conf</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;LNMP相关软件安装目录&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Nginx目录:&lt;/em&gt;&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/local/nginx/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;MyS
+      
+    
+    </summary>
+    
+      <category term="Foundation" scheme="https://blog.righte0us.cc/categories/Foundation/"/>
+    
+    
+      <category term="LNMP" scheme="https://blog.righte0us.cc/tags/LNMP/"/>
     
   </entry>
   
