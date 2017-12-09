@@ -43,7 +43,7 @@
     
     <title>
         
-            友情链接 | 
+            Blog搭建小记 | 
         
         Righteous&#39;Blog
     </title>
@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Blog">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Righteous&#39;Blog">
-    <meta name="msapplication-starturl" content="https://blog.righte0us.cc/links.html">
+    <meta name="msapplication-starturl" content="https://blog.righte0us.cc/archives/blog.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Righteous&#39;Blog">
@@ -234,13 +234,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://blog.righte0us.cc/links.html">
+    <meta property="og:url" content="https://blog.righte0us.cc/archives/blog.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="友情链接 | Righteous&#39;Blog">
+    <meta property="og:title" content="Blog搭建小记 | Righteous&#39;Blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Blog"> 
 
+    
+        <meta property="article:published_time" content="Mon May 15 2017 13:02:53 GMT+0800">
+        <meta property="article:modified_time" content="Sat Dec 09 2017 16:21:17 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -248,13 +251,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.righte0us.cc/links.html" />
+        <link rel="canonical" href="https://blog.righte0us.cc/archives/blog.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://blog.righte0us.cc/archives/blog.html",
+    "headline": "Blog搭建小记",
+    "datePublished": "Mon May 15 2017 13:02:53 GMT+0800",
+    "dateModified": "Sat Dec 09 2017 16:21:17 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Righteous",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.jpg"
+        },
+        "description": "Hi, This 1s the Fl4g"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Righteous&#39;Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Blog",
+    "description": "",
+}
+</script>
 
 
     
@@ -290,133 +323,278 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x4E3A;&#x4E86;&#x4F7F;&#x7F51;&#x7AD9;&#x652F;&#x6301;https&#x8BBF;&#x95EE;&#xFF0C;&#x5E76;&#x5C06;http&#x7F51;&#x5740;&#x91CD;&#x5B9A;&#x5411;&#x5230;https&#xFF0C;&#x5F00;&#x59CB;&#x4E86;&#x9047;&#x5751;&#x4E4B;&#x65C5;&#x3002;&#x3002;&#x3002;" class="headerlink" title="&#x4E3A;&#x4E86;&#x4F7F;&#x7F51;&#x7AD9;&#x652F;&#x6301;https&#x8BBF;&#x95EE;&#xFF0C;&#x5E76;&#x5C06;http&#x7F51;&#x5740;&#x91CD;&#x5B9A;&#x5411;&#x5230;https&#xFF0C;&#x5F00;&#x59CB;&#x4E86;&#x9047;&#x5751;&#x4E4B;&#x65C5;&#x3002;&#x3002;&#x3002;"></a>&#x4E3A;&#x4E86;&#x4F7F;&#x7F51;&#x7AD9;&#x652F;&#x6301;https&#x8BBF;&#x95EE;&#xFF0C;&#x5E76;&#x5C06;http&#x7F51;&#x5740;&#x91CD;&#x5B9A;&#x5411;&#x5230;https&#xFF0C;&#x5F00;&#x59CB;&#x4E86;&#x9047;&#x5751;&#x4E4B;&#x65C5;&#x3002;&#x3002;&#x3002;</span></a></li></ol>
+    </ul>
+    
+
+
+
 
 <!-- Layouts -->
 
-    <!-- Single Links Page -->
-    <style>
-    .md-links {
-        min-height: calc(100% - 120px - 5pc - 6em);
-        text-align: center;
-        overflow: auto;
-        padding: 0;
-        margin: 0 auto;
-        max-width: 320px;
-    }
+    <!-- Post Module -->
+    <div class="material-post_container">
 
-    @media screen and (min-width: 680px) {
-        .md-links {
-            max-width: 640px;
-        }
-    }
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
-    @media screen and (min-width: 1000px) {
-        .md-links {
-            max-width: 960px;
-        }
-    }
-
-    @media screen and (min-width: 1320px) {
-        .md-links {
-            max-width: 1280px;
-        }
-    }
-
-    @media screen and (min-width: 1640px) {
-        .md-links {
-            max-width: 1600px;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .md-links {
-            min-height: calc(100% - 200px - 5pc - 6em);
-            margin-top: 6em;
-        }
-    }
-
-    .md-links-item {
-        background: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        height: 72px;
-        line-height: 15px;
-        margin: 20px 10px;
-        padding: 0px 0px;
-        transition: box-shadow 0.25s;
-    }
-
-    .md-links a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .md-links li {
-        width: 300px;
-        float: left;
-        list-style: none;
-    }
-
-    .md-links-item img {
-        float: left;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 11px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    }
-
-    .md-links-item:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .md-links-item a:hover{
-        cursor: pointer;
-    }
-
-    .md-links-title {
-        font-size: 20px;
-        line-height: 50px;
-    }
-
-    #scheme-Paradox .mdl-mini-footer{
-        clear: left;
-    }
-    #bottom{
-        position: relative;
-    }
-</style>
-
-<ul class="md-links">
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
-            <li class="md-links-item">
-                <a href="http://www.venenof.com" title="Veneno" target="_blank">
-                    <img src="" alt="Veneno" height="72px"/>
-                    <span class="md-links-title">Veneno</span><br />
-                    <span>V师傅</span>
-                </a>
-            </li>
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
         
-            <li class="md-links-item">
-                <a href="www.tomyxy.com" title="Tomyxy" target="_blank">
-                    <img src="" alt="Tomyxy" height="72px"/>
-                    <span class="md-links-title">Tomyxy</span><br />
-                    <span>Tomyxy</span>
-                </a>
+    
+            <p class="article-headline-p">
+                Blog搭建小记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Righteous</strong>
+        <span>5月 15, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Blog/">Blog</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.righte0us.cc/archives/blog.html&text=Blog搭建小记" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
             </li>
-        
+        </a>
     
 </ul>
 
-<script type="text/ls-javascript" id="page-links-script">
-    var adjustFooter = function() {
-        if( ($('#bottom').offset().top + $('#bottom').outerHeight() )<$(window).height() ) {
-            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
-            $('#bottom').css('bottom', '-' + footerBottom + 'px');
-        }
-    };
-    $(document).ready(function() {
-        adjustFooter();
-    });
-</script>
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>国内服务器需要备案，相应的域名也要备案，不想折腾，于是乎。。。搞了个国外vps，采用了Typecho框架、handsome主题搭建了此Blog。<br><strong>配置LAMP</strong><br>服务器：Ubuntu17.04</p>
+<p>1.更新</p>
+<pre><code>sudo apt-get update             # 获取最新资源包
+sudo apt-get upgrade           # 本机软件全部更新
+sudo apt-get dist-upgrade    # 本机系统软件更新
+</code></pre><p>2.安装Apache</p>
+<pre><code>sudo apt-get install apache2
+</code></pre><p>测试： 浏览器访问<a href="http://Ubuntu的IP（即http://localhost），出现It" target="_blank" rel="noopener">http://Ubuntu的IP（即http://localhost），出现It</a> Works!网页。<br>查看状态： service apache2 status/start/stop/restart<br>Web目录：/var/www<br>安装目录： /etc/apache2/<br>全局配置： /etc/apache2/apache2.conf<br>监听端口： /etc/apache2/ports.conf<br>虚拟主机： /etc/apache2/sites-enabled/000-default.conf</p>
+<p>3.安装MySQL</p>
+<pre><code>sudo apt-get install mysql-server mysql-client
+</code></pre><p>4.安装PHP及其它模块</p>
+<pre><code>sudo apt-get install php7.0
+sudo apt-get install php7.0-fpm php7.0-mysql php7.0-common php7.0-mbstring php7.0-gd php7.0-json php7.0-curl libapache2-mod-php7.0
+</code></pre><p>重启服务</p>
+<pre><code>service apache2 restart
+service mysql restart
+</code></pre><p>5.安装phpMyAdmin</p>
+<pre><code>sudo apt-get install phpmyadmin
+</code></pre><p>安装：选择apache2，点击确定。下一步选择是要配置数据库，并输入密码。<br>创建phpMyAdmin快捷方式：</p>
+<pre><code>sudo ln -s /usr/share/phpmyadmin /var/www/html
+</code></pre><p>启用Apache mod_rewrite模块：</p>
+<pre><code>sudo a2enmod rewrite
+</code></pre><p>重启服务：</p>
+<pre><code>service php7.0-fpm restart
+service apache2 restart
+</code></pre><p><strong>安装Typecho</strong><br>下载安装包（<a href="http://typecho.org/），解压，放到/var/www/html目录下，上传完毕后使用浏览器直接访问安装目录即可看到Typecho的安装程序。" target="_blank" rel="noopener">http://typecho.org/），解压，放到/var/www/html目录下，上传完毕后使用浏览器直接访问安装目录即可看到Typecho的安装程序。</a><br>1)若无数据库报错，自己创建typecho数据库即可</p>
+<pre><code>mysql -u root -p
+CREATE DATABASE typecho;
+</code></pre><p>2)若无config.inc.php文件，手动创建即可</p>
+<p><strong>安装主题&amp;插件</strong><br>主题安装：将主题上传至typecho的/usr/themes目录下；<br>插件安装：将插件上传至typecho的/usr/plugins/目录下。</p>
+<p>附：启用Links友链插件报错：数据表建立失败,友情链接插件启用失败。错误号:42S01<br>解决方案：<br>先把typecho_links这张表备份到本地（或者把整个数据库备份）<br>然后把typecho_links这张表删除（DROP TABLE typecho_links）<br>在后台重新启用插件<br>最后把备份到本地的typecho_links这张表导入数据库</p>
+<p>服务器环境：Ubuntu17.04 LAMP</p>
+<h2 id="为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。"><a href="#为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。" class="headerlink" title="为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。"></a>为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。</h2><p><strong>获取SSL证书</strong><br>使用的是阿里云SSL免费证书。到阿里云控制台，购买证书，申请证书即可。<br>下载证书上传至服务器</p>
+<p><strong>加载SSL模块到Apache2</strong><br>执行以下命令确保SSL模块已经加载进Apache2中：</p>
+<pre><code>a2enmod ssl
+</code></pre><p>如果出现“Module ssl already enabled”这样的信息就说明SSL模块已经加载到 Apache2 中，如果出现“Enabling module ssl”，重启Apache2：</p>
+<pre><code>service apache2 restart
+</code></pre><p><strong>修改Apache2配置文件</strong></p>
+<p>修改/etc/apache2/ports.conf文件：</p>
+<pre><code>Listen 80
+&lt;IfModule ssl_module&gt;
+        Listen 443
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_gnutls.c&gt;
+        Listen 443
+&lt;/IfModule&gt;
+</code></pre><p>修改/etc/apache2/sites-available/000-default.conf文件：</p>
+<pre><code>&lt;VirtualHost *:443&gt;
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    SSLEngine on
+    SSLCertificateFile cert/admin/public.pem
+    SSLCertificateKeyFile cert/admin/21424xxxxxxx.key
+    SSLCertificateChainFile cert/admin/chain.pem
+&lt;/VirtualHost&gt;
+</code></pre><p>修改/etc/apache2/sites-available/default-ssl.conf文件：<br>添加</p>
+<pre><code>SSLCertificateFile cert/admin/public.pem
+SSLCertificateKeyFile cert/admin/21424xxxxxxx.key
+SSLCertificateChainFile cert/admin/chain.pem
+</code></pre><p>附：将文中其余SSLCertificateFile、SSLCertificateKeyFile等注释掉</p>
+<p>启用ssl，重启apache</p>
+<pre><code>a2ensite default-ssl 
+/etc/init.d/apache2 restart
+</code></pre><p><strong>重定向http请求到https</strong><br>在apache2.conf文件里添加：</p>
+<pre><code>#Load rewrite_module
+LoadModule rewrite_module /usr/lib/apache2/modules/mod_rewrite.so
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</code></pre><p>再将apache2.conf中所有的AllowOverride:None修改为AllowOverride:All。<br>修改之后重启Apache2，http请求都将重定向到https。</p>
+<pre><code>sudo a2enmod rewrite
+service apache2 restart
+</code></pre>
+        
+    
+
+    
+</div>
 
 
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/centos.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/CTFd.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
 
 
 
@@ -606,6 +784,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

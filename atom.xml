@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.righte0us.cc/"/>
-  <updated>2017-12-09T03:30:52.253Z</updated>
+  <updated>2017-12-09T08:19:32.916Z</updated>
   <id>https://blog.righte0us.cc/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://blog.righte0us.cc/archives/lnmp.html"/>
+    <id>https://blog.righte0us.cc/archives/lnmp.html</id>
+    <published>2017-12-09T08:19:32.920Z</published>
+    <updated>2017-12-09T08:19:32.916Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: LNMP配置文件位置<br>date: 2017-05-15 13:02:53<br>tags:</p><ul><li>LNMP<br>categories: </li><li>Foundation<br>toc: true</li></ul><hr><p><strong>LNMP相关软件安装目录</strong></p><p><strong><em>Nginx目录:</em></strong> </p><pre><code>/usr/local/nginx/</code></pre><p><strong><em>MySQL目录 :</em></strong> </p><pre><code>/usr/local/mysql/</code></pre><p><strong><em>MySQL数据库所在目录：</em></strong></p><pre><code>/usr/local/mysql/var/</code></pre><p><strong><em>MariaDB目录 :</em></strong> </p><pre><code>/usr/local/mariadb/</code></pre><p><strong><em>MariaDB数据库所在目录</em></strong>：</p><pre><code>/usr/local/mariadb/var/</code></pre><p><strong><em>PHP目录:</em></strong> </p><pre><code>/usr/local/php/</code></pre><p><strong><em>PHPMyAdmin目录:</em></strong> </p><p>0.9版本为</p><pre><code>/home/wwwroot/phpmyadmin/</code></pre><p><strong>1.0及以后版本为</strong> </p><pre><code>/home/wwwroot/default/phpmyadmin/</code></pre><p><strong><em>默认网站目录:</em></strong></p><p>0.9版本为</p><pre><code>/home/wwwroot/ </code></pre><p><strong>1.0及以后版本为</strong> </p><pre><code>/home/wwwroot/default/</code></pre><p><strong><em>Nginx日志目录：</em></strong></p><pre><code>/home/wwwlogs/</code></pre><p><strong><em>/root/vhost.sh添加的虚拟主机配置文件所在目录：</em></strong></p><pre><code>/usr/local/nginx/conf/vhost/</code></pre><p><strong><em>PureFtpd目录</em></strong>：</p><pre><code>/usr/local/pureftpd/</code></pre><p><strong><em>PureFtpd web管理目录：</em></strong> </p><p>0.9版为</p><pre><code>/home/wwwroot/default/ftp/</code></pre><p><strong>1.0版为</strong> </p><pre><code>/home/wwwroot/default/ftp/</code></pre><p><strong><em>Proftpd目录：</em></strong></p><pre><code>/usr/local/proftpd/</code></pre><p><strong><em>Redis目录</em></strong>：</p><pre><code>/usr/local/redis/</code></pre><p><strong>LNMP相关配置文件位置</strong></p><p><strong><em>Nginx主配置(默认虚拟主机)文件</em></strong>：</p><pre><code>/usr/local/nginx/conf/nginx.conf</code></pre><p><strong><em>添加的虚拟主机配置文件</em></strong>：</p><pre><code>/usr/local/nginx/conf/vhost/域名.conf</code></pre><p><strong><em>MySQL配置文件：</em></strong></p><pre><code>/etc/my.cnf</code></pre><p><strong><em>PHP配置文件：</em></strong></p><pre><code>/usr/local/php/etc/php.ini</code></pre><p><strong><em>php-fpm配置文件</em></strong>：</p><pre><code>/usr/local/php/etc/php-fpm.conf</code></pre><p><strong><em>PureFtpd配置文件：</em></strong></p><pre><code>/usr/local/pureftpd/pure-ftpd.conf </code></pre><p><strong>1.3及更高版本：</strong></p><pre><code>/usr/local/pureftpd/etc/pure-ftpd.conf</code></pre><p><strong><em>PureFtpd MySQL配置文件：</em></strong></p><pre><code>/usr/local/pureftpd/pureftpd-mysql.conf</code></pre><p><strong><em>Proftpd配置文件</em></strong>：</p><pre><code>/usr/local/proftpd/etc/proftpd.conf</code></pre><p><strong>1.2及之前版本为</strong></p><pre><code>/usr/local/proftpd/proftpd.conf</code></pre><p><strong><em>Proftpd 用户配置文件：</em></strong></p><pre><code>/usr/local/proftpd/etc/vhost/用户名.conf</code></pre><p><strong><em>Redis 配置文件：</em></strong></p><pre><code>/usr/local/redis/etc/redis.conf</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: LNMP配置文件位置&lt;br&gt;date: 2017-05-15 13:02:53&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LNMP&lt;br&gt;categories: &lt;/li&gt;
+&lt;li&gt;Foundation&lt;br&gt;toc: true&lt;/li&gt;
+&lt;/ul
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Off-By-One</title>
@@ -61,6 +87,110 @@ info #获取相关命令的详细使用方法
     
     
       <category term="Linux" scheme="https://blog.righte0us.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS常用命令</title>
+    <link href="https://blog.righte0us.cc/archives/centos.html"/>
+    <id>https://blog.righte0us.cc/archives/centos.html</id>
+    <published>2017-05-15T05:02:53.000Z</published>
+    <updated>2017-12-09T08:20:16.331Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>文件和目录:</strong></p><p><code>cd /home</code> 进入 ‘/home’ 目录<br><code>cd ..</code> 返回上一级目录<br><code>cd ../..</code> 返回上两级目录<br><code>cd -</code> 返回上次所在目录<br><code>cp file1 file2</code> 将file1复制为file2<br><code>cp -a dir1 dir2</code> 复制一个目录<br><code>cp -a /tmp/dir1 .</code> 复制一个目录到当前工作目录（.代表当前目录）<br><code>ls</code> 查看目录中的文件<br><code>ls -a</code> 显示隐藏文件<br><code>ls -l</code> 显示详细信息<br><code>ls -lrt</code> 按时间显示文件（l表示详细列表，r表示反向排序，t表示按时间排序）<br><code>pwd</code> 显示工作路径<br><code>mkdir dir1</code> 创建 ‘dir1’ 目录<br><code>mkdir dir1 dir2</code> 同时创建两个目录<br><code>mkdir -p /tmp/dir1/dir2</code> 创建一个目录树<br><code>mv dir1 dir2</code> 移动/重命名一个目录<br><code>rm -f file1</code> 删除 ‘file1’<br><code>rm -rf dir1</code> 删除 ‘dir1’ 目录及其子目录内容</p><p><strong>查看文件内容:</strong></p><p><code>cat file1</code> 从第一个字节开始正向查看文件的内容<br><code>head -2 file1</code> 查看一个文件的前两行<br><code>more file1</code> 查看一个长文件的内容<br><code>tac file1</code> 从最后一行开始反向查看一个文件的内容<br><code>tail -3 file1</code> 查看一个文件的最后三行</p><p><strong>文本处理:</strong></p><p><code>grep str /tmp/test</code> 在文件 ‘/tmp/test’ 中查找 “str”<br><code>grep ^str /tmp/test</code> 在文件 ‘/tmp/test’ 中查找以 “str” 开始的行<br><code>grep [0-9] /tmp/test</code> 查找 ‘/tmp/test’ 文件中所有包含数字的行<br><code>grep str -r /tmp/*</code> 在目录 ‘/tmp’ 及其子目录中查找 “str”<br><code>diff file1 file2</code> 找出两个文件的不同处<br><code>sdiff file1 file2</code> 以对比的方式显示两个文件的不同</p><p><strong>查找:</strong></p><p><code>find / -name file1</code> 从 ‘/‘ 开始进入根文件系统查找文件和目录<br><code>find / -user user1</code> 查找属于用户 ‘user1’ 的文件和目录<br><code>find /home/user1 -name \*.bin</code> 在目录 ‘/ home/user1’ 中查找以 ‘.bin’ 结尾的文件<br><code>find /usr/bin -type f -atime +100</code> 查找在过去100天内未被使用过的执行文件<br><code>find /usr/bin -type f -mtime -10</code> 查找在10天内被创建或者修改过的文件<br><code>locate \*.ps</code> 寻找以 ‘.ps’ 结尾的文件，先运行’updatedb’ 命令<br><code>find -name &#39;*.[ch]&#39; | xargs grep -E &#39;expr&#39;</code> 在当前目录及其子目录所有.c和.h文件中查找 ‘expr’<br><code>find -type f -print0 | xargs -r0 grep -F &#39;expr&#39;</code> 在当前目录及其子目录的常规文件中查找 ‘expr’<br><code>find -maxdepth 1 -type f | xargs grep -F &#39;expr&#39;</code> 在当前目录中查找 ‘expr’</p><p><strong>压缩和解压:</strong></p><p><code>bzip2 file1</code> 压缩 file1<br><code>bunzip2 file1.bz2</code> 解压 file1.bz2<br><code>gzip file1</code> 压缩 file1<br><code>gzip -9 file1</code> 最大程度压缩 file1<br><code>gunzip file1.gz</code> 解压 file1.gz<br><code>tar -cvf archive.tar file1</code> 把file1打包成 archive.tar<br>（-c: 建立压缩档案；-v: 显示所有过程；-f: 使用档案名字，是必须的，是最后一个参数）<br><code>tar -cvf archive.tar file1 dir1</code> 把 file1，dir1 打包成 archive.tar<br><code>tar -tf archive.tar</code> 显示一个包中的内容<br><code>tar -xvf archive.tar</code> 释放一个包<br><code>tar -xvf archive.tar -C /tmp</code> 把压缩包释放到 /tmp目录下<br><code>zip file1.zip file1</code> 创建一个zip格式的压缩包<br><code>zip -r file1.zip file1 dir1</code> 把文件和目录压缩成一个zip格式的压缩包<br><code>unzip file1.zip</code> 解压一个zip格式的压缩包到当前目录<br><code>unzip test.zip -d /tmp/</code> 解压一个zip格式的压缩包到 /tmp 目录</p><p><strong>yum工具:</strong></p><p><code>yum -y install [package]</code> 下载并安装一个rpm包<br><code>yum localinstall [package.rpm]</code> 安装一个rpm包，使用你自己的软件仓库解决所有依赖关系<br><code>yum -y update</code> 更新当前系统中安装的所有rpm包<br><code>yum update [package]</code> 更新一个rpm包<br><code>yum remove [package]</code> 删除一个rpm包<br><code>yum list</code> 列出当前系统中安装的所有包<br><code>yum search [package]</code> 在rpm仓库中搜寻软件包<br><code>yum clean [package]</code> 清除缓存目录（/var/cache/yum）下的软件包<br><code>yum clean headers</code> 删除所有头文件<br><code>yum clean all</code> 删除所有缓存的包和头文件</p><p><strong>网络:</strong></p><p><code>ifconfig eth0</code> 显示一个以太网卡的配置<br><code>ifconfig eth0 192.168.1.1 netmask 255.255.255.0</code> 配置网卡的IP地址<br><code>ifdown eth0</code> 禁用 ‘eth0’ 网络设备<br><code>ifup eth0</code> 启用 ‘eth0’ 网络设备<br><code>iwconfig eth1</code> 显示一个无线网卡的配置<br><code>iwlist scan</code> 显示无线网络<br><code>ip addr show</code> 显示网卡的IP地址</p><p><strong>其他:</strong></p><p><code>su -</code> 切换到root权限（与su有区别）<br><code>shutdown -h now</code> 关机<br><code>shutdown -r now</code> 重启<br><code>top</code> 罗列使用CPU资源最多的linux任务 （输入q退出）<br><code>pstree</code> 以树状图显示程序<br><code>man ping</code> 查看参考手册（例如ping 命令）<br><code>passwd</code> 修改密码<br><code>df -h</code> 显示磁盘的使用情况<br><code>cal -3</code> 显示前一个月，当前月以及下一个月的月历<br><code>cal 10 1988</code> 显示指定月，年的月历<br><code>date --date &#39;1970-01-01 UTC 1427888888 seconds&#39;</code> 把一相对于1970-01-01 00:00的秒数转换成时间</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;文件和目录:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd /home&lt;/code&gt; 进入 ‘/home’ 目录&lt;br&gt;&lt;code&gt;cd ..&lt;/code&gt; 返回上一级目录&lt;br&gt;&lt;code&gt;cd ../..&lt;/code&gt; 返回上两级目录&lt;br&gt;&lt;cod
+      
+    
+    </summary>
+    
+      <category term="Foundation" scheme="https://blog.righte0us.cc/categories/Foundation/"/>
+    
+    
+      <category term="CentOS" scheme="https://blog.righte0us.cc/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog搭建小记</title>
+    <link href="https://blog.righte0us.cc/archives/blog.html"/>
+    <id>https://blog.righte0us.cc/archives/blog.html</id>
+    <published>2017-05-15T05:02:53.000Z</published>
+    <updated>2017-12-09T08:21:17.496Z</updated>
+    
+    <content type="html"><![CDATA[<p>国内服务器需要备案，相应的域名也要备案，不想折腾，于是乎。。。搞了个国外vps，采用了Typecho框架、handsome主题搭建了此Blog。<br><strong>配置LAMP</strong><br>服务器：Ubuntu17.04</p><p>1.更新</p><pre><code>sudo apt-get update             # 获取最新资源包sudo apt-get upgrade           # 本机软件全部更新sudo apt-get dist-upgrade    # 本机系统软件更新</code></pre><p>2.安装Apache</p><pre><code>sudo apt-get install apache2</code></pre><p>测试： 浏览器访问<a href="http://Ubuntu的IP（即http://localhost），出现It" target="_blank" rel="noopener">http://Ubuntu的IP（即http://localhost），出现It</a> Works!网页。<br>查看状态： service apache2 status/start/stop/restart<br>Web目录：/var/www<br>安装目录： /etc/apache2/<br>全局配置： /etc/apache2/apache2.conf<br>监听端口： /etc/apache2/ports.conf<br>虚拟主机： /etc/apache2/sites-enabled/000-default.conf</p><p>3.安装MySQL</p><pre><code>sudo apt-get install mysql-server mysql-client</code></pre><p>4.安装PHP及其它模块</p><pre><code>sudo apt-get install php7.0sudo apt-get install php7.0-fpm php7.0-mysql php7.0-common php7.0-mbstring php7.0-gd php7.0-json php7.0-curl libapache2-mod-php7.0</code></pre><p>重启服务</p><pre><code>service apache2 restartservice mysql restart</code></pre><p>5.安装phpMyAdmin</p><pre><code>sudo apt-get install phpmyadmin</code></pre><p>安装：选择apache2，点击确定。下一步选择是要配置数据库，并输入密码。<br>创建phpMyAdmin快捷方式：</p><pre><code>sudo ln -s /usr/share/phpmyadmin /var/www/html</code></pre><p>启用Apache mod_rewrite模块：</p><pre><code>sudo a2enmod rewrite</code></pre><p>重启服务：</p><pre><code>service php7.0-fpm restartservice apache2 restart</code></pre><p><strong>安装Typecho</strong><br>下载安装包（<a href="http://typecho.org/），解压，放到/var/www/html目录下，上传完毕后使用浏览器直接访问安装目录即可看到Typecho的安装程序。" target="_blank" rel="noopener">http://typecho.org/），解压，放到/var/www/html目录下，上传完毕后使用浏览器直接访问安装目录即可看到Typecho的安装程序。</a><br>1)若无数据库报错，自己创建typecho数据库即可</p><pre><code>mysql -u root -pCREATE DATABASE typecho;</code></pre><p>2)若无config.inc.php文件，手动创建即可</p><p><strong>安装主题&amp;插件</strong><br>主题安装：将主题上传至typecho的/usr/themes目录下；<br>插件安装：将插件上传至typecho的/usr/plugins/目录下。</p><p>附：启用Links友链插件报错：数据表建立失败,友情链接插件启用失败。错误号:42S01<br>解决方案：<br>先把typecho_links这张表备份到本地（或者把整个数据库备份）<br>然后把typecho_links这张表删除（DROP TABLE typecho_links）<br>在后台重新启用插件<br>最后把备份到本地的typecho_links这张表导入数据库</p><p>服务器环境：Ubuntu17.04 LAMP</p><h2 id="为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。"><a href="#为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。" class="headerlink" title="为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。"></a>为了使网站支持https访问，并将http网址重定向到https，开始了遇坑之旅。。。</h2><p><strong>获取SSL证书</strong><br>使用的是阿里云SSL免费证书。到阿里云控制台，购买证书，申请证书即可。<br>下载证书上传至服务器</p><p><strong>加载SSL模块到Apache2</strong><br>执行以下命令确保SSL模块已经加载进Apache2中：</p><pre><code>a2enmod ssl</code></pre><p>如果出现“Module ssl already enabled”这样的信息就说明SSL模块已经加载到 Apache2 中，如果出现“Enabling module ssl”，重启Apache2：</p><pre><code>service apache2 restart</code></pre><p><strong>修改Apache2配置文件</strong></p><p>修改/etc/apache2/ports.conf文件：</p><pre><code>Listen 80&lt;IfModule ssl_module&gt;        Listen 443&lt;/IfModule&gt;&lt;IfModule mod_gnutls.c&gt;        Listen 443&lt;/IfModule&gt;</code></pre><p>修改/etc/apache2/sites-available/000-default.conf文件：</p><pre><code>&lt;VirtualHost *:443&gt;    ServerAdmin webmaster@localhost    DocumentRoot /var/www/html    SSLEngine on    SSLCertificateFile cert/admin/public.pem    SSLCertificateKeyFile cert/admin/21424xxxxxxx.key    SSLCertificateChainFile cert/admin/chain.pem&lt;/VirtualHost&gt;</code></pre><p>修改/etc/apache2/sites-available/default-ssl.conf文件：<br>添加</p><pre><code>SSLCertificateFile cert/admin/public.pemSSLCertificateKeyFile cert/admin/21424xxxxxxx.keySSLCertificateChainFile cert/admin/chain.pem</code></pre><p>附：将文中其余SSLCertificateFile、SSLCertificateKeyFile等注释掉</p><p>启用ssl，重启apache</p><pre><code>a2ensite default-ssl /etc/init.d/apache2 restart</code></pre><p><strong>重定向http请求到https</strong><br>在apache2.conf文件里添加：</p><pre><code>#Load rewrite_moduleLoadModule rewrite_module /usr/lib/apache2/modules/mod_rewrite.soRewriteEngine OnRewriteCond %{HTTPS} offRewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}</code></pre><p>再将apache2.conf中所有的AllowOverride:None修改为AllowOverride:All。<br>修改之后重启Apache2，http请求都将重定向到https。</p><pre><code>sudo a2enmod rewriteservice apache2 restart</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;国内服务器需要备案，相应的域名也要备案，不想折腾，于是乎。。。搞了个国外vps，采用了Typecho框架、handsome主题搭建了此Blog。&lt;br&gt;&lt;strong&gt;配置LAMP&lt;/strong&gt;&lt;br&gt;服务器：Ubuntu17.04&lt;/p&gt;
+&lt;p&gt;1.更新&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+      <category term="Foundation" scheme="https://blog.righte0us.cc/categories/Foundation/"/>
+    
+    
+      <category term="Blog" scheme="https://blog.righte0us.cc/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CTFd搭建记录</title>
+    <link href="https://blog.righte0us.cc/archives/CTFd.html"/>
+    <id>https://blog.righte0us.cc/archives/CTFd.html</id>
+    <published>2017-05-15T05:02:53.000Z</published>
+    <updated>2017-12-09T08:14:58.201Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>准备环境</strong><br>Ubuntu 16.04   LNMP<br>1.更新<br>    sudo apt-get update             # 获取最新资源包<br>    sudo apt-get upgrade           # 本机软件全部更新<br>    sudo apt-get dist-upgrade    # 本机系统软件更新<br><a id="more"></a><br>2.安装git</p><pre><code>sudo apt install git</code></pre><p>3.安装MariaDB</p><pre><code>sudo apt-get install mariadb-server-10.0 mariadb-client-10.0</code></pre><p>配置Mariadb的安全选项命令</p><pre><code>sudo mysql_secure_installation</code></pre><pre><code>设定新密码需要输入，其余回车即可Enter current password for root (enter for none): 当前root的密码，直接回车，因为新数据库没有密码。Set root password? [Y/n] 回车，默认为输入Y。New password: 输入新密码Re-enter new password 再次输入新密码Remove anonymous users? [Y/n] 移除匿名用户Disallow root login remotely? [Y/n] 禁止root远程登录Remove test database and access to it? [Y/n] 移除测试数据库Reload privilege tables now? [Y/n] 重新加载权限表</code></pre><p>4.Others<br>1)安装pip</p><pre><code>sudo apt install python-pip</code></pre><p>2)安装mysql-python</p><pre><code>sudo apt-get install libmysqlclient-devsudo apt-get install python-devsudo pip install mysql-python</code></pre><p>若不安装，CTFd中运行serve.py会报错（ImportError: No module named MySQLdb）</p><p>3)安装gunicorn</p><pre><code>sudo pip install gunicorn</code></pre><p><strong>安装CTFd</strong><br>下载&amp;安装&amp;运行CTFd<br>    sudo git clone <a href="https://github.com/isislab/CTFd.git" target="_blank" rel="noopener">https://github.com/isislab/CTFd.git</a><br>    cd CTFd<br>    sudo ./prepare.sh<br>    sudo python serve.py</p><p>配置数据库<br>修改CTFd目录下的config.py</p><pre><code>HOST = &quot;47.76.**.**&quot;SQLALCHEMY_DATABASE_URI = &#39;mysql://root:&lt;mysql_passwd&gt;@localhost/CTFd?charset=utf8&#39;</code></pre><p>然后进入数据库</p><pre><code>mysql -u root -p</code></pre><p>新建一个数据库</p><pre><code>CREATE DATABASE CTFd;</code></pre><p>退出数据库返回CTFd目录运行一下serve.py，ctrl+c退出再进入数据库</p><pre><code>use CTFd;</code></pre><p>防止乱码，将里面的字符集全部修改为utf-8.</p><pre><code>ALTER TABLE awards CONVERT TO CHARACTER SET utf8;ALTER TABLE challenges CONVERT TO CHARACTER SET utf8;ALTER TABLE config CONVERT TO CHARACTER SET utf8;ALTER TABLE files CONVERT TO CHARACTER SET utf8;ALTER TABLE hints CONVERT TO CHARACTER SET utf8;ALTER TABLE `keys` CONVERT TO CHARACTER SET utf8;ALTER TABLE pages CONVERT TO CHARACTER SET utf8;ALTER TABLE solves CONVERT TO CHARACTER SET utf8;ALTER TABLE tags CONVERT TO CHARACTER SET utf8;ALTER TABLE teams CONVERT TO CHARACTER SET utf8;ALTER TABLE tracking CONVERT TO CHARACTER SET utf8;ALTER TABLE wrong_keys CONVERT TO CHARACTER SET utf8;</code></pre><p>退出mysql</p><pre><code>sudo gunicorn --bind 0.0.0.0:4000 -w 1 &quot;CTFd:create_app()&quot;</code></pre><p>访问平台，首次注册账号即为admin</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;准备环境&lt;/strong&gt;&lt;br&gt;Ubuntu 16.04   LNMP&lt;br&gt;1.更新&lt;br&gt;    sudo apt-get update             # 获取最新资源包&lt;br&gt;    sudo apt-get upgrade           # 本机软件全部更新&lt;br&gt;    sudo apt-get dist-upgrade    # 本机系统软件更新&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Foundation" scheme="https://blog.righte0us.cc/categories/Foundation/"/>
+    
+    
+      <category term="CTFd" scheme="https://blog.righte0us.cc/tags/CTFd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS搭建Typecho</title>
+    <link href="https://blog.righte0us.cc/archives/centos_typecho.html"/>
+    <id>https://blog.righte0us.cc/archives/centos_typecho.html</id>
+    <published>2017-05-15T05:02:53.000Z</published>
+    <updated>2017-12-09T08:19:06.794Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu与CentOS简单对比</p><pre><code>Ubuntu 基于Debian，CentOS基于RHEL；Ubuntu 使用.deb和.snap的软件包，CentOS使用.rpm和flatpak软件包；Ubuntu 使用apt来更新，CentOS使用yum；CentOS 看起来会更稳定，因为它不会像Ubuntu那样对包做常规性更新，但这并不意味着Ubuntu就不比CentOS安全；Ubuntu 有更多的文档和免费的问题、信息支持；Ubuntu 服务器版本在云服务和容器部署上的支持更多。</code></pre><a id="more"></a><p>为了使网站更加稳定，更换CentOS，效果并没想象中的好，结果更糟。。。垃圾服务器。。。后期慢慢优化<br>少折腾一会，安装采用了一键安装包，推荐以下三种：</p><p><a href="https://lnmp.org/" target="_blank" rel="noopener">LNMP一键安装包</a><br><a href="https://oneinstack.com/" target="_blank" rel="noopener">OneinStack</a><br><a href="https://www.bt.cn/" target="_blank" rel="noopener">BT</a></p><p>我用到第三中BT，首先安装BT，Linux面板5.1安装脚本：<br>使用SSH 连接工具，根据系统执行框内命令开始安装<br>Centos安装脚本：</p><pre><code>yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; sh install.sh</code></pre><p>Ubuntu安装脚本：</p><pre><code>wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; sudo bash install.sh</code></pre><p>Debian安装脚本：</p><pre><code>wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; bash install.sh</code></pre><p>Fedora安装脚本:</p><pre><code>wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; bash install.sh</code></pre><p>设置好登录密码，一键LNMP，一键部署Typecho</p><p>设置好域名，配置好数据库，访问域名即可</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ubuntu与CentOS简单对比&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Ubuntu 基于Debian，CentOS基于RHEL；
+Ubuntu 使用.deb和.snap的软件包，CentOS使用.rpm和flatpak软件包；
+Ubuntu 使用apt来更新，CentOS使用yum；
+CentOS 看起来会更稳定，因为它不会像Ubuntu那样对包做常规性更新，但这并不意味着Ubuntu就不比CentOS安全；
+Ubuntu 有更多的文档和免费的问题、信息支持；
+Ubuntu 服务器版本在云服务和容器部署上的支持更多。
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Foundation" scheme="https://blog.righte0us.cc/categories/Foundation/"/>
+    
+    
+      <category term="Typecho" scheme="https://blog.righte0us.cc/tags/Typecho/"/>
     
   </entry>
   

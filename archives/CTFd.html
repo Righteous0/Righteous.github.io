@@ -43,7 +43,7 @@
     
     <title>
         
-            友情链接 | 
+            CTFd搭建记录 | 
         
         Righteous&#39;Blog
     </title>
@@ -53,8 +53,8 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" itemprop="description" content="准备环境Ubuntu 16.04   LNMP1.更新    sudo apt-get update             # 获取最新资源包    sudo apt-get upgrade           # 本机软件全部更新    sudo apt-get dist-upgrade    # 本机系统软件更新">
+    <meta name="keywords" content=",CTFd">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Righteous&#39;Blog">
-    <meta name="msapplication-starturl" content="https://blog.righte0us.cc/links.html">
+    <meta name="msapplication-starturl" content="https://blog.righte0us.cc/archives/CTFd.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Righteous&#39;Blog">
@@ -234,13 +234,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://blog.righte0us.cc/links.html">
+    <meta property="og:url" content="https://blog.righte0us.cc/archives/CTFd.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="友情链接 | Righteous&#39;Blog">
+    <meta property="og:title" content="CTFd搭建记录 | Righteous&#39;Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="">
-    
+    <meta property="og:description" content="准备环境Ubuntu 16.04   LNMP1.更新    sudo apt-get update             # 获取最新资源包    sudo apt-get upgrade           # 本机软件全部更新    sudo apt-get dist-upgrade    # 本机系统软件更新">
+    <meta property="og:article:tag" content="CTFd"> 
 
+    
+        <meta property="article:published_time" content="Mon May 15 2017 13:02:53 GMT+0800">
+        <meta property="article:modified_time" content="Sat Dec 09 2017 16:14:58 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -248,13 +251,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.righte0us.cc/links.html" />
+        <link rel="canonical" href="https://blog.righte0us.cc/archives/CTFd.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://blog.righte0us.cc/archives/CTFd.html",
+    "headline": "CTFd搭建记录",
+    "datePublished": "Mon May 15 2017 13:02:53 GMT+0800",
+    "dateModified": "Sat Dec 09 2017 16:14:58 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Righteous",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.jpg"
+        },
+        "description": "Hi, This 1s the Fl4g"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Righteous&#39;Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",CTFd",
+    "description": "准备环境Ubuntu 16.04   LNMP1.更新    sudo apt-get update             # 获取最新资源包    sudo apt-get upgrade           # 本机软件全部更新    sudo apt-get dist-upgrade    # 本机系统软件更新",
+}
+</script>
 
 
     
@@ -290,133 +323,246 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+
+
+
 
 <!-- Layouts -->
 
-    <!-- Single Links Page -->
-    <style>
-    .md-links {
-        min-height: calc(100% - 120px - 5pc - 6em);
-        text-align: center;
-        overflow: auto;
-        padding: 0;
-        margin: 0 auto;
-        max-width: 320px;
-    }
+    <!-- Post Module -->
+    <div class="material-post_container">
 
-    @media screen and (min-width: 680px) {
-        .md-links {
-            max-width: 640px;
-        }
-    }
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
-    @media screen and (min-width: 1000px) {
-        .md-links {
-            max-width: 960px;
-        }
-    }
-
-    @media screen and (min-width: 1320px) {
-        .md-links {
-            max-width: 1280px;
-        }
-    }
-
-    @media screen and (min-width: 1640px) {
-        .md-links {
-            max-width: 1600px;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .md-links {
-            min-height: calc(100% - 200px - 5pc - 6em);
-            margin-top: 6em;
-        }
-    }
-
-    .md-links-item {
-        background: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        height: 72px;
-        line-height: 15px;
-        margin: 20px 10px;
-        padding: 0px 0px;
-        transition: box-shadow 0.25s;
-    }
-
-    .md-links a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .md-links li {
-        width: 300px;
-        float: left;
-        list-style: none;
-    }
-
-    .md-links-item img {
-        float: left;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 11px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    }
-
-    .md-links-item:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .md-links-item a:hover{
-        cursor: pointer;
-    }
-
-    .md-links-title {
-        font-size: 20px;
-        line-height: 50px;
-    }
-
-    #scheme-Paradox .mdl-mini-footer{
-        clear: left;
-    }
-    #bottom{
-        position: relative;
-    }
-</style>
-
-<ul class="md-links">
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
-            <li class="md-links-item">
-                <a href="http://www.venenof.com" title="Veneno" target="_blank">
-                    <img src="" alt="Veneno" height="72px"/>
-                    <span class="md-links-title">Veneno</span><br />
-                    <span>V师傅</span>
-                </a>
-            </li>
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
         
-            <li class="md-links-item">
-                <a href="www.tomyxy.com" title="Tomyxy" target="_blank">
-                    <img src="" alt="Tomyxy" height="72px"/>
-                    <span class="md-links-title">Tomyxy</span><br />
-                    <span>Tomyxy</span>
-                </a>
+    
+            <p class="article-headline-p">
+                CTFd搭建记录
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Righteous</strong>
+        <span>5月 15, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/CTFd/">CTFd</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.righte0us.cc/archives/CTFd.html&text=CTFd搭建记录" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
             </li>
-        
+        </a>
     
 </ul>
 
-<script type="text/ls-javascript" id="page-links-script">
-    var adjustFooter = function() {
-        if( ($('#bottom').offset().top + $('#bottom').outerHeight() )<$(window).height() ) {
-            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
-            $('#bottom').css('bottom', '-' + footerBottom + 'px');
-        }
-    };
-    $(document).ready(function() {
-        adjustFooter();
-    });
-</script>
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><strong>准备环境</strong><br>Ubuntu 16.04   LNMP<br>1.更新<br>    sudo apt-get update             # 获取最新资源包<br>    sudo apt-get upgrade           # 本机软件全部更新<br>    sudo apt-get dist-upgrade    # 本机系统软件更新<br><a id="more"></a><br>2.安装git</p>
+<pre><code>sudo apt install git
+</code></pre><p>3.安装MariaDB</p>
+<pre><code>sudo apt-get install mariadb-server-10.0 mariadb-client-10.0
+</code></pre><p>配置Mariadb的安全选项命令</p>
+<pre><code>sudo mysql_secure_installation
+</code></pre><pre><code>设定新密码需要输入，其余回车即可
+Enter current password for root (enter for none): 当前root的密码，直接回车，因为新数据库没有密码。
+Set root password? [Y/n] 回车，默认为输入Y。
+New password: 输入新密码
+Re-enter new password 再次输入新密码
+Remove anonymous users? [Y/n] 移除匿名用户
+Disallow root login remotely? [Y/n] 禁止root远程登录
+Remove test database and access to it? [Y/n] 移除测试数据库
+Reload privilege tables now? [Y/n] 重新加载权限表
+</code></pre><p>4.Others<br>1)安装pip</p>
+<pre><code>sudo apt install python-pip
+</code></pre><p>2)安装mysql-python</p>
+<pre><code>sudo apt-get install libmysqlclient-dev
+sudo apt-get install python-dev
+sudo pip install mysql-python
+</code></pre><p>若不安装，CTFd中运行serve.py会报错（ImportError: No module named MySQLdb）</p>
+<p>3)安装gunicorn</p>
+<pre><code>sudo pip install gunicorn
+</code></pre><p><strong>安装CTFd</strong><br>下载&amp;安装&amp;运行CTFd<br>    sudo git clone <a href="https://github.com/isislab/CTFd.git" target="_blank" rel="noopener">https://github.com/isislab/CTFd.git</a><br>    cd CTFd<br>    sudo ./prepare.sh<br>    sudo python serve.py</p>
+<p>配置数据库<br>修改CTFd目录下的config.py</p>
+<pre><code>HOST = &quot;47.76.**.**&quot;
+SQLALCHEMY_DATABASE_URI = &#39;mysql://root:&lt;mysql_passwd&gt;@localhost/CTFd?charset=utf8&#39;
+</code></pre><p>然后进入数据库</p>
+<pre><code>mysql -u root -p
+</code></pre><p>新建一个数据库</p>
+<pre><code>CREATE DATABASE CTFd;
+</code></pre><p>退出数据库返回CTFd目录运行一下serve.py，ctrl+c退出再进入数据库</p>
+<pre><code>use CTFd;
+</code></pre><p>防止乱码，将里面的字符集全部修改为utf-8.</p>
+<pre><code>ALTER TABLE awards CONVERT TO CHARACTER SET utf8;
+ALTER TABLE challenges CONVERT TO CHARACTER SET utf8;
+ALTER TABLE config CONVERT TO CHARACTER SET utf8;
+ALTER TABLE files CONVERT TO CHARACTER SET utf8;
+ALTER TABLE hints CONVERT TO CHARACTER SET utf8;
+ALTER TABLE `keys` CONVERT TO CHARACTER SET utf8;
+ALTER TABLE pages CONVERT TO CHARACTER SET utf8;
+ALTER TABLE solves CONVERT TO CHARACTER SET utf8;
+ALTER TABLE tags CONVERT TO CHARACTER SET utf8;
+ALTER TABLE teams CONVERT TO CHARACTER SET utf8;
+ALTER TABLE tracking CONVERT TO CHARACTER SET utf8;
+ALTER TABLE wrong_keys CONVERT TO CHARACTER SET utf8;
+</code></pre><p>退出mysql</p>
+<pre><code>sudo gunicorn --bind 0.0.0.0:4000 -w 1 &quot;CTFd:create_app()&quot;
+</code></pre><p>访问平台，首次注册账号即为admin</p>
+
+        
+    
+
+    
+</div>
 
 
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/blog.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/centos_typecho.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
 
 
 
@@ -606,6 +752,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
